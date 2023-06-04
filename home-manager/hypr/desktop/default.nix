@@ -24,7 +24,7 @@ in
     general {
         gaps_in = 5
         gaps_out = 10
-        border_size = 0
+        border_size = 2
         col.active_border = rgb(${ac})  
         col.inactive_border = rgb(${bg})
         resize_on_border = true

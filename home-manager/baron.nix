@@ -31,7 +31,7 @@
     };
   };
   
-  colorscheme = inputs.nix-colors.colorschemes.cupcake;
+  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-hard;
 
   home = {
     username = "james";
@@ -60,6 +60,7 @@
     krita
 
     # cli
+    wl-clipboard
     streamlink
     pulsemixer
     ranger

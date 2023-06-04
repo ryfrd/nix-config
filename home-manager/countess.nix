@@ -55,6 +55,7 @@
     sublime-music
 
     # cli
+    wl-clipboard
     streamlink
     pulsemixer
     ranger

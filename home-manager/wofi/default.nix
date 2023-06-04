@@ -13,7 +13,7 @@ in
                 font-family: Agave Nerd Font 14;
 	            background-color: #${bg};
                 border-radius: 10px;
-                border: 4px solid #${ac};
+                border: 2px solid #${ac};
                 margin:0px;
             }
 

@@ -12,7 +12,6 @@ in
       use-package
       base16-theme
 			doom-modeline 
-      highlight-indent-guides
 			evil
 			all-the-icons
 			all-the-icons-dired

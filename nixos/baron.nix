@@ -6,7 +6,7 @@
     inputs.hardware.nixosModules.common-pc-ssd
     inputs.hardware.nixosModules.lenovo-thinkpad-t440p
 
-    ./hardware/countess.nix
+    ./hardware/baron.nix
 
     ./pipewire
     ./steam
@@ -51,7 +51,7 @@
   };
 
   # kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # networking
   networking = {
