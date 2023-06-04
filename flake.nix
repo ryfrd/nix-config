@@ -52,6 +52,12 @@
             ./nixos/baron.nix
           ];
         };
+        keep = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/keep.nix
+          ];
+        };
       };
 
       # available through 'home-manager --flake .#your-username@your-hostname'
@@ -68,6 +74,13 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/baron.nix
+          ];
+        };
+        "james@keep" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/keep.nix
           ];
         };
 
