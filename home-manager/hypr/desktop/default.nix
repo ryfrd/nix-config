@@ -17,7 +17,7 @@ in
 
   xdg.configFile."hypr/hyprland.conf" = {
     text = ''
-    monitor = eDP-1, 1920x1080@144,0x0,1 
+    monitor = DP-3, 1920x1080@144,0x0,1 
 
     exec-once = swaybg -m fill -i ~/pics/wallpapers/skyplanet.jpg
 

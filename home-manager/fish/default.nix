@@ -16,7 +16,7 @@
     };
     functions = {
       ss = "sudo systemctl $argv[1] $argv[2]";
-      twitch = "streamlink --p mpv https://twitch.tv/$argv[1] best";
+      twitch = "streamlink https://twitch.tv/$argv[1] best -p mpv";
     };
   };
   programs.starship.enable = true;
