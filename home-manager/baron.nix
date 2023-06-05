@@ -73,6 +73,7 @@
 
     #custom
     fetch
+    journal
 
   ];
 

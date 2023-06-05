@@ -3,4 +3,5 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   fetch = pkgs.callPackage ./fetch { };
+  journal = pkgs.callPackage ./journal { };
 }
