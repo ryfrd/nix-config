@@ -1,7 +1,11 @@
 {pkgs, ...}: {
   programs.fish = {
     enable = true;
-    shellInit = "\nfetch\nstarship init fish | source";
+    shellInit = "
+      set_fish_greeting ""
+      fetch
+      starship init fish | source
+    ";
     shellAliases = {
       ls="exa";
       grep="rg";
