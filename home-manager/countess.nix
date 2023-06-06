@@ -61,6 +61,7 @@
     ranger
     tree
     pfetch
+    neofetch
     htop
     curl
     exa
