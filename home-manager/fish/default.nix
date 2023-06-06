@@ -2,7 +2,7 @@
   programs.fish = {
     enable = true;
     shellInit = "
-      set_fish_greeting ""
+      set fish_greeting ''
       fetch
       starship init fish | source
     ";
