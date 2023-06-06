@@ -15,7 +15,6 @@ in
 			evil
 			all-the-icons
 			all-the-icons-dired
-      dashboard
       projectile
       ivy
       counsel

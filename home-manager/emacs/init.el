@@ -12,9 +12,9 @@ x-alt-keysym(eval-when-compile
 (setq make-backup-files nil)
 
 ;; hide Scroll bar,menu bar, tool bar
-(scroll-bar-mode -1)   
+;;(scroll-bar-mode -1)   
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 
 ;; line numbering
 (global-display-line-numbers-mode)
@@ -37,7 +37,7 @@ x-alt-keysym(eval-when-compile
 (load-theme 'jdysmcl t)
 
 ;;font
-(set-frame-font "Agave Nerd Font 16" nil t)
+(setq default-frame-alist '((font . "Agave Nerd Font 16")))
 
 ;; visual line mode
 (global-visual-line-mode)
@@ -135,38 +135,6 @@ x-alt-keysym(eval-when-compile
 
 ;;comment
 (use-package smart-comment)
-
-;; DASHBOARD
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
-
-;; make it work with client
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-
-;; Set the title
-(setq dashboard-banner-logo-title "oh how i adore to edit text with emacs!")
-
-;; Set the banner
-(setq dashboard-startup-banner 'official)
-
-;; Content is not centered by default. To center, set
-(setq dashboard-center-content t)
-
-;; To disable shortcut "jump" indicators for each section, set
-(setq dashboard-show-shortcuts nil)
-
-;;set dashboard items
-(setq dashboard-items '((recents  . 6)
-			(projects . 6)))
-
-;; icons
-(setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
-
-(setq dashboard-item-names '(( "Recent Files:" . "dive back in why dont you ->")
-			     ( "Projects:" . "a small project for the gentleman?" )))
 
 ;; ivy
 (use-package ivy

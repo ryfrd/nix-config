@@ -45,8 +45,8 @@ programs.waybar = {
           on-click = "activate";
           sort-by-number = true;
           format-icons = {
-            active = "";
-            default = "";
+            active = "X";
+            default = "0";
           };
         };
         "pulseaudio" = {
