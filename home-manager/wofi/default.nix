@@ -12,8 +12,8 @@ in
             window {
                 font-family: Agave Nerd Font 14;
 	            background-color: #${bg};
-                border-radius: 10px;
-                border: 2px solid #${ac};
+                border-radius: 0px;
+                border: 0px solid #${ac};
                 margin:0px;
             }
 
