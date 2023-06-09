@@ -15,7 +15,7 @@
     ./nvim/minimal
     ./redshift
     ./syncthing
-    ./waybar
+    ./waybar/laptop
     ./wofi
 
   ];
