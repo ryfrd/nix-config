@@ -274,7 +274,7 @@ in
       global = {
         markup = "none";
         font = "Agave Nerd Font 12";
-        offset = "10x10";
+        offset = "${gap_out}x${gap_out}";
         corner_radius = "${border_radius}";
         frame_width = "${border_width}";
         frame_color = "#${ac}"; 
