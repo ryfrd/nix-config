@@ -29,7 +29,7 @@
     };
   };
   
-  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-hard;
+  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
 
   home = {
     username = "james";

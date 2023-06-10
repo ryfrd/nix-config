@@ -1,13 +1,16 @@
 { pkgs, inputs, config, ... }:
 let
-  bg = config.colorscheme.colors.base01;
-  fg = config.colorscheme.colors.base06;
-  ac = config.colorscheme.colors.base0F;
 
-  border_width = "0";
+  bg = config.colorscheme.colors.base00;
+  fg = config.colorscheme.colors.base07;
+  ac = config.colorscheme.colors.base0E;
+
+  border_width = "1";
   border_radius = "0";
 
-  gap_size = "20";
+  gap_in = "20";
+  gap_out = "40";
+  
 in
 {
   imports = [
@@ -28,8 +31,8 @@ in
     exec-once = waybar
 
     general {
-        gaps_in = ${gap_size}
-        gaps_out = ${gap_size}
+        gaps_in = ${gap_in}
+        gaps_out = ${gap_out}
         border_size = ${border_width}
         col.active_border = rgb(${ac})  
         col.inactive_border = rgb(${bg})
