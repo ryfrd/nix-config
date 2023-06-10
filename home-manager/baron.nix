@@ -7,16 +7,13 @@
     inputs.nix-colors.homeManagerModules.default
     
     ./alacritty
-    ./dunst
+    ./de/desktop
     ./emacs
     ./fish
     ./gtk
-    ./hypr/desktop
     ./nvim/minimal
     ./redshift
     ./syncthing
-    ./waybar/desktop
-    ./wofi
 
   ];
 
