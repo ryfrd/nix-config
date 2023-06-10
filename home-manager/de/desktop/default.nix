@@ -4,10 +4,10 @@ let
   fg = config.colorscheme.colors.base06;
   ac = config.colorscheme.colors.base0F;
 
-  border_width = "2";
-  border_radius = "10";
+  border_width = "0";
+  border_radius = "0";
 
-  gap_size = "10";
+  gap_size = "20";
 in
 {
   imports = [
