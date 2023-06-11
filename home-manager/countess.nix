@@ -7,16 +7,13 @@
     inputs.nix-colors.homeManagerModules.default
     
     ./alacritty
-    ./dunst
+    ./de/laptop
     ./emacs
     ./fish
     ./gtk
-    ./hypr/laptop
     ./nvim/minimal
     ./redshift
     ./syncthing
-    ./waybar/laptop
-    ./wofi
 
   ];
 
@@ -32,7 +29,7 @@
     };
   };
   
-  colorscheme = inputs.nix-colors.colorschemes.everforest;
+  colorscheme = inputs.nix-colors.colorschemes.onedark;
 
   home = {
     username = "james";

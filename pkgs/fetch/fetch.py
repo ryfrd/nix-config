@@ -80,13 +80,12 @@ def cpu():
         return model_name
 
 print_dict = {
-        'os': os(),
-        'kernel': kernel(),
-        'uptime': uptime(),
-        'shell': shell(),
-        'memory': memory(),
-        # 'cpu': cpu(),
-        }
+    'os': os(),
+    'kernel': kernel(),
+    'uptime': uptime(),
+    'shell': shell(),
+    'memory': memory(),
+}
 
 def esc(code):
     return f'\033[{code}m'
