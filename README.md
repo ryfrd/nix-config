@@ -13,3 +13,9 @@ nix config for my various machines
 - 5500xt
 - 16gb ddr4
 - 1tb trash tier nvme
+
+### keep (repurposed laptop home server)
+
+- 8 w idle
+- 4 gb ddr3
+- amd apu
