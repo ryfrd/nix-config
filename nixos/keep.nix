@@ -60,6 +60,7 @@
       allowedUDPPorts = [ 22000 ];
     };
   };
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # disable ipv6
   networking.enableIPv6 = false;
