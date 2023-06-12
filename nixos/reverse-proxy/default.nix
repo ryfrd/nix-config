@@ -111,6 +111,16 @@
 	      };
       };
 
+      "srx.dymc.win" = {
+        enableACME = true;
+        acmeRoot = null;
+        addSSL = true;
+        locations."/" = {
+	        proxyPass = "http://127.0.0.1:11000";
+	        proxyWebsockets = true;
+	      };
+      };
+
     };
   };
 
