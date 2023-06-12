@@ -5,11 +5,11 @@ let
   fg = config.colorscheme.colors.base07;
   ac = config.colorscheme.colors.base0E;
 
-  border_width = "1";
+  border_width = "5";
   border_radius = "0";
 
-  gap_in = "20";
-  gap_out = "40";
+  gap_in = "5";
+  gap_out = "10";
   
 in
 {
