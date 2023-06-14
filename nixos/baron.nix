@@ -59,7 +59,6 @@
     networkmanager.enable = true;
     firewall.enable = true;
   };
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # bootloader
   boot.loader.systemd-boot.enable = true;
