@@ -27,7 +27,7 @@ in
     text = ''
     monitor = eDP-1, 1920x1080@60,0x0,1 
 
-    exec-once = swaybg -m fill -i ~/pics/wallpapers/lotr.jpg
+    exec-once = swaybg -m fill -i ~/pics/wallpapers/sand.jpg
     exec-once = waybar
 
     general {

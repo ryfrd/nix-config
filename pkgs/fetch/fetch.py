@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+# nix-system /run/current-system/sw
+# nix-user .nix-profile
+
 from os import environ
 import random
 
@@ -98,3 +102,18 @@ def print_nice():
         print(f'{esc("0;1;31")}{item}{esc("0;1;32")}{sep}{esc("0")}{print_dict[item]}')
 
 print_nice()
+print(
+    esc('0;1;41'),
+    '',
+    esc('0;1;42'),
+    '',
+    esc('0;1;43'),
+    '',
+    esc('0;1;44'),
+    '',
+    esc('0;1;45'),
+    '',
+    esc('0;1;46'),
+    '',
+    esc('0'),
+)
