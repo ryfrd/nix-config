@@ -74,9 +74,6 @@ x-alt-keysym(eval-when-compile
   (define-key evil-normal-state-map (kbd "<SPC>pr") 'projectile-recentf)
   (define-key evil-normal-state-map (kbd "<SPC>pp") 'projectile-switch-project)
 
-  ;; magit
-  (define-key evil-normal-state-map (kbd "<SPC>gg") 'magit)
-
   ;; swiper stop swiping
   (define-key evil-normal-state-map (kbd "<SPC>//") 'swiper-isearch)
 

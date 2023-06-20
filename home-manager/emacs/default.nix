@@ -23,7 +23,6 @@ in
       company
       flex-autopair
       smart-comment
-      magit
 			# language support
 			lua-mode
 			nix-mode

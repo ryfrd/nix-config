@@ -51,6 +51,7 @@
     signal-desktop
     jellyfin-media-player
     sublime-music
+    feh
 
     # cli
     wl-clipboard

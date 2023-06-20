@@ -5,11 +5,11 @@ let
   fg = config.colorscheme.colors.base07;
   ac = config.colorscheme.colors.base0E;
 
-  border_width = "1";
+  border_width = "0";
   border_radius = "0";
 
-  gap_in = "5";
-  gap_out = "10";
+  gap_in = "0";
+  gap_out = "0";
   
 in
 {
@@ -21,7 +21,7 @@ in
     enable = true;
   };
 
-  home.packages = with pkgs; [ playerctl pamixer swaybg wofi ];
+  home.packages = with pkgs; [ playerctl brightnessctl pamixer swaybg wofi ];
 
   xdg.configFile."hypr/hyprland.conf" = {
     text = ''
