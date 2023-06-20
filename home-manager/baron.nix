@@ -58,6 +58,7 @@
     krita
 
     # cli
+    cava
     wl-clipboard
     streamlink
     pulsemixer
