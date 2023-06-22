@@ -9,6 +9,7 @@
     ./hardware/countess.nix
 
     ./bluetooth
+    ./nfs/client
     ./pipewire
     ./tailscale
     ./tlp/laptop
