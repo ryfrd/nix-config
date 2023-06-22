@@ -11,6 +11,7 @@
 
     ./cron
     ./docker
+    ./nfs/server
     ./reverse-proxy
     ./ssh/lowkey
     ./tailscale
