@@ -8,10 +8,9 @@
     
     ./alacritty
     ./de/laptop
-    ./emacs
     ./fish
     ./gtk
-    ./nvim/minimal
+    ./nvim/lazy
     ./redshift
     ./syncthing
 
@@ -29,7 +28,7 @@
     };
   };
   
-  colorscheme = inputs.nix-colors.colorschemes.onedark;
+  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
 
   home = {
     username = "james";
@@ -54,6 +53,7 @@
     feh
 
     # cli
+    cava
     wl-clipboard
     streamlink
     pulsemixer
