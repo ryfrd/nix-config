@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 
-# nix-system /run/current-system/sw
-# nix-user .nix-profile
-
-from os import environ
+from os import environ, popen
 import random
 
 def kernel():
@@ -83,12 +80,18 @@ def cpu():
 
         return model_name
 
+def pkgs():
+    system_pkgs = popen('nix-store -qR /run/current-system/sw | wc -l').read().strip()
+    user_pkgs = popen('nix-store -qR /home/james/.nix-profile | wc -l').read().strip()
+    return f'{system_pkgs} (system) {user_pkgs} (user)'
+
 print_dict = {
     'os': os(),
     'kernel': kernel(),
     'uptime': uptime(),
     'shell': shell(),
     'memory': memory(),
+    'pkgs': pkgs()
 }
 
 def esc(code):
