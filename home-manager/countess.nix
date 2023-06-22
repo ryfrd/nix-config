@@ -5,7 +5,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModules.default
-    
+
     ./alacritty
     ./de/laptop
     ./fish
@@ -27,7 +27,7 @@
       allowUnfree = false;
     };
   };
-  
+
   colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
 
   home = {
@@ -53,6 +53,7 @@
     feh
 
     # cli
+    fortune
     cava
     wl-clipboard
     streamlink

@@ -2,9 +2,12 @@ return {
   "goolord/alpha-nvim",
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
-    local logo = "oh how i adore to edit text!"
 
-    dashboard.section.header.val = vim.split(logo, "\n")
+    local handle = io.popen('fortune')
+    local result = handle:read("*a")
+    handle:close()
+
+    dashboard.section.header.val = result
     dashboard.section.buttons.val = {
       dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
