@@ -10,6 +10,9 @@
   home.packages = with pkgs; [
     gcc
     gnumake
+    unzip
+    cargo
+    nodePackages.npm
   ];
 
   xdg = {
