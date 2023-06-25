@@ -8,10 +8,9 @@
     
     ./alacritty
     ./de/desktop
-    ./emacs
     ./fish
     ./gtk
-    ./nvim/minimal
+    ./nvim/lazy
     ./redshift
     ./syncthing
 

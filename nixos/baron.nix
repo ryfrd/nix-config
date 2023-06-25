@@ -51,7 +51,7 @@
   };
 
   # kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # networking
   networking = {
@@ -59,6 +59,7 @@
     networkmanager.enable = true;
     firewall.enable = true;
   };
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # bootloader
   boot.loader.systemd-boot.enable = true;
