@@ -46,6 +46,7 @@
     # gui
     firefox
     mpv
+    vlc
     zathura
     signal-desktop
     jellyfin-media-player
