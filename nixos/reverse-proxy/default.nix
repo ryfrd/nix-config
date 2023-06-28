@@ -46,7 +46,7 @@
         acmeRoot = null;
         addSSL = true;
         locations."/" = {
-      	  proxyPass = "http://127.0.0.1:4000";
+      	  proxyPass = "http://127.0.0.1:9696";
 	        proxyWebsockets = true;
 	      };
       };
@@ -101,22 +101,32 @@
 	      };
       };
 
-      "dash.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:10000";
-	        proxyWebsockets = true;
-	      };
-      };
-
       "srx.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
         addSSL = true;
         locations."/" = {
 	        proxyPass = "http://127.0.0.1:11000";
+	        proxyWebsockets = true;
+	      };
+      };
+
+      "rdr.dymc.win" = {
+        enableACME = true;
+        acmeRoot = null;
+        addSSL = true;
+        locations."/" = {
+	        proxyPass = "http://127.0.0.1:7878";
+	        proxyWebsockets = true;
+	      };
+      };
+
+      "snr.dymc.win" = {
+        enableACME = true;
+        acmeRoot = null;
+        addSSL = true;
+        locations."/" = {
+	        proxyPass = "http://127.0.0.1:8989";
 	        proxyWebsockets = true;
 	      };
       };
