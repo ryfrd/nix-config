@@ -13,7 +13,6 @@
     ./nvim/lazy
     ./redshift
     ./syncthing
-    ./tmux
 
   ];
 
