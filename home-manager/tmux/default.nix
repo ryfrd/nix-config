@@ -14,9 +14,10 @@
       }
     ];
 
-    # extraConfig = ''
-    #   set -g status-left '#(uptime)'
-    # '';
+    extraConfig = ''
+      set -g status-left ""
+      set -g status-right " %H:%M:%S | %d/%m/%y "
+    '';
 
   };
 }
