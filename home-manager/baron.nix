@@ -11,7 +11,6 @@
     ./gtk/de
     ./nvim/lazy
     ./syncthing
-    ./tmux
 
   ];
 
