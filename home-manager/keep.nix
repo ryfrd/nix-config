@@ -9,6 +9,7 @@
     ./beets
     ./fish
     ./nvim/headless
+    ./tmux
 
   ];
 
@@ -44,10 +45,10 @@
     curl
     exa
     ripgrep
+    dua
 
     #custom
     fetch
-
   ];
 
   systemd.user.startServices = "sd-switch";

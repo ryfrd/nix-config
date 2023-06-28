@@ -9,10 +9,11 @@
     ./alacritty
     ./de/laptop
     ./fish
-    ./gtk
+    ./gtk/wm
     ./nvim/lazy
     ./redshift
     ./syncthing
+    ./tmux
 
   ];
 
