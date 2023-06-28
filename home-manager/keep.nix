@@ -5,7 +5,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
-    
+
     ./beets
     ./fish
     ./nvim/headless
@@ -23,7 +23,7 @@
       allowUnfree = false;
     };
   };
-  
+
   home = {
     username = "james";
     homeDirectory = "/home/james";

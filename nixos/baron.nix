@@ -8,7 +8,7 @@
 
     ./hardware/baron.nix
 
-    ./pipewire
+    ./gnome
     ./steam
     ./tailscale
 
@@ -84,12 +84,6 @@
     };
   };
   programs.fish.enable = true;
-
-  # for gtk admin
-  programs.dconf.enable = true;
-
-  # graphics
-  hardware.opengl.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";

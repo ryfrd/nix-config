@@ -5,13 +5,11 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModules.default
-    
+
     ./alacritty
-    ./de/desktop
     ./fish
-    ./gtk
+    ./gtk/de
     ./nvim/lazy
-    ./redshift
     ./syncthing
 
   ];
@@ -27,7 +25,7 @@
       allowUnfree = false;
     };
   };
-  
+
   colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
 
   home = {

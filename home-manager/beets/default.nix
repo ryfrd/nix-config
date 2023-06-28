@@ -11,4 +11,10 @@
       fetchart.auto = true;
     };
   };
+
+  home.packages = with pkgs; [
+    shntool
+    cuetools
+    flac
+  ];
 }
