@@ -9,6 +9,7 @@
     ./alacritty
     ./de/laptop
     ./fish
+    ./git
     ./gtk/wm
     ./nvim/lazy
     ./redshift
@@ -36,11 +37,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "robbygozzarder";
-    userEmail = "jdysmcl@tutanota.com";
-  };
 
   home.packages = with pkgs; [
     # gui

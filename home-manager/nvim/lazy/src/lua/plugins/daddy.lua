@@ -1,3 +1,3 @@
 return {
-  dir = "~/repos/daddy.nvim/",
+  "ryfrd/nvim-daddy"
 }
