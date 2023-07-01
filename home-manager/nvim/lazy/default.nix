@@ -13,6 +13,7 @@
     unzip
     cargo
     nodePackages.npm
+    fortune
   ];
 
   xdg = {

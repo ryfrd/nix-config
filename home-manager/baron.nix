@@ -8,6 +8,7 @@
 
     ./alacritty
     ./fish
+    ./gaming
     ./gtk/de
     ./nvim/lazy
     ./syncthing
