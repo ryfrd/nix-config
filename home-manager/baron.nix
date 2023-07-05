@@ -50,6 +50,7 @@
     obs-studio
     gimp
     krita
+    evolution
 
     # cli
     cava

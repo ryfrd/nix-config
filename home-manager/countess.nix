@@ -43,6 +43,7 @@
     signal-desktop
     jellyfin-media-player
     sublime-music
+    evolution
 
     # cli
     fortune
