@@ -9,6 +9,7 @@
     ./alacritty
     ./fish
     ./gaming
+    ./git
     ./gtk/de
     ./nvim/lazy
     ./syncthing
@@ -35,11 +36,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "robbygozzarder";
-    userEmail = "jdysmcl@tutanota.com";
-  };
 
   home.packages = with pkgs; [
     # gui

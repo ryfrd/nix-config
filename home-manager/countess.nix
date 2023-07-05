@@ -6,13 +6,11 @@
     # Or modules exported from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModules.default
 
-    ./alacritty
-    ./de/laptop
     ./fish
     ./git
-    ./gtk/wm
+    ./gtk/de
+    ./kitty
     ./nvim/lazy
-    ./redshift
     ./syncthing
 
   ];
@@ -41,13 +39,10 @@
   home.packages = with pkgs; [
     # gui
     firefox
-    mpv
     vlc
-    zathura
     signal-desktop
     jellyfin-media-player
     sublime-music
-    feh
 
     # cli
     fortune
@@ -57,12 +52,11 @@
     pulsemixer
     ranger
     tree
-    pfetch
-    neofetch
     htop
     curl
     exa
     ripgrep
+    dua
 
     #custom
     fetch
