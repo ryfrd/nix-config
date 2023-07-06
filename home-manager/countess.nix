@@ -44,6 +44,8 @@
     jellyfin-media-player
     sublime-music
     evolution
+    godot
+    krita
 
     # cli
     fortune
