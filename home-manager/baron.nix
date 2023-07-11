@@ -40,9 +40,7 @@
   home.packages = with pkgs; [
     # gui
     firefox
-    mpv
-    zathura
-    signal-desktop
+    vlc
     jellyfin-media-player
     sublime-music
     godot
@@ -53,15 +51,11 @@
     evolution
 
     # cli
-    cava
-    wl-clipboard
-    streamlink
-    pulsemixer
     ranger
     tree
-    pfetch
     htop
     curl
+    wget
     exa
     ripgrep
 

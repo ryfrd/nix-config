@@ -41,6 +41,10 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
   };
 
   # enable btrfs compression
