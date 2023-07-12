@@ -41,12 +41,12 @@
 	      };
       };
 
-      "prowl.dymc.win" = {
+      "up.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
         addSSL = true;
         locations."/" = {
-      	  proxyPass = "http://127.0.0.1:9696";
+      	  proxyPass = "http://127.0.0.1:4000";
 	        proxyWebsockets = true;
 	      };
       };
@@ -101,12 +101,32 @@
 	      };
       };
 
+      "gtfy.dymc.win" = {
+        enableACME = true;
+        acmeRoot = null;
+        addSSL = true;
+        locations."/" = {
+      	  proxyPass = "http://127.0.0.1:10000";
+	        proxyWebsockets = true;
+	      };
+      };
+
       "srx.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
         addSSL = true;
         locations."/" = {
 	        proxyPass = "http://127.0.0.1:11000";
+	        proxyWebsockets = true;
+	      };
+      };
+
+      "prowl.dymc.win" = {
+        enableACME = true;
+        acmeRoot = null;
+        addSSL = true;
+        locations."/" = {
+      	  proxyPass = "http://127.0.0.1:9696";
 	        proxyWebsockets = true;
 	      };
       };

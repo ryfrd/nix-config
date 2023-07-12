@@ -3,7 +3,8 @@
     enable = true;
     systemCronJobs = [
       # copy docker data from root drive to mount daily
-      "@daily      root    cp -r /srv /mnt/warhead/backup/docker"
+      "@daily      root     sh /home/james/nix-config/nixos/cron/jobs/docker-data-backup.sh"
+      "@daily      root     sh /home/james/nix-config/nixos/cron/jobs/smart.sh"
     ];
   };
 }
