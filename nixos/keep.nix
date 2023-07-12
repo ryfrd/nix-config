@@ -11,6 +11,7 @@
 
     ./cron
     ./docker
+    ./gotify
     ./reverse-proxy
     ./ssh/lowkey
     ./tailscale
@@ -63,8 +64,8 @@
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   # disable ipv6
-  networking.enableIPv6 = false;
-  boot.kernelParams = [ "ipv6.disable=1" ];
+  # networking.enableIPv6 = false;
+  # boot.kernelParams = [ "ipv6.disable=1" ];
 
   # bootloader
   boot.loader.systemd-boot.enable = true;
