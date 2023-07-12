@@ -91,7 +91,6 @@ print_dict = {
     'uptime': uptime(),
     'shell': shell(),
     'memory': memory(),
-    'pkgs': pkgs()
 }
 
 def esc(code):
