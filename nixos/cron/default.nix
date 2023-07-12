@@ -7,4 +7,8 @@
       "@daily      root     sh /home/james/nix-config/nixos/cron/jobs/smart.sh"
     ];
   };
+  environment.systemPackages = with pkgs; [ 
+    gotify-cli
+    smartmontools
+  ];
 }

@@ -11,7 +11,6 @@
 
     ./cron
     ./docker
-    ./gotify
     ./reverse-proxy
     ./ssh/lowkey
     ./tailscale
