@@ -56,6 +56,7 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
+      # syncthing ports
       allowedTCPPorts = [ 22000 21027 ];
       allowedUDPPorts = [ 22000 ];
     };
