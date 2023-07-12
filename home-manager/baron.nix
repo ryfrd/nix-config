@@ -6,10 +6,13 @@
     # Or modules exported from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModules.default
 
-    ./alacritty
     ./fish
+    ./gaming
+    ./git
     ./gtk/de
+    ./kitty
     ./nvim/lazy
+    ./ssh-alias
     ./syncthing
 
   ];
@@ -34,18 +37,11 @@
   };
 
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "robbygozzarder";
-    userEmail = "jdysmcl@tutanota.com";
-  };
 
   home.packages = with pkgs; [
     # gui
     firefox
-    mpv
-    zathura
-    signal-desktop
+    vlc
     jellyfin-media-player
     sublime-music
     godot
@@ -53,17 +49,14 @@
     obs-studio
     gimp
     krita
+    evolution
 
     # cli
-    cava
-    wl-clipboard
-    streamlink
-    pulsemixer
     ranger
     tree
-    pfetch
     htop
     curl
+    wget
     exa
     ripgrep
 

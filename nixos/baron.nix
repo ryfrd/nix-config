@@ -41,6 +41,10 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
   };
 
   # enable btrfs compression
@@ -51,7 +55,7 @@
   };
 
   # kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # networking
   networking = {
