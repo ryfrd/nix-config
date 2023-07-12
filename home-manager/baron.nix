@@ -12,6 +12,7 @@
     ./gtk/de
     ./kitty
     ./nvim/lazy
+    ./ssh-alias
     ./syncthing
 
   ];
