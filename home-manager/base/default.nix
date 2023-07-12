@@ -36,8 +36,8 @@
       "...." = "cd ../../../";
       gush = "git add * && git commit -m '.' && git push";
       i = "curl -s ipinfo.io";
-      hm = "home-manager switch --flake .#$(echo $USER@$hostname)";
-      nr = "sudo nixos-rebuild switch --flake .#$(echo $hostname)";
+      hm = "home-manager switch --flake github:ryfrd/nix-config";
+      nr = "sudo nixos-rebuild switch --flake github:ryfrd/nix-config";
       cg = "sudo nix-collect-garbage -d";
     };
     functions = {
