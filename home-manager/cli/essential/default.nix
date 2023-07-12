@@ -6,6 +6,7 @@
     htop
     curl
     wget
+    dua
 
     #custom
     fetch
