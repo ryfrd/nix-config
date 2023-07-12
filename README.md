@@ -1,21 +1,20 @@
-nix config for my various machines
+nix config for my computers
 
-### countess (laptop)
+### update flake inputs
 
-- t440p
-- 16gb ddr3 ram
-- i7-4700mq
-- approx 20 mins battery life
+`nix flake update`
 
-### baron (desktop gaming powerhose)
+### rebuild system
 
-- ryzen 5 3600
-- 5500xt
-- 16gb ddr4
-- 1tb trash tier nvme
+`sudo nixos-rebuild switch --flake github:ryfrd/nix-config`
 
-### keep (repurposed laptop home server)
+### rebuild home
 
-- 8 w idle
-- 4 gb ddr3
-- amd apu
+`home-manager switch --flake github:ryfrd/nix-config`
+
+### machines
+
+- countess (laptop)
+- baron (desktop gaming powerhouse)
+- keep (home server)
+
