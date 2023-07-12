@@ -50,6 +50,7 @@
     gimp
     krita
     evolution
+    signal-desktop
 
     # cli
     ranger
