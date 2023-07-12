@@ -14,6 +14,7 @@
     cargo
     nodePackages.npm
     fortune
+    wl-clipboard
   ];
 
   xdg = {
