@@ -67,11 +67,11 @@
     james = {
       isNormalUser = true;
       shell = pkgs.fish;
+      initialPassword = "changethisyoupickle";
       extraGroups = [
         "wheel"
         "networkmanager"
       ];
-      initialPassword = "changethisyoupickle";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5Sr7q3RAuO6QIpu9tCLXF5cTs6mq7TRbDfVsglCDei james@countess"
