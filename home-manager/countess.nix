@@ -13,7 +13,6 @@
     ./kitty
     ./nvim/lazy
     ./syncthing
-    ./ssh-alias
 
   ];
 
