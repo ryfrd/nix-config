@@ -11,10 +11,10 @@
   # link scripts to etc
   environment.etc = {
     "cron-jobs/smart.sh" = {
-      source = "./jobs/smart.sh";
+      source = ./jobs/smart.sh;
     };
     "cron-jobs/docker-data-backup.sh" = {
-      source = "./jobs/docker-data-backup.sh";
+      source = ./jobs/docker-data-backup.sh;
     };
   };
 
