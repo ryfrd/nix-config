@@ -3,7 +3,9 @@
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    excludePackages = [ pkgs.xterm ];
   };
+
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
