@@ -55,11 +55,6 @@
     };
   };
   networking.firewall.allowedTCPPorts = [ 97 ];
-  users.users.james.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5Sr7q3RAuO6QIpu9tCLXF5cTs6mq7TRbDfVsglCDei james@countess"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjgIQhjZ9aeJDDfouSlvPUMBLy7GwZ+3r637rZ8+dww james@keep"
-  ];
 
   # time zone
   time.timeZone = "Europe/London";
@@ -77,6 +72,11 @@
         "networkmanager"
       ];
       initialPassword = "changethisyoupickle";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5Sr7q3RAuO6QIpu9tCLXF5cTs6mq7TRbDfVsglCDei james@countess"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjgIQhjZ9aeJDDfouSlvPUMBLy7GwZ+3r637rZ8+dww james@keep"
+      ];
     };
   };
   programs.fish.enable = true;
