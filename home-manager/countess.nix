@@ -7,9 +7,10 @@
     inputs.nix-colors.homeManagerModules.default
 
     ./base
-    ./cli/essential
+    ./cli
+    ./font
     ./gtk/de
-    ./gui/essential
+    ./gui
     ./kitty
     ./nvim/lazy
     ./syncthing

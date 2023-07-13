@@ -7,6 +7,7 @@
     curl
     wget
     dua
+    ranger
 
     #custom
     fetch

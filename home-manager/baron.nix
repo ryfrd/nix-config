@@ -7,13 +7,12 @@
     inputs.nix-colors.homeManagerModules.default
 
     ./base
-    ./cli/essential
+    ./cli
     ./gaming
     ./gtk/de
-    ./gui/essential
+    ./gui
     ./kitty
     ./nvim/lazy
-    ./ssh-alias
     ./syncthing
 
   ];

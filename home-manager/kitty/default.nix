@@ -7,7 +7,7 @@ in
   programs.kitty = {
     enable = true;
     font = {
-      name = "Agave Nerd Font";
+      name = config.fontProfiles.monospace.family;
       size = 16;
     };
     settings = {

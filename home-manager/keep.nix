@@ -8,7 +8,7 @@
 
     ./base
     ./beets
-    ./cli/essential
+    ./cli
     ./nvim/headless
     ./tmux
 

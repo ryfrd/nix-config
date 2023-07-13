@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     font = {
-      name = "Agave Nerd Font";
-      package = (pkgs.nerdfonts.override { fonts = [ "Agave" ]; });
+      name = config.fontProfiles.regular.family;
+      size = 12;
     };
     theme = {
       name = "Adwaita-dark";

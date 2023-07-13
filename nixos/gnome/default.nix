@@ -10,13 +10,11 @@
     gnome-tour
     gnome-console
     gnome-connections
-    gnome-extension-manager
     gnome-text-editor
   ]) ++ (with pkgs.gnome; [
     cheese
     gnome-music
     gedit
-    geary
     epiphany
     gnome-characters
     totem
