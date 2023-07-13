@@ -8,7 +8,7 @@ in
     enable = true;
     font = {
       name = config.fontProfiles.monospace.family;
-      size = 16;
+      size = 18;
     };
     settings = {
       shell_integration = "no-rc"; # I prefer to do it manually
