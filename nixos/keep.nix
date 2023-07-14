@@ -13,6 +13,7 @@
     ./base
     ./cron
     ./docker
+    ./reverse-proxy
     ./tlp/server
 
   ];
