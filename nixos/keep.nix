@@ -32,4 +32,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+    "/mnt/warhead/lp".options = [ "compress=zstd" ];
+    "/mnt/warhead/hp".options = [ "compress=zstd" ];
+  };
+
 }
