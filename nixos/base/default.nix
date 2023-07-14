@@ -70,7 +70,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5Sr7q3RAuO6QIpu9tCLXF5cTs6mq7TRbDfVsglCDei james@countess"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjgIQhjZ9aeJDDfouSlvPUMBLy7GwZ+3r637rZ8+dww james@keep"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIi62H8VE1VgD37pZdxVws32rrmGh1iCKZi77yzOomWL james@keep"
       ];
     };
   };
