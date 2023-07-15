@@ -17,6 +17,7 @@
     ./tlp/server
 
   ];
+  environment.systemPackages = with pkgs; [ git home-manager neovim ];
 
   # kernel
   boot.kernelPackages = pkgs.linuxPackages;
@@ -37,8 +38,7 @@
     "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
-    "/mnt/warhead/lp".options = [ "compress=zstd" ];
-    "/mnt/warhead/hp".options = [ "compress=zstd" ];
+    "/mnt/warhead".options = [ "compress=zstd" ];
   };
 
 }
