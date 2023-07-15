@@ -30,8 +30,6 @@
     };
   };
 
-
-
   # networking
   networking = {
     networkmanager.enable = true;
