@@ -13,6 +13,7 @@
     ./base
     ./cron
     ./docker
+    ./nfs/server
     ./power
     ./reverse-proxy
 
