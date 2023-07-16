@@ -2,7 +2,7 @@
   programs.beets = {
     enable = true;
     settings = {
-      directory = "/mnt/warhead/music";
+      directory = "/mnt/warhead/media/music";
       import = {
         copy = true;
         write = true;
