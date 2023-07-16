@@ -3,8 +3,8 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@daily      root     sh /etc/cron-jobs/docker-data-backup.sh"
-      "@daily      root     sh /etc/cron-jobs/smart.sh"
+      "@weekly      root     sh /etc/cron-jobs/smart.sh"
+      "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
   };
 
@@ -13,8 +13,8 @@
     "cron-jobs/smart.sh" = {
       source = ./jobs/smart.sh;
     };
-    "cron-jobs/docker-data-backup.sh" = {
-      source = ./jobs/docker-data-backup.sh;
+    "cron-jobs/btrfs-maintenance.sh" = {
+      source = ./jobs/btrfs-maintenance.sh;
     };
   };
 

@@ -13,11 +13,10 @@
     ./base
     ./cron
     ./docker
+    ./power
     ./reverse-proxy
-    ./tlp/server
 
   ];
-  environment.systemPackages = with pkgs; [ git home-manager neovim ];
 
   # kernel
   boot.kernelPackages = pkgs.linuxPackages;
