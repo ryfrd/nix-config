@@ -14,6 +14,7 @@
     ./kitty
     ./nvim/lazy
     ./syncthing
+    ./tmux
 
   ];
 
