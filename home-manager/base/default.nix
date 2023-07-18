@@ -25,8 +25,6 @@
     enable = true;
     shellInit = "
       set fish_greeting ''
-      fetch
-      starship init fish | source
     ";
     shellAliases = {
       ls = "exa";
@@ -36,17 +34,21 @@
       "...." = "cd ../../../";
       gush = "git add * && git commit -m '.' && git push";
       i = "curl -s ipinfo.io";
-      hm = "home-manager switch --flake github:ryfrd/nix-config";
-      nr = "sudo nixos-rebuild switch --flake github:ryfrd/nix-config";
-      cg = "sudo nix-collect-garbage -d";
     };
     functions = {
       ss = "sudo systemctl $argv[1] $argv[2]";
       twitch = "streamlink https://twitch.tv/$argv[1] best -p mpv";
     };
   };
+  home.packages = with pkgs.fishPlugins; [
+    z
+    autopair
+    done
+    sponge
+    pure
+  ];
 
-  programs.starship.enable = true;
+  #programs.starship.enable = true;
 
   programs.git = {
     enable = true;
