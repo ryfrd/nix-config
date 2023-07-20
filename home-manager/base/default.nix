@@ -25,6 +25,7 @@
     enable = true;
     shellInit = "
       set fish_greeting ''
+      starship init fish | source
     ";
     shellAliases = {
       ls = "exa";
@@ -40,15 +41,15 @@
       twitch = "streamlink https://twitch.tv/$argv[1] best -p mpv";
     };
   };
+
   home.packages = with pkgs.fishPlugins; [
     z
     autopair
     done
     sponge
-    pure
   ];
 
-  #programs.starship.enable = true;
+  programs.starship.enable = true;
 
   programs.git = {
     enable = true;

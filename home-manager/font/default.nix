@@ -3,12 +3,12 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "ProggyClean Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "ProggyClean" ]; };
+      family = "Inconsolata Nerd Font";
+      package = pkgs.inconsolata;
     };
     regular = {
-      family = "Agave Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+      family = "Inconsolata Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Inconsolata" ]; };
     };
   };
 }
