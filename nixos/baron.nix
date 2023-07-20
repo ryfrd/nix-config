@@ -4,7 +4,6 @@
     # outputs.nixosModules.example
 
     inputs.hardware.nixosModules.common-pc-ssd
-    inputs.hardware.nixosModules.lenovo-thinkpad-t440p
 
     ./hardware/baron.nix
 

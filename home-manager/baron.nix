@@ -8,7 +8,7 @@
 
     ./base
     ./cli
-    ./gaming
+    ./font
     ./gtk/de
     ./gui
     ./kitty
