@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+
   programs.beets = {
     enable = true;
     settings = {
@@ -17,4 +18,5 @@
     cuetools
     flac
   ];
+
 }
