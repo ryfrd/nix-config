@@ -4,5 +4,6 @@
     vlc
     jellyfin-media-player
     sublime-music
+    lapce
   ];
 }
