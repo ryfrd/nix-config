@@ -3,7 +3,7 @@
 
   inputs = {
     # nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -13,7 +13,6 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    # hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

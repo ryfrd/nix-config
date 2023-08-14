@@ -1,4 +1,6 @@
 { outputs, pkgs, ... }: {
+  #temporary
+  manual.manpages.enable = false;
 
   nixpkgs = {
     # You can add overlays here
