@@ -8,15 +8,18 @@
 
     ./base
     ./cli
+    ./de/qtile
+    ./emacs
+    ./dunst
     ./font
+    ./gaming
     ./gtk/wm
-    ./gui
-    ./keyring
+    ./gui/wm
     ./kitty
-    ./nvim/lazy
+    ./redshift
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
+  colorscheme = inputs.nix-colors.colorschemes.dracula;
 
 }

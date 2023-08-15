@@ -4,6 +4,9 @@
     mpv
     jellyfin-media-player
     sublime-music
-    gnome.gnome-keyring
+    pulsemixer
+    playerctl
+    pamixer
+    cava
   ];
 }

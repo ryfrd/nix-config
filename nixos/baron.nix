@@ -8,7 +8,6 @@
     ./hardware/baron.nix
 
     ./base
-    ./bluetooth
     ./de/qtile
     ./nfs/client
     ./pipewire
@@ -32,5 +31,7 @@
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
+
+  programs.dconf.enable = true;
 
 }

@@ -3,8 +3,8 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "Agave Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+      family = "Monofur Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Monofur" ]; };
     };
     regular = {
       family = "Agave Nerd Font";
