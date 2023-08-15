@@ -1,4 +1,4 @@
-nix config for my computers!!
+nix config for my computers!!!
 
 ### update flake inputs
 
