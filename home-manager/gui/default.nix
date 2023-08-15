@@ -4,5 +4,6 @@
     mpv
     jellyfin-media-player
     sublime-music
+    gnome.gnome-keyring
   ];
 }
