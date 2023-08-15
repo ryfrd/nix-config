@@ -11,6 +11,7 @@
     ./font
     ./gtk/wm
     ./gui
+    ./keyring
     ./kitty
     ./nvim/lazy
 
