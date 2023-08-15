@@ -9,14 +9,13 @@
     ./base
     ./cli
     ./font
-    ./gtk/de
+    ./gtk/wm
     ./gui
     ./kitty
     ./nvim/lazy
-    ./syncthing
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-hard;
+  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
 
 }

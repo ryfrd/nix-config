@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     firefox
-    vlc
+    mpv
     jellyfin-media-player
     sublime-music
   ];

@@ -8,8 +8,10 @@
     ./hardware/baron.nix
 
     ./base
-    ./gnome
+    ./bluetooth
+    ./de/qtile
     ./nfs/client
+    ./pipewire
     ./steam
 
   ];
