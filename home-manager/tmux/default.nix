@@ -4,7 +4,6 @@
     enable = true;
     clock24 = true;
 
-
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.weather;

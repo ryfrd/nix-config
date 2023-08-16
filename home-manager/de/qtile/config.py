@@ -61,7 +61,7 @@ layouts = [
         border_focus = colors['accent'],
         border_width = border,
         margin = margin,
-        ratio = 1.6,
+        ratio = 1.618, # golden ratio lel
     ),
 ]
 

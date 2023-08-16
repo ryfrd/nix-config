@@ -20,6 +20,6 @@
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.dracula;
+  colorscheme = inputs.nix-colors.colorschemes.onedark;
 
 }
