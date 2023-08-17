@@ -4,12 +4,13 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 import psutil
+import os
 
 from vars import colors, font, font_size, border, margin
 
 terminal = guess_terminal()
 mod = "mod4"
-sep = ' ~ '
+sep = ' -- '
 
 ### keys
 keys = [
@@ -89,7 +90,9 @@ widgets = [
     widget.Spacer(length = bar.STRETCH),
 
     widget.CPU(format = '{freq_current}GHz {load_percent}%'),
-    widget.ThermalSensor(),
+    widget.ThermalSensor(
+        foreground = colors['foreground'],
+    ),
     widget.TextBox(text = sep),
     widget.DF(
         partition = '/',
@@ -115,7 +118,7 @@ screens = [
             border_color = colors['accent'],
             margin = 0,
         ),
-        wallpaper='/mnt/warhead/pics/wallpapers/skyplanet.jpg',
+        wallpaper=os.path.expanduser('~/.background'),
         wallpaper_mode='fill',
     ),
 ]

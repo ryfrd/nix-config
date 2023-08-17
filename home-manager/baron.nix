@@ -16,6 +16,7 @@
     ./gtk/wm
     ./gui/wm
     ./kitty
+    ./nvim/diy
     ./redshift
 
   ];

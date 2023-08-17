@@ -37,6 +37,7 @@
       "...." = "cd ../../../";
       gush = "git add * && git commit -m '.' && git push";
       i = "curl -s ipinfo.io";
+      kssh = "kitty + kitten ssh";
     };
     functions = {
       ss = "sudo systemctl $argv[1] $argv[2]";
