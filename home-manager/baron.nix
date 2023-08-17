@@ -9,7 +9,6 @@
     ./base
     ./cli
     ./de/qtile
-    ./emacs
     ./dunst
     ./font
     ./gaming
