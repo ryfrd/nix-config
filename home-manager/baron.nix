@@ -8,7 +8,7 @@
 
     ./base
     ./cli
-    ./de/qtile
+    ./de/hypr
     ./dunst
     ./font
     ./gaming
@@ -17,6 +17,7 @@
     ./kitty
     ./nvim/diy
     ./redshift
+    ./wofi
 
   ];
 

@@ -3,7 +3,9 @@
 let
   inherit (config.colorscheme) colors;
 in
+
 {
+  home.sessionVariables.TERMINAL = "kitty";
   programs.kitty = {
     enable = true;
     font = {
@@ -11,13 +13,11 @@ in
       size = 14;
     };
     settings = {
-      shell_integration = "no-rc"; # I prefer to do it manually
+      shell_integration = "no-rc";
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       enable_audio_bell = "no";
       confirm_os_window_close = 0;
-      wayland_titlebar_color = "system";
-      linux_display_server = "x11";
 
       foreground = "#${colors.base05}";
       background = "#${colors.base00}";

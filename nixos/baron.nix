@@ -8,7 +8,6 @@
     ./hardware/baron.nix
 
     ./base
-    ./de/qtile
     ./nfs/client
     ./pipewire
     ./steam

@@ -7,6 +7,7 @@ in
     enable = true;
     viAlias = true;
     vimAlias = true;
+    defaultEditor = true;
     extraLuaConfig = ''
       -- backup file
       vim.cmd('set nobackup')
