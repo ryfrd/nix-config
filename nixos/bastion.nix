@@ -10,7 +10,6 @@
     ./hardware/bastion.nix
 
     ./base
-    ./cron
     ./docker
     ./power
 
