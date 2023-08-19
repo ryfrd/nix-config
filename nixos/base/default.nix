@@ -48,7 +48,6 @@
     };
   };
   networking.firewall.allowedTCPPorts = [ 97 ];
-  programs.ssh.askPassword = "";
 
   # time zone
   time.timeZone = "Europe/London";
