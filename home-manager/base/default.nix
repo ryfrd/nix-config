@@ -1,6 +1,6 @@
 { outputs, pkgs, ... }: {
   #temporary
-  manual.manpages.enable = false;
+  # manual.manpages.enable = false;
 
   nixpkgs = {
     # You can add overlays here
@@ -41,7 +41,7 @@
     };
     functions = {
       ss = "sudo systemctl $argv[1] $argv[2]";
-      twitch = "streamlink https://twitch.tv/$argv[1] best -p mpv";
+      twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
     };
   };
 

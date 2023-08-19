@@ -183,6 +183,7 @@ in
 
   home.packages = with pkgs; [
     xclip
+    wl-clipboard
     gcc
     fortune
     nodePackages.pyright

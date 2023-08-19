@@ -10,7 +10,6 @@
     ./cli
     ./font
     ./gtk/de
-    ./gui
     ./kitty
     ./nvim/lazy
     ./syncthing

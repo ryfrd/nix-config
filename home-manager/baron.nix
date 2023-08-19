@@ -7,6 +7,7 @@
     inputs.nix-colors.homeManagerModules.default
 
     ./base
+    ./borders
     ./cli
     ./de/hypr
     ./dunst
@@ -21,6 +22,6 @@
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.onedark;
+  colorscheme = inputs.nix-colors.colorschemes.darkmoss;
 
 }

@@ -5,6 +5,10 @@ let
   fg = config.colorscheme.colors.base07;
   ac = config.colorscheme.colors.base0E;
 
+  wid = config.borderValues.width;
+  rad = config.borderValues.radius;
+  gap = config.borderValues.gap;
+
 in
 {
 
@@ -15,9 +19,9 @@ in
     settings = {
 
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
-        border_size = 0;
+        gaps_in = "${gap}";
+        gaps_out = "${gap}";
+        border_size = "${wid}";
         "col.active_border" = "rgb(${ac})";
         "col.inactive_border" = "rgb(${bg})";
       };
@@ -28,7 +32,7 @@ in
         active_opacity = 1.0;
         inactive_opacity = 0.9;
         fullscreen_opacity = 1.0;
-        rounding = 0;
+        rounding = "${rad}";
         blur.enabled = true;
         drop_shadow = true;
         shadow_range = 4;
@@ -56,6 +60,8 @@ in
         editor = config.home.sessionVariables.EDITOR;
         launcher = "${config.programs.wofi.package}/bin/wofi";
         browser = "${pkgs.firefox}/bin/firefox";
+        player = "${pkgs.playerctl}/bin/playerctl";
+        vol = "${pkgs.pamixer}/bin/pamixer";
 
         in [
 
@@ -68,11 +74,21 @@ in
           "SUPER,d,exec,${launcher}"
           "SUPER,b,exec,${browser}"
 
+          # media
+          "SUPERSHIFT,right,exec,${player} next"
+          "SUPERSHIFT,left,exec,${player} previous"
+          "SUPERSHIFT,up,exec,${player} play-pause"
+          "SUPERSHIFT,down,exec,${player} stop"
+          
+          # volume
+          "SUPER,up,exec,${vol} -i 5"
+          "SUPER,down,exec,${vol} -d 5"
+
           # windows
           "SUPER,q,killactive"
           "SUPER,f,fullscreen"
           "SUPERSHIFT,f,togglefloating"
-          "SUPER,space,togglesplit"
+          "SUPER,space,cyclenext"
 
           "SUPER,h,movefocus,l"
           "SUPER,l,movefocus,r"

@@ -5,6 +5,9 @@ let
   fg = config.colorscheme.colors.base07;
   ac = config.colorscheme.colors.base0E;
 
+  wid = config.borderValues.width;
+  rad = config.borderValues.radius;
+
   font = config.fontProfiles.monospace.family;
 
 in
@@ -26,8 +29,8 @@ in
       window {
         font-family: ${font} 12;
       	background-color: #${bg};
-        border-radius: $0px;
-        border: 0px;
+        border-radius: ${rad}px;
+        border: ${wid}px solid #${ac};
         margin:0px;
       }
 
