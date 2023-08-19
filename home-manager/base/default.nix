@@ -69,6 +69,12 @@
         Port 97
         IdentityFile ~/.ssh/id_ed25519
 
+      Host bastion
+        User james
+        HostName bastion
+        Port 97
+        IdentityFile ~/.ssh/id_ed25519
+
       Host countess
         User james
         HostName countess
