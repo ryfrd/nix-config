@@ -57,6 +57,12 @@
             ./nixos/keep.nix
           ];
         };
+        bastion = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/bastion.nix
+          ];
+        };
       };
 
       # available through 'home-manager --flake .#your-username@your-hostname'
@@ -82,7 +88,13 @@
             ./home-manager/keep.nix
           ];
         };
-
+        "james@bastion" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/bastion.nix
+          ];
+        };
       };
     };
 }
