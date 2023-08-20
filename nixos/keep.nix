@@ -4,7 +4,6 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
 
-    inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
     inputs.hardware.nixosModules.common-pc-hdd
 
