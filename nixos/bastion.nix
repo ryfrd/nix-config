@@ -20,7 +20,7 @@
 
   # networking
   networking.hostName = "bastion";
-  networking.firewall.allowedTCPPorts = [ 3000 ];
+  networking.firewall.allowedTCPPorts = [ 8123 ];
 
   # bootloader
   boot.loader.systemd-boot.enable = true;
@@ -31,5 +31,8 @@
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
+
+  # for keep backup
+  users.users.james.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdRRGO2jiXuFGoc42sEVGhLOuEwDj7PlXzj+jlMBxRu root@keep" ];
 
 }
