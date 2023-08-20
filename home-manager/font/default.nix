@@ -1,6 +1,6 @@
 { pkgs, outputs, ... }: 
 let
-  name = "ProggyClean";
+  name = "Monofur";
 in
 {
   imports = [ outputs.homeManagerModules.fonts ];
@@ -11,8 +11,8 @@ in
       package = pkgs.nerdfonts.override { fonts = [ "${name}" ]; };
     };
     regular = {
-      family = "Agave Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+      family = "Fira Regular";
+      package = pkgs.fira;
     };
   };
 }
