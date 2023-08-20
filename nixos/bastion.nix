@@ -20,7 +20,6 @@
 
   # networking
   networking.hostName = "bastion";
-  networking.firewall.allowedTCPPorts = [ 8123 ];
 
   # bootloader
   boot.loader.systemd-boot.enable = true;

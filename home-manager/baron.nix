@@ -18,10 +18,11 @@
     ./kitty
     ./nvim/diy
     ./redshift
+    ./syncthing
     ./wofi
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.darkmoss;
+  colorscheme = inputs.nix-colors.colorschemes.kanagawa;
 
 }

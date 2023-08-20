@@ -30,13 +30,14 @@
       starship init fish | source
     ";
     shellAliases = {
-      ls = "exa";
-      grep = "rg";
+      ls = "${pkgs.exa}/bin/exa";
+      grep = "${pkgs.ripgrep}/bin/rg";
+      i = "${pkgs.curl}/bin/curl -s ipinfo.io";
+      t = "${pkgs.tree}/bin/tree";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
       gush = "git add * && git commit -m '.' && git push";
-      i = "curl -s ipinfo.io";
       kssh = "kitty + kitten ssh";
     };
     functions = {
