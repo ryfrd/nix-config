@@ -3,6 +3,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
+      "@weekly      root     sh /etc/cron-jobs/rsync-backup.sh"
       "@weekly      root     sh /etc/cron-jobs/smart.sh"
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
@@ -10,6 +11,9 @@
 
   # link scripts to etc
   environment.etc = {
+    "cron-jobs/rsync-backup.sh" = {
+      source = ./jobs/rsync-backup.sh;
+    };
     "cron-jobs/smart.sh" = {
       source = ./jobs/smart.sh;
     };
@@ -22,5 +26,6 @@
   environment.systemPackages = with pkgs; [
     gotify-cli
     smartmontools
+    rsync
   ];
 }
