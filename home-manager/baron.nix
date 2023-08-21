@@ -23,6 +23,6 @@
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.kanagawa;
+  colorscheme = inputs.nix-colors.colorschemes.nord;
 
 }

@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6eff877596cd3e5479a10e801cb0ba7f5a73f377
   security.acme = {
     acceptTerms = true;
     defaults = {
@@ -8,9 +12,7 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 
-    80 443
-  ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   services.nginx = {
     enable = true;
@@ -21,7 +23,6 @@
     recommendedTlsSettings = true;
 
     virtualHosts = {
-
       "dns.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
