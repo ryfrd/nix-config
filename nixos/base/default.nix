@@ -37,7 +37,6 @@
     networkmanager.enable = true;
     firewall.enable = true;
   };
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   services.tailscale.enable = true;
 
   # ssh

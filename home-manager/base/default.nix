@@ -34,6 +34,10 @@
       grep = "${pkgs.ripgrep}/bin/rg";
       i = "${pkgs.curl}/bin/curl -s ipinfo.io";
       t = "${pkgs.tree}/bin/tree";
+      top = "${pkgs.htop}/bin/htop";
+      d = "${pkgs.dua}/bin/dua";
+      r = "${pkgs.ranger}/bin/ranger";
+      f = "${pkgs.fetch}/bin/fetch";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
