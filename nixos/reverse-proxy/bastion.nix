@@ -9,7 +9,14 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 
+    80 443
+    53 68 # dns + dhcp
+    3000 8123 
+  ];
+  networking.firewall.allowedUDPPorts = [ 
+    53 67 68 # dns + dhcp
+  ];
 
   services.nginx = {
     enable = true;
