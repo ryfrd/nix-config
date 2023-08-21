@@ -11,7 +11,6 @@
     ./cli
     ./de/hypr
     ./dunst
-    ./firefox
     ./font
     ./gaming
     ./gtk/wm
