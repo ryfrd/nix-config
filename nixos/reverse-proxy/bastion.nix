@@ -10,9 +10,9 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 
-    80 443
+    80 443 # nginx
     53 68 # dns + dhcp
-    3000 8123 
+    3000 8123 # web ui
   ];
   networking.firewall.allowedUDPPorts = [ 
     53 67 68 # dns + dhcp
