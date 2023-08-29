@@ -82,7 +82,7 @@
 
       Host countess
         User james
-        HostName 100.89.246.41
+        HostName 100.121.230.21
         Port 97
         IdentityFile ~/.ssh/id_ed25519
 

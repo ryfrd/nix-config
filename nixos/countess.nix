@@ -4,22 +4,20 @@
     # outputs.nixosModules.example
 
     inputs.hardware.nixosModules.common-pc-ssd
-    inputs.hardware.nixosModules.lenovo-thinkpad-t440p
 
     ./hardware/countess.nix
 
     ./base
-    ./gnome
-    ./nfs/client
+    #./nfs/client
+    ./pipewire
+    ./steam
 
   ];
-
-  # bits and bobs not contained in base
 
   # kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  #hostName
+  # networking
   networking.hostName = "countess";
 
   # bootloader
@@ -32,5 +30,7 @@
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
+
+  programs.dconf.enable = true;
 
 }

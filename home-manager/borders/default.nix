@@ -3,7 +3,7 @@
   borderValues = {
     enable = true;
     width = "4";
-    radius = "1";
-    gap = "15";
+    radius = "0";
+    gap = "0";
   };
 }
