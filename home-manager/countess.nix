@@ -7,16 +7,22 @@
     inputs.nix-colors.homeManagerModules.default
 
     ./base
+    ./borders
     ./cli
+    ./de/hypr/countess.nix
+    ./dunst
     ./font
-    ./gtk/de
+    ./gaming
+    ./gtk/wm
+    ./gui/wm
     ./kitty
-    ./nvim/lazy
+    ./nvim/diy
+    ./redshift
     ./syncthing
-    ./tmux
+    ./wofi
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.gruvbox-dark-soft;
+  colorscheme = inputs.nix-colors.colorschemes.everforest;
 
 }

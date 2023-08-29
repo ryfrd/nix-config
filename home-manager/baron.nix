@@ -9,7 +9,7 @@
     ./base
     ./borders
     ./cli
-    ./de/hypr
+    ./de/hypr/baron.nix
     ./dunst
     ./font
     ./gaming
@@ -23,6 +23,6 @@
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.kanagawa;
+  colorscheme = inputs.nix-colors.colorschemes.nord;
 
 }

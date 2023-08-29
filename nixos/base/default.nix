@@ -37,7 +37,7 @@
     networkmanager.enable = true;
     firewall.enable = true;
   };
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.NetworkManager-wait-online.enable = false;
   services.tailscale.enable = true;
 
   # ssh
@@ -69,7 +69,7 @@
       ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5Sr7q3RAuO6QIpu9tCLXF5cTs6mq7TRbDfVsglCDei james@countess"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPzFa1hmBsCrPL5HvJZhXVEaWiZIMi34oR6AOcKD35hQ james@countess"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINWqX/8jJfWVfMmFDbOao0w1OVszEm/H6Us/klsDgYxp james@keep"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBxHtFYZctBvOOW/VdN/ETCGE3vK3ZvIjNku1b5wgKj james@bastion"
       ];

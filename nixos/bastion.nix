@@ -12,6 +12,7 @@
     ./base
     ./docker
     ./power
+    ./reverse-proxy/bastion.nix
 
   ];
 

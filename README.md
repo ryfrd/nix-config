@@ -17,4 +17,5 @@ nix config for my computers!!!
 - countess (laptop)
 - baron (desktop gaming powerhouse)
 - keep (home server)
+- bastion (dns + homeassistant + backup box)
 

@@ -2,8 +2,8 @@
   imports = [ outputs.homeManagerModules.borders ];
   borderValues = {
     enable = true;
-    width = "2";
-    radius = "8";
-    gap = "40";
+    width = "4";
+    radius = "0";
+    gap = "0";
   };
 }
