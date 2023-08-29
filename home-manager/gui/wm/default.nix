@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    vscodium
     firefox
     mpv
     jellyfin-media-player

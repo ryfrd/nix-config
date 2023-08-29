@@ -14,6 +14,7 @@
     ./pipewire
     ./power
     ./steam
+    ./virt
 
   ];
 
@@ -33,8 +34,5 @@
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
-
-  programs.dconf.enable = true;
-  programs.light.enable = true;
 
 }

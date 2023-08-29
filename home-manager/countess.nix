@@ -12,6 +12,7 @@
     ./cli
     ./de/hypr/countess.nix
     ./dunst
+    ./firefox
     ./gaming
     ./gtk/wm
     ./gui/wm
@@ -33,8 +34,8 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "FiraCode Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+      family = "CodeNewRoman Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "CodeNewRoman" ]; };
     };
     regular = {
       family = "Fira Sans";

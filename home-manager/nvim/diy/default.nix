@@ -66,6 +66,80 @@ in
       nvim-web-devicons
 
       {
+        plugin = mini-nvim;
+        config = ''
+          lua << END
+          require('mini.align').setup()
+          require('mini.base16').setup({
+            palette = {
+              base00 = '#${c.base00}',
+              base01 = '#${c.base01}',
+              base02 = '#${c.base02}',
+              base03 = '#${c.base03}',
+              base04 = '#${c.base04}',
+              base05 = '#${c.base05}',
+              base06 = '#${c.base06}',
+              base07 = '#${c.base07}',
+              base08 = '#${c.base08}',
+              base09 = '#${c.base09}',
+              base0A = '#${c.base0A}',
+              base0B = '#${c.base0B}',
+              base0C = '#${c.base0C}',
+              base0D = '#${c.base0D}',
+              base0E = '#${c.base0E}',
+              base0F = '#${c.base0F}',
+            },
+          })
+          require('mini.comment').setup()
+          require('mini.indentscope').setup()
+          require('mini.pairs').setup()
+
+          local handle = io.popen('fortune -s')
+          local meat = handle:read("*a")
+          handle:close()
+          require('mini.starter').setup({
+            footer = meat,
+            header = os.date(),
+            items = {
+              {
+                action = "enew",
+                name = "n --- new file",
+                section = "open things",
+              },
+              {
+                action = "Telescope find_files",
+                name = "f --- find files",
+                section = "open things",
+              },
+              {
+                action = "Telescope oldfiles",
+                name = "r --- recent files",
+                section = "open things",
+              },
+              {
+                action = "Telescope file_browser",
+                name = "b --- browse files",
+                section = "open things",
+              },
+              {
+                action = "checkhealth",
+                name = "h --- all good??",
+                section = "admin",
+              },
+              {
+                action = "q!",
+                name = "q --- get out of here",
+                section = "admin",
+              },
+            },
+          })
+          require('mini.statusline').setup()
+          require('mini.tabline').setup()
+          END
+        '';
+      }
+
+      {
         plugin = nvim-treesitter.withAllGrammars;
         config = ''
           lua << END
@@ -93,7 +167,7 @@ in
           END
         '';
       }
-      plenary-nvim # required by telescope
+      plenary-nvim
       
       {
         plugin = telescope-project-nvim;
@@ -109,78 +183,6 @@ in
         config = ''
           lua << END
             require'telescope'.load_extension('file_browser')
-          END
-        '';
-      }
-
-      {
-        plugin = alpha-nvim;
-        config = ''
-          lua << END
-            local dashboard = require("alpha.themes.dashboard")
-
-            dashboard.section.header.val = "oh how i adore to edit text with neovim!"
-
-            dashboard.section.buttons.val = {
-              dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-              dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-              dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-              dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-              dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-              dashboard.button("q", " " .. " Quit", ":qa<CR>"),
-            }
-
-            local handle = io.popen('fortune')
-            local result = handle:read("*a")
-            handle:close()
-            dashboard.section.footer.val = "\n" .. result
-
-            for _, button in ipairs(dashboard.section.buttons.val) do
-              button.opts.hl = "AlphaButtons"
-              button.opts.hl_shortcut = "AlphaShortcut"
-            end
-
-            dashboard.section.header.opts.hl = "AlphaHeader"
-            dashboard.section.buttons.opts.hl = "AlphaButtons"
-            dashboard.section.footer.opts.hl = "AlphaFooter"
-            dashboard.opts.layout[1].val = 8
-
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
-          END
-        '';
-      }
-      
-      {
-        plugin = mini-nvim;
-        config = ''
-          lua << END
-            require('mini.align').setup()
-            require('mini.base16').setup({
-              palette = {
-                base00 = '#${c.base00}';    
-                base01 = '#${c.base01}';    
-                base02 = '#${c.base02}';    
-                base03 = '#${c.base03}';    
-                base04 = '#${c.base04}';    
-                base05 = '#${c.base05}';
-                base06 = '#${c.base06}';    
-                base07 = '#${c.base07}';    
-                base08 = '#${c.base08}';    
-                base09 = '#${c.base09}';   
-                base0A = '#${c.base0A}';    
-                base0B = '#${c.base0B}';    
-                base0C = '#${c.base0C}';   
-                base0D = '#${c.base0D}';
-                base0E = '#${c.base0E}';
-                base0F = '#${c.base0F}';    
-              },
-            })
-            require('mini.comment').setup()
-            require('mini.indentscope').setup()
-            require('mini.pairs').setup()
-            require('mini.statusline').setup({
-            })
-            require('mini.tabline').setup()
           END
         '';
       }
