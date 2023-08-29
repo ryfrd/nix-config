@@ -41,6 +41,16 @@
 	      };
       };
 
+      "kav.dymc.win" = {
+        enableACME = true;
+        acmeRoot = null;
+        addSSL = true;
+        locations."/" = {
+      	  proxyPass = "http://127.0.0.1:4000";
+	        proxyWebsockets = true;
+	      };
+      };
+
       "jelly.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
