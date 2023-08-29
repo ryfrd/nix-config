@@ -9,7 +9,7 @@
     ./base
     ./borders
     ./cli
-    ./de/hypr
+    ./de/hypr/baron.nix
     ./dunst
     ./font
     ./gaming
