@@ -11,6 +11,7 @@
     ./nfs/client
     ./pipewire
     ./steam
+    ./virt
 
   ];
 
@@ -32,5 +33,5 @@
   };
 
   programs.dconf.enable = true;
-
 }
+

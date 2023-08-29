@@ -112,6 +112,43 @@ in
           END
         '';
       }
+
+      {
+        plugin = alpha-nvim;
+        config = ''
+          lua << END
+            local dashboard = require("alpha.themes.dashboard")
+
+            dashboard.section.header.val = "oh how i adore to edit text with neovim!"
+
+            dashboard.section.buttons.val = {
+              dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+              dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+              dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+              dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+              dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+              dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+            }
+
+            local handle = io.popen('fortune')
+            local result = handle:read("*a")
+            handle:close()
+            dashboard.section.footer.val = "\n" .. result
+
+            for _, button in ipairs(dashboard.section.buttons.val) do
+              button.opts.hl = "AlphaButtons"
+              button.opts.hl_shortcut = "AlphaShortcut"
+            end
+
+            dashboard.section.header.opts.hl = "AlphaHeader"
+            dashboard.section.buttons.opts.hl = "AlphaButtons"
+            dashboard.section.footer.opts.hl = "AlphaFooter"
+            dashboard.opts.layout[1].val = 8
+
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+          END
+        '';
+      }
       
       {
         plugin = mini-nvim;
@@ -141,15 +178,6 @@ in
             require('mini.comment').setup()
             require('mini.indentscope').setup()
             require('mini.pairs').setup()
-
-            local handle = io.popen('fortune')
-            local result = handle:read("*a")
-            handle:close()
-            require('mini.starter').setup({
-              header = 'oh how i adore to edit text with neovim!',
-              footer = result,
-            })
-
             require('mini.statusline').setup({
             })
             require('mini.tabline').setup()
