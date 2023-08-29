@@ -110,7 +110,6 @@ in
           "SUPER,7,workspace,7"
           "SUPER,8,workspace,8"
           "SUPER,9,workspace,9"
-          "SUPER,0,workspace,0"
 
           "SUPERSHIFT,1,movetoworkspace,1"
           "SUPERSHIFT,2,movetoworkspace,2"
@@ -121,7 +120,6 @@ in
           "SUPERSHIFT,7,movetoworkspace,7"
           "SUPERSHIFT,8,movetoworkspace,8"
           "SUPERSHIFT,9,movetoworkspace,9"
-          "SUPERSHIFT,0,movetoworkspace,0"
 
           "SUPER,mouse_down,workspace,e+1"
           "SUPER,mouse_up,workspace,e-1"

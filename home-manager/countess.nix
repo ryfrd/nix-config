@@ -2,16 +2,16 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
+    outputs.homeManagerModules.fonts
+    outputs.homeManagerModules.borders
 
     # Or modules exported from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModules.default
 
     ./base
-    ./borders
     ./cli
     ./de/hypr/countess.nix
     ./dunst
-    ./font
     ./gaming
     ./gtk/wm
     ./gui/wm
@@ -22,6 +22,25 @@
     ./wofi
 
   ];
+
+  borderValues = {
+    enable = true;
+    width = "5";
+    radius = "0";
+    gap = "0";
+  };
+
+  fontProfiles = {
+    enable = true;
+    monospace = {
+      family = "FiraCode Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+    };
+    regular = {
+      family = "Fira Sans";
+      package = pkgs.fira;
+    };
+  };
 
   colorscheme = inputs.nix-colors.colorschemes.everforest;
 

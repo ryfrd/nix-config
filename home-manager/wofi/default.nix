@@ -27,7 +27,7 @@ in
     };
     style = ''
       window {
-        font-family: ${font} 12;
+        font-family: ${font};
       	background-color: #${bg};
         border-radius: ${rad}px;
         border: ${wid}px solid #${ac};
