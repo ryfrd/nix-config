@@ -9,7 +9,7 @@
     ./base
     ./borders
     ./cli
-    ./de/hypr
+    ./de/hypr/countess.nix
     ./dunst
     ./font
     ./gaming
@@ -23,6 +23,6 @@
 
   ];
 
-  colorscheme = inputs.nix-colors.colorschemes.nord;
+  colorscheme = inputs.nix-colors.colorschemes.everforest;
 
 }

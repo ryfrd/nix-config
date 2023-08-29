@@ -7,9 +7,12 @@
 
     ./hardware/countess.nix
 
+    ./backlight
     ./base
-    #./nfs/client
+    ./bluetooth
+    ./nfs/client
     ./pipewire
+    ./power
     ./steam
 
   ];
@@ -32,5 +35,6 @@
   };
 
   programs.dconf.enable = true;
+  programs.light.enable = true;
 
 }
