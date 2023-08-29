@@ -14,7 +14,7 @@
     ./docker
     ./nfs/server
     ./power
-    ./reverse-proxy
+    ./reverse-proxy/keep.nix
 
   ];
 
