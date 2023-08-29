@@ -33,5 +33,6 @@
   };
 
   programs.dconf.enable = true;
+
 }
 
