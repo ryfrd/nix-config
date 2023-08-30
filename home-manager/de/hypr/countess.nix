@@ -59,9 +59,6 @@ in
         terminal = config.home.sessionVariables.TERMINAL;
         editor = config.home.sessionVariables.EDITOR;
         launcher = "${config.programs.wofi.package}/bin/wofi";
-        browser = "${pkgs.firefox}/bin/firefox";
-        player = "${pkgs.playerctl}/bin/playerctl";
-        vol = "${pkgs.pamixer}/bin/pamixer";
 
         in [
 
@@ -72,21 +69,20 @@ in
           "SUPER,Return,exec,${terminal}"
           "SUPER,e,exec,${terminal} -e ${editor}"
           "SUPER,d,exec,${launcher}"
-          "SUPER,b,exec,${browser}"
 
           # media
-          "SUPERSHIFT,right,exec,${player} next"
-          "SUPERSHIFT,left,exec,${player} previous"
-          "SUPERSHIFT,up,exec,${player} play-pause"
-          "SUPERSHIFT,down,exec,${player} stop"
+          "SUPERSHIFT,right,exec,playerctl next"
+          "SUPERSHIFT,left,exec,playerctl previous"
+          "SUPERSHIFT,up,exec,playerctl play-pause"
+          "SUPERSHIFT,down,exec,playerctl stop"
           
           # volume
-          "SUPER,up,exec,${vol} -i 5"
-          "SUPER,down,exec,${vol} -d 5"
+          "SUPER,up,exec,pamixer -i 5 && dunstify volume $(pamixer --get-volume)"
+          "SUPER,down,exec,pamixer -d 5 && dunstify volume $(pamixer --get-volume)"
 
           # brightness
-          "SUPER,right,exec,light -A 5"
-          "SUPER,left,exec,light -U 5"
+          "SUPER,right,exec,light -A 5 && dunstify brightness $(light)"
+          "SUPER,left,exec,light -U 5 && dunstify brightness $(light)"
 
           # info
           "SUPER,u,exec,dunstify battery $(cat /sys/class/power_supply/BAT0/capacity)"
@@ -120,7 +116,6 @@ in
           "SUPER,7,workspace,7"
           "SUPER,8,workspace,8"
           "SUPER,9,workspace,9"
-          "SUPER,0,workspace,0"
 
           "SUPERSHIFT,1,movetoworkspace,1"
           "SUPERSHIFT,2,movetoworkspace,2"
@@ -131,7 +126,6 @@ in
           "SUPERSHIFT,7,movetoworkspace,7"
           "SUPERSHIFT,8,movetoworkspace,8"
           "SUPERSHIFT,9,movetoworkspace,9"
-          "SUPERSHIFT,0,movetoworkspace,0"
 
           "SUPER,mouse_down,workspace,e+1"
           "SUPER,mouse_up,workspace,e-1"

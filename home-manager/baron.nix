@@ -9,17 +9,8 @@
     inputs.nix-colors.homeManagerModules.default
 
     ./base
-    ./cli
     ./de/hypr/baron.nix
-    ./dunst
-    ./gaming
-    ./gtk/wm
-    ./gui/wm
-    ./kitty
-    ./nvim/diy
-    ./redshift
-    ./syncthing
-    ./wofi
+    ./gui
 
   ];
 

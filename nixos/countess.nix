@@ -7,10 +7,8 @@
 
     ./hardware/countess.nix
 
-    ./backlight
     ./base
-    ./bluetooth
-    ./nfs/client
+    ./nfs-client
     ./pipewire
     ./power
     ./steam
@@ -24,15 +22,13 @@
   # networking
   networking.hostName = "countess";
 
-  # bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # backlight control
+  programs.light.enable = true;
+  users.users.james.extraGroups = [ "video" ];
 
-  # enable btrfs compression
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
-  };
+  # bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
 
 }

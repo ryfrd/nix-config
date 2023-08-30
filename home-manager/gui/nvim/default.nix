@@ -212,10 +212,7 @@ in
   };
 
   home.packages = with pkgs; [
-    xclip
-    wl-clipboard
     gcc
-    fortune
     nodePackages.pyright
     nodePackages.bash-language-server
     luaPackages.lua-lsp

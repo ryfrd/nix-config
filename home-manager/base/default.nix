@@ -1,6 +1,6 @@
 { outputs, pkgs, ... }: {
-  #temporary
-  # manual.manpages.enable = false;
+  
+  # user configuration i want on all systems
 
   nixpkgs = {
     # You can add overlays here
@@ -23,6 +23,27 @@
 
   systemd.user.startServices = "sd-switch";
 
+  home.packages = with pkgs; [
+    # command line essentials
+    exa
+    ripgrep
+    curl
+    wget
+    tree
+    htop
+    dua
+    ranger
+    fortune
+    fetch
+
+    # fish plugins
+    fishPlugins.z
+    fishPlugins.autopair
+    fishPlugins.done
+    fishPlugins.sponge
+
+  ];
+
   programs.fish = {
     enable = true;
     shellInit = "
@@ -30,14 +51,9 @@
       starship init fish | source
     ";
     shellAliases = {
-      ls = "${pkgs.exa}/bin/exa";
-      grep = "${pkgs.ripgrep}/bin/rg";
-      i = "${pkgs.curl}/bin/curl -s ipinfo.io";
-      t = "${pkgs.tree}/bin/tree";
-      top = "${pkgs.htop}/bin/htop";
-      d = "${pkgs.dua}/bin/dua";
-      r = "${pkgs.ranger}/bin/ranger";
-      f = "${pkgs.fetch}/bin/fetch";
+      ls = "exa";
+      grep = "rg";
+      i = "curl -s ipinfo.io";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
@@ -46,17 +62,9 @@
     };
     functions = {
       ss = "sudo systemctl $argv[1] $argv[2]";
-      twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
+      twitch = "streamlink https://twitch.tv/$argv[1] best -p mpv";
     };
   };
-
-  home.packages = with pkgs.fishPlugins; [
-    z
-    autopair
-    done
-    sponge
-  ];
-
   programs.starship.enable = true;
 
   programs.git = {
@@ -71,12 +79,6 @@
       Host keep
         User james
         HostName 100.90.13.23
-        Port 97
-        IdentityFile ~/.ssh/id_ed25519
-
-      Host bastion
-        User james
-        HostName 100.78.115.24
         Port 97
         IdentityFile ~/.ssh/id_ed25519
 

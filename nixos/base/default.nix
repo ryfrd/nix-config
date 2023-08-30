@@ -32,6 +32,17 @@
     };
   };
 
+  # enable btrfs compression on root
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
+  # bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   # networking
   networking = {
     networkmanager.enable = true;
@@ -71,7 +82,6 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPzFa1hmBsCrPL5HvJZhXVEaWiZIMi34oR6AOcKD35hQ james@countess"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINWqX/8jJfWVfMmFDbOao0w1OVszEm/H6Us/klsDgYxp james@keep"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBxHtFYZctBvOOW/VdN/ETCGE3vK3ZvIjNku1b5wgKj james@bastion"
       ];
     };
   };

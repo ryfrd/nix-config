@@ -1,3 +1,0 @@
-return {
-  "ryfrd/nvim-daddy"
-}

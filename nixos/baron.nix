@@ -10,7 +10,7 @@
     ./hardware/baron.nix
 
     ./base
-    ./nfs/client
+    ./nfs-client
     ./pipewire
     ./steam
     ./virt
@@ -23,16 +23,7 @@
   # networking
   networking.hostName = "baron";
 
-  # bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  # enable btrfs compression
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
-  };
 
   programs.dconf.enable = true;
 
