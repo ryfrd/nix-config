@@ -15,6 +15,13 @@
 
   ];
 
+  environment.systemPackages = with pkgs; [ 
+    docker-compose
+    # cron job deps
+    gotify-cli
+    smartmontools
+  ];
+
   # kernel
   boot.kernelPackages = pkgs.linuxPackages;
 
@@ -22,7 +29,11 @@
   networking.hostName = "keep";
   networking.firewall = {
     # syncthing ports
-    allowedTCPPorts = [ 22000 21027 ];
+    allowedTCPPorts = [ 
+      22000 21027 # syncthing
+      2049 # nfs server
+      80 443 # nginx
+    ];
     allowedUDPPorts = [ 22000 ];
   };
 
@@ -37,7 +48,6 @@
     liveRestore = false;
     autoPrune.enable = true;
   };
-  environment.systemPackages = [ pkgs.docker-compose ];
   users.users.james.extraGroups = [ "docker" ];
 
   # nfs server
@@ -53,7 +63,6 @@
       /export/warhead   100.121.230.21(rw,nohide,insecure,no_subtree_check)   100.100.176.11(rw,nohide,insecure,no_subtree_check)
     '';
   };
-  networking.firewall.allowedTCPPorts = [ 2049 ];
 
   # cron jobs
   services.cron = {
@@ -78,12 +87,6 @@
     };
   };
 
-  # dependencies of job scripts
-  environment.systemPackages = with pkgs; [
-    gotify-cli
-    smartmontools
-  ];
-
   # proxies for docker services
   security.acme = {
     acceptTerms = true;
@@ -93,8 +96,6 @@
       credentialsFile = "/etc/nixos/cloudflare.env";
     };
   };
-
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   services.nginx = {
     enable = true;
