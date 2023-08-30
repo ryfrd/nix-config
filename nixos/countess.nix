@@ -3,7 +3,7 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
 
-    inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.lenovo-thinkpad-t14
 
     ./hardware/countess.nix
 

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   programs.firefox = {
     enable = true;
     profiles.james = {
@@ -18,10 +18,7 @@
       };
       settings = {
         "browser.toolbars.bookmarks.visibility" = "never";
-
         "browser.urlbar.maxRichResults" = 0;
-
-
         "browser.newtabpage.enabled" = true;
         "browser.startup.homepage" = "about:newtab";
         "browser.newtabpage.activity-stream.showSponsored" = false;

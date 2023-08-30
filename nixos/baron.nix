@@ -4,6 +4,8 @@
     # outputs.nixosModules.example
 
     inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.common-gpu-amd
+    inputs.hardware.nixosModules.common-cpu-amd
 
     ./hardware/baron.nix
 

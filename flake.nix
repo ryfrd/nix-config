@@ -12,10 +12,12 @@
     # hardware
     hardware.url = "github:nixos/nixos-hardware";
 
+    # bits n bobs
     nix-colors.url = "github:misterio77/nix-colors";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -23,16 +25,15 @@
       ];
     in
     rec {
-      # custom packages
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
       );
 
-      # your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
 
       nixosModules = import ./modules/nixos;
+
       homeManagerModules = import ./modules/home-manager;
 
       # available through 'nixos-rebuild --flake .#your-hostname'
@@ -94,5 +95,5 @@
           ];
         };
       };
-    };
+  };
 }
