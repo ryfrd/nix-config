@@ -18,11 +18,6 @@ rec {
   imports = [ ./nvim ];
 
   home.packages = with pkgs; [
-    libsecret
-    gnome.libgnome-keyring
-    gnome.seahorse
-    gnome.gnome-keyring
-
     streamlink
     mpv
     jellyfin-media-player
