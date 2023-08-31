@@ -8,7 +8,6 @@
     ./hardware/countess.nix
 
     ./base
-    ./keyring
     ./nfs-client
     ./pipewire
     ./power
@@ -30,6 +29,5 @@
   # bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
 
 }
