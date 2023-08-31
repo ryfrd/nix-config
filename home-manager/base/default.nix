@@ -27,6 +27,7 @@
     # command line essentials
     exa
     ripgrep
+    fd
     curl
     wget
     tree

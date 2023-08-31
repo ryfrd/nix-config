@@ -42,7 +42,11 @@ in
 
       misc = {
         enable_swallow = true;
-        swallow_regex = "'^(kitty|Alacritty)$'";
+        swallow_regex = "'^(Kitty|Alacritty)$'";
+      };
+
+      gestures = {
+        workspace_swipe = true;
       };
 
       exec-once = [
@@ -95,6 +99,7 @@ in
           "SUPER,f,fullscreen"
           "SUPERSHIFT,f,togglefloating"
           "SUPER,space,cyclenext"
+          "SUPERSHIFT,space,swapnext"
 
           "SUPER,h,movefocus,l"
           "SUPER,l,movefocus,r"
