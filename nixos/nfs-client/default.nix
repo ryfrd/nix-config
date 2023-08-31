@@ -1,8 +1,7 @@
 {
   fileSystems."/mnt/warhead" = {
-    # keep tailscale ip
+    # uses tailscale 'magic dns' hostname
     device = "keep:/warhead";
-    #device = "100.90.13.23:/warhead";
     fsType = "nfs";
     # lazy mount and auto disconnect
     options = [

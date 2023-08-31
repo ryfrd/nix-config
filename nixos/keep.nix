@@ -58,13 +58,9 @@
   services.nfs.server = {
     enable = true;
     # uses tailscale ip for client devices
-    #exports = ''
-    #  /export   100.121.230.21(rw,fsid=0,no_subtree_check)    100.100.176.11(rw,fsid=0,no_subtree_check)
-    #  /export/warhead   100.121.230.21(rw,nohide,insecure,no_subtree_check)   100.100.176.11(rw,nohide,insecure,no_subtree_check)
-    #'';
     exports = ''
-      /export   countess(rw,fsid=0,no_subtree_check)    baron(rw,fsid=0,no_subtree_check)
-      /export/warhead   countess(rw,nohide,insecure,no_subtree_check)   baron(rw,nohide,insecure,no_subtree_check)
+      /export   100.121.230.21(rw,fsid=0,no_subtree_check)    100.100.176.11(rw,fsid=0,no_subtree_check)
+      /export/warhead   100.121.230.21(rw,nohide,insecure,no_subtree_check)   100.100.176.11(rw,nohide,insecure,no_subtree_check)
     '';
   };
 
@@ -110,16 +106,6 @@
     recommendedTlsSettings = true;
 
     virtualHosts = {
-
-      "kal.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:2000";
-          proxyWebsockets = true;
-        };
-      };
 
       "qbit.dymc.win" = {
         enableACME = true;
@@ -240,6 +226,7 @@
 	        proxyWebsockets = true;
 	    };
       };
+
     };
   };
 }
