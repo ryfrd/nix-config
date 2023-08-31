@@ -8,6 +8,7 @@
     ./hardware/countess.nix
 
     ./base
+    ./keyring
     ./nfs-client
     ./pipewire
     ./power

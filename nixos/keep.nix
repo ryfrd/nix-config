@@ -107,16 +107,6 @@
 
     virtualHosts = {
 
-      "kal.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:2000";
-          proxyWebsockets = true;
-        };
-      };
-
       "qbit.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
@@ -236,6 +226,7 @@
 	        proxyWebsockets = true;
 	    };
       };
+
     };
   };
 }

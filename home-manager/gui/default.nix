@@ -31,6 +31,8 @@ rec {
 
   services.syncthing.enable = true;
 
+
+
   # notifications
   services.dunst = {
     enable = true;
