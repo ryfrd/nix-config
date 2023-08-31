@@ -19,6 +19,7 @@ rec {
 
   home.packages = with pkgs; [
     gnome.seahorse
+    gnome.gnome-keyring
     streamlink
     mpv
     jellyfin-media-player
