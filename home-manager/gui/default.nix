@@ -18,6 +18,7 @@ rec {
   imports = [ ./nvim ];
 
   home.packages = with pkgs; [
+    gnome.seahorse
     streamlink
     mpv
     jellyfin-media-player
@@ -29,6 +30,8 @@ rec {
   ];
 
   services.syncthing.enable = true;
+
+
 
   # notifications
   services.dunst = {
