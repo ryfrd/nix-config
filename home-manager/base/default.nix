@@ -74,23 +74,23 @@
   };
 
   home.file.".ssh/config" = {
-    # this uses tailscale ip
+    # this uses tailscale 'magic dns' hostname
     text = ''
       Host keep
         User james
-        HostName 100.90.13.23
+        HostName keep
         Port 97
         IdentityFile ~/.ssh/id_ed25519
 
       Host countess
         User james
-        HostName 100.121.230.21
+        HostName countess
         Port 97
         IdentityFile ~/.ssh/id_ed25519
 
       Host baron
         User james
-        HostName 100.100.176.11
+        HostName baron
         Port 97
         IdentityFile ~/.ssh/id_ed25519
     '';

@@ -40,6 +40,7 @@ in
       keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
       keymap.set('n', '<leader>fb', '<cmd>Telescope file_browser<cr>', {})
       keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', {})
+      keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
       keymap.set('n', '<leader>bb', '<cmd>Telescope buffers<cr>', {})
       keymap.set('n', '<leader>pp', '<cmd>Telescope project<cr>', {})
 
@@ -114,6 +115,11 @@ in
               {
                 action = "Telescope oldfiles",
                 name = "r --- recent files",
+                section = "open things",
+              },
+              {
+                action = "Telescope live_grep",
+                name = "g --- grep grep",
                 section = "open things",
               },
               {
