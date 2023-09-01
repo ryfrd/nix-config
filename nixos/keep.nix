@@ -228,37 +228,4 @@
       };
     };
   };
-
-  # nixos containers
-  networking.nat = {
-    enable = true;
-    internalInterfaces = ["ve-+"];
-    externalInterface = "ens3";
-  };
-
-  containers.media-container = {
-    autoStart = true;
-    enableTun = true;
-    bindMounts = {
-      "/film" = "/mnt/warhead/media/film";
-      "/tv" = "/mnt/warhead/media/tv";
-      "/jelly-config" = "~/docker/active/jellyfin/config";
-    };
-    config = { pkgs, ... }: {
-      services.tailscale.enable = true;
-      virtualisation.oci-containers."jellyfin" = {
-        autoStart = true;
-        image = "lscr.io/linuxserver/jellyfin:latest";
-        ports = [
-          "8096:8096"
-        ];
-        volumes = [
-          "/film:/film"
-          "/jelly-config:/config"
-        ];
-      }; 
-    };
-  };
-
-
 }
