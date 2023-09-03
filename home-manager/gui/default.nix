@@ -21,6 +21,7 @@ rec {
     streamlink
     mpv
     jellyfin-media-player
+    sublime-music
     gnome.nautilus
     pulsemixer
     playerctl
@@ -214,6 +215,14 @@ rec {
         ];
       };
       settings = {
+        "dom.security.https_only_mode" = true;
+        "privacy.trackingprotection.enable" = true;
+        "privacy.resistFingerprinting" = true;
+        "privacy.fingerprintingProtection" = true;
+        "extensions.pocket.enabled" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
+        "identity.fxaccounts.enabled" = false;
+        "signon.rememberSignons" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.urlbar.maxRichResults" = 0;
         "browser.newtabpage.enabled" = true;
