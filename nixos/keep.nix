@@ -226,7 +226,6 @@
 	        proxyWebsockets = true;
 	    };
       };
-
     };
   };
 }

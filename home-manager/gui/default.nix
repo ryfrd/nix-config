@@ -21,6 +21,7 @@ rec {
     streamlink
     mpv
     jellyfin-media-player
+    gnome.nautilus
     pulsemixer
     playerctl
     pamixer
