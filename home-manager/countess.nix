@@ -16,9 +16,9 @@
 
   borderValues = {
     enable = true;
-    width = "5";
+    width = "3";
     radius = "0";
-    gap = "0";
+    gap = "5";
   };
 
   fontProfiles = {
