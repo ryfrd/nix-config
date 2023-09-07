@@ -82,18 +82,6 @@
         HostName keep
         Port 97
         IdentityFile ~/.ssh/id_ed25519
-
-      Host countess
-        User james
-        HostName countess
-        Port 97
-        IdentityFile ~/.ssh/id_ed25519
-
-      Host baron
-        User james
-        HostName baron
-        Port 97
-        IdentityFile ~/.ssh/id_ed25519
     '';
   };
 
