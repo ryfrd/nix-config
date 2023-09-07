@@ -33,6 +33,7 @@
       22000 21027 # syncthing
       2049 # nfs server
       80 443 # nginx
+      3000
     ];
     allowedUDPPorts = [ 22000 ];
   };
@@ -48,7 +49,7 @@
     liveRestore = false;
     autoPrune.enable = true;
   };
-  users.users.james.extraGroups = [ "docker" ];
+  users.users.james.extraGroups = [ "docker" "podman" ];
 
   # nfs server
   fileSystems."/export/warhead" = {
@@ -68,19 +69,15 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@daily      root     sh /etc/cron-jobs/docker-backup.sh"
-      "@weekly      root     sh /etc/cron-jobs/smart.sh"
+      "@daily      root     sh /etc/cron-jobs/pod-image-pull.sh"
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
   };
 
   # link scripts to etc
   environment.etc = {
-    "cron-jobs/docker-backup.sh" = {
-      source = ./jobs/docker-backup.sh;
-    };
-    "cron-jobs/smart.sh" = {
-      source = ./jobs/smart.sh;
+    "cron-jobs/pod-image-pull.sh" = {
+      source = ./jobs/pod-image-pull.sh;
     };
     "cron-jobs/btrfs-maintenance.sh" = {
       source = ./jobs/btrfs-maintenance.sh;
@@ -228,4 +225,38 @@
       };
     };
   };
+
+  virtualisation.oci-containers.containers = {
+
+    "adguard" = {
+      autoStart = true;
+      image = "adguard/adguardhome"; 
+      ports = [
+        "53:53/tcp"
+        "53:53/udp"
+        "12000:3000/tcp"
+      ];
+      volumes = [
+        "/srv/adguard/work:/opt/adguardhome/work"
+        "/srv/adguard/conf:/opt/adguardhome/conf"
+      ];
+    };
+
+    "searx" = {
+      autoStart = true;
+      image = "searxng/searxng:latest"; 
+      environment = {
+        BASE_URL = "https://srx.dymc.win";
+        INSTANCE_NAME = "GO ON BIG BOY DONT BE SHY!";
+      };
+      ports = [
+        "11000:8080"
+      ];
+      volumes = [
+        "/srv/searx:/etc/searx"
+      ];
+    };
+
+  };
 }
+
