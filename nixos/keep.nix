@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }:
+let
+  podDataDir = "/mnt/warhead";
+  podConfDir = "/srv";
+  srxPort = 2000;
+  adPort = 3000;
+in
+{
 
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -30,10 +37,9 @@
   networking.firewall = {
     # syncthing ports
     allowedTCPPorts = [ 
-      22000 21027 # syncthing
+      # 22000 21027 # syncthing
       2049 # nfs server
       80 443 # nginx
-      3000
     ];
     allowedUDPPorts = [ 22000 ];
   };
@@ -234,11 +240,11 @@
       ports = [
         "53:53/tcp"
         "53:53/udp"
-        "12000:3000/tcp"
+        "${adPort}:3000/tcp"
       ];
       volumes = [
-        "/srv/adguard/work:/opt/adguardhome/work"
-        "/srv/adguard/conf:/opt/adguardhome/conf"
+        "${podConfDir}adguard/work:/opt/adguardhome/work"
+        "${podConfDir}adguard/conf:/opt/adguardhome/conf"
       ];
     };
 
