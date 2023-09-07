@@ -24,8 +24,8 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "ProggyClean Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "ProggyClean" ]; };
+      family = "Monofur Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Monofur" ]; };
     };
     regular = {
       family = "Fira Sans";
@@ -33,6 +33,6 @@
     };
   };
 
-  colorscheme = inputs.nix-colors.colorschemes.espresso;
+  colorscheme = inputs.nix-colors.colorschemes.onedark;
 
 }
