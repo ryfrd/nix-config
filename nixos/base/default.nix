@@ -45,10 +45,8 @@
 
   # networking
   networking = {
-    networkmanager.enable = true;
     firewall.enable = true;
   };
-  systemd.services.NetworkManager-wait-online.enable = false;
   services.tailscale.enable = true;
 
   # ssh

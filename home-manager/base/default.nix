@@ -36,6 +36,7 @@
     ranger
     fortune
     fetch
+    iproute2
 
     # fish plugins
     fishPlugins.z
@@ -62,7 +63,6 @@
       kssh = "kitty + kitten ssh";
     };
     functions = {
-      ss = "sudo systemctl $argv[1] $argv[2]";
       twitch = "streamlink https://twitch.tv/$argv[1] best -p mpv";
     };
   };

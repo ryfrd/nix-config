@@ -1,9 +1,14 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 let
-  podDataDir = "/mnt/warhead";
-  podConfDir = "/srv";
-  srxPort = 2000;
-  adPort = 3000;
+  podDataDir = "/mnt/warhead/";
+  podConfDir = "/srv/";
+  srxPort = "8000";
+  adPort = "8001";
+  shelfPort = "8002";
+  jellyPort = "8003";
+  kavPort = "8004";
+  naviPort = "8005";
+  syncPort = "8006";
 in
 {
 
@@ -24,9 +29,6 @@ in
 
   environment.systemPackages = with pkgs; [ 
     docker-compose
-    # cron job deps
-    gotify-cli
-    smartmontools
   ];
 
   # kernel
@@ -37,7 +39,6 @@ in
   networking.firewall = {
     # syncthing ports
     allowedTCPPorts = [ 
-      # 22000 21027 # syncthing
       2049 # nfs server
       80 443 # nginx
     ];
@@ -109,93 +110,12 @@ in
     recommendedTlsSettings = true;
 
     virtualHosts = {
-
       "qbit.dymc.win" = {
         enableACME = true;
         acmeRoot = null;
         addSSL = true;
         locations."/" = {
       	  proxyPass = "http://127.0.0.1:3000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "kav.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-      	  proxyPass = "http://127.0.0.1:4000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "jelly.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-      	  proxyPass = "http://127.0.0.1:5000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "navi.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:6000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "sync.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:7000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "prism.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:8000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "shelf.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:9000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "gtfy.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-      	  proxyPass = "http://127.0.0.1:10000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "srx.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:11000";
 	        proxyWebsockets = true;
 	      };
       };
@@ -232,37 +152,183 @@ in
     };
   };
 
-  virtualisation.oci-containers.containers = {
 
-    "adguard" = {
-      autoStart = true;
-      image = "adguard/adguardhome"; 
-      ports = [
-        "53:53/tcp"
-        "53:53/udp"
-        "${adPort}:3000/tcp"
-      ];
-      volumes = [
-        "${podConfDir}adguard/work:/opt/adguardhome/work"
-        "${podConfDir}adguard/conf:/opt/adguardhome/conf"
-      ];
-    };
-
-    "searx" = {
-      autoStart = true;
-      image = "searxng/searxng:latest"; 
-      environment = {
-        BASE_URL = "https://srx.dymc.win";
-        INSTANCE_NAME = "GO ON BIG BOY DONT BE SHY!";
-      };
-      ports = [
-        "11000:8080"
-      ];
-      volumes = [
-        "/srv/searx:/etc/searx"
-      ];
-    };
-
+  # adguardhome
+  virtualisation.oci-containers.containers."adguard" = {
+    autoStart = true;
+    image = "adguard/adguardhome"; 
+    ports = [
+      "53:53/tcp"
+      "53:53/udp"
+      "${adPort}:3000/tcp"
+    ];
+    volumes = [
+      "${podConfDir}adguard/work:/opt/adguardhome/work"
+      "${podConfDir}adguard/conf:/opt/adguardhome/conf"
+    ];
   };
+  services.nginx.virtualHosts."ad.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+	  proxyPass = "http://127.0.0.1:${adPort}";
+	  proxyWebsockets = true;
+	};
+  };
+
+  # searxng
+  virtualisation.oci-containers.containers."searx" = {
+    autoStart = true;
+    image = "searxng/searxng:latest"; 
+    environment = {
+      BASE_URL = "https://srx.dymc.win";
+      INSTANCE_NAME = "GO ON BIG BOY DONT BE SHY!";
+    };
+    ports = [
+      "${srxPort}:8080"
+    ];
+    volumes = [
+      "${podConfDir}searx:/etc/searx"
+    ];
+  };
+  services.nginx.virtualHosts."srx.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${srxPort}";
+      proxyWebsockets = true;
+	};
+  };
+
+  # audiobookshelf
+  virtualisation.oci-containers.containers."audiobookshelf" = {
+    autoStart = true;
+    image = "ghcr.io/advplyr/audiobookshelf"; 
+    ports = [
+      "${shelfPort}:80"
+    ];
+    volumes = [
+      "${podConfDir}audiobookshelf/metadata:/metadata"
+      "${podConfDir}audiobookshelf/config:/config"
+      "${podDataDir}media/book/audiobook:/audiobooks"
+    ];
+  };
+  services.nginx.virtualHosts."shelf.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${shelfPort}";
+      proxyWebsockets = true;
+	};
+  };
+
+  # jellyfin
+  virtualisation.oci-containers.containers."jellyfin" = {
+    autoStart = true;
+    image = "lscr.io/linuxserver/jellyfin:latest"; 
+    environment = {
+      PUID = "1000";
+      GUID = "1000";
+      TZ = "Europe/London";
+    };
+    ports = [
+      "${jellyPort}:8096"
+    ];
+    volumes = [
+      "${podConfDir}jellyfin/config:/config"
+      "${podDataDir}media/tv:/data/tv"
+      "${podDataDir}media/film:/data/film"
+    ];
+  };
+  services.nginx.virtualHosts."jelly.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${jellyPort}";
+      proxyWebsockets = true;
+	};
+  };
+
+  # kavita
+  virtualisation.oci-containers.containers."kavita" = {
+    autoStart = true;
+    image = "kizaing/kavita:latest"; 
+    environment = {
+      TZ = "Europe/London";
+    };
+    ports = [
+      "${kavPort}:5000"
+    ];
+    volumes = [
+      "${podConfDir}kavita/data:/config"
+      "${podDataDir}media/book/ebook:/books"
+    ];
+  };
+  services.nginx.virtualHosts."kav.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${kavPort}";
+      proxyWebsockets = true;
+	};
+  };
+
+  # navidrome
+  virtualisation.oci-containers.containers."navidrome" = {
+    autoStart = true;
+    image = "deluan/navidrome:latest"; 
+    ports = [
+      "${naviPort}:4533"
+    ];
+    volumes = [
+      "${podConfDir}navidrome/data:/data"
+      "${podDataDir}media/music:/music:ro"
+    ];
+  };
+  services.nginx.virtualHosts."navi.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${naviPort}";
+      proxyWebsockets = true;
+	};
+  };
+
+  # syncthing
+  virtualisation.oci-containers.containers."syncthing" = {
+    autoStart = true;
+    image = "lscr.io/linuxserver/syncthing:latest"; 
+    environment = {
+      PUID = "1000";
+      GUID = "1000";
+      TZ = "Europe/London";
+    };
+    ports = [
+      "${syncPort}:8384"
+      "22000:22000/tcp"
+      "22000:22000/udp"
+      "21027:21027/udp"
+    ];
+    volumes = [
+      "${podConfDir}syncthing/config:/config"
+      "${podDataDir}:/data"
+    ];
+  };
+  services.nginx.virtualHosts."sync.dymc.win" = {
+    enableACME = true;
+    acmeRoot = null;
+    addSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${syncPort}";
+      proxyWebsockets = true;
+	};
+  };
+
 }
 
