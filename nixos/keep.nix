@@ -37,7 +37,6 @@ in
   # networking
   networking.hostName = "keep";
   networking.firewall = {
-    # syncthing ports
     allowedTCPPorts = [ 
       2049 # nfs server
       80 443 # nginx

@@ -25,7 +25,7 @@
 
   home.packages = with pkgs; [
     # command line essentials
-    exa
+    eza
     ripgrep
     fd
     curl
@@ -53,7 +53,7 @@
       starship init fish | source
     ";
     shellAliases = {
-      ls = "exa";
+      ls = "eza";
       grep = "rg";
       i = "curl -s ipinfo.io";
       ".." = "cd ..";
@@ -80,6 +80,18 @@
       Host keep
         User james
         HostName keep
+        Port 97
+        IdentityFile ~/.ssh/id_ed25519
+
+      Host bastion
+        User james
+        HostName bastion
+        Port 97
+        IdentityFile ~/.ssh/id_ed25519
+
+      Host phalanx
+        User james
+        HostName phalanx
         Port 97
         IdentityFile ~/.ssh/id_ed25519
     '';

@@ -22,6 +22,9 @@
   # networking
   networking.hostName = "countess";
 
+  # wifi
+  networking.networkmanager.enable = true;
+
   # backlight control
   programs.light.enable = true;
   users.users.james.extraGroups = [ "video" ];

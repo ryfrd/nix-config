@@ -3,7 +3,7 @@
 
   inputs = {
     # nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -22,6 +22,7 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
+        "aarch64-linux"
       ];
     in
     rec {
@@ -62,6 +63,12 @@
             ./nixos/bastion.nix
           ];
         };
+        phalanx = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/phalanx.nix
+          ];
+        };
       };
 
       # available through 'home-manager --flake .#your-username@your-hostname'
@@ -92,6 +99,13 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/bastion.nix
+          ];
+        };
+        "james@phalanx" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/phalanx.nix
           ];
         };
       };
