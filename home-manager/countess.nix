@@ -10,7 +10,7 @@
 
     ./base
     ./de/hypr/countess.nix
-    ./gui
+    ./display
 
   ];
 
