@@ -7,6 +7,7 @@
     # inputs.nix-colors.homeManagerModules.default
 
     ./base
+    ./headless
 
   ];
 
