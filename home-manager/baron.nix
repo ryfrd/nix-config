@@ -10,7 +10,7 @@
 
     ./base
     ./de/hypr/baron.nix
-    ./gui
+    ./display
 
   ];
 
