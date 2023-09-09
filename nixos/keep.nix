@@ -151,31 +151,6 @@ in
     };
   };
 
-
-  # adguardhome
-  virtualisation.oci-containers.containers."adguard" = {
-    autoStart = true;
-    image = "adguard/adguardhome"; 
-    ports = [
-      "53:53/tcp"
-      "53:53/udp"
-      "${adPort}:3000/tcp"
-    ];
-    volumes = [
-      "${podConfDir}adguard/work:/opt/adguardhome/work"
-      "${podConfDir}adguard/conf:/opt/adguardhome/conf"
-    ];
-  };
-  services.nginx.virtualHosts."ad.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-	  proxyPass = "http://127.0.0.1:${adPort}";
-	  proxyWebsockets = true;
-	};
-  };
-
   # searxng
   virtualisation.oci-containers.containers."searx" = {
     autoStart = true;
