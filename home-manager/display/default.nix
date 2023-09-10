@@ -206,14 +206,15 @@ rec {
     enable = true;
     loadAutoconfig = true;
     searchEngines = {
-      DEFAULT = "https://srx.dymc.win/search?q={}";
+      #DEFAULT = "https://srx.dymc.win/search?q={}";
       ddg = "https://duckduckgo.com/?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://nixos.wiki/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
+      no = "https://search.nixos.org/options?query={}";
     };
     settings = {
-      url.start_pages = "https://srx.dymc.win";
+      url.start_pages = "https://start.duckduckgo.com";
       fonts = {
         default_family = "${font}";
         default_size = "12pt";

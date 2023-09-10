@@ -151,44 +151,16 @@ in
     };
   };
 
-  # searxng
-  services.searx = {
-    enable = true;
-    settings = {
-      server.port = 8080;
-      server.bind_address = "0.0.0.0";
-    };
-  };
-  services.nginx.virtualHosts."srx.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:8080";
-      proxyWebsockets = true;
-	};
-  };
-
-  # audiobookshelf
-
-  services.nginx.virtualHosts."shelf.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${shelfPort}";
-      proxyWebsockets = true;
-	};
-  };
-
   # jellyfin
-
+  services.jellfin = {
+    enable = true;
+  };
   services.nginx.virtualHosts."jelly.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
     addSSL = true;
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${jellyPort}";
+      proxyPass = "http://127.0.0.1:8096";
       proxyWebsockets = true;
 	};
   };
