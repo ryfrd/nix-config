@@ -55,7 +55,7 @@ in
     liveRestore = false;
     autoPrune.enable = true;
   };
-  users.users.james.extraGroups = [ "docker" "podman" ];
+  users.users.james.extraGroups = [ "docker" ];
 
   # nfs server
   fileSystems."/export/warhead" = {
@@ -151,11 +151,6 @@ in
     };
   };
 
-  # jellyfin
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-  };
   services.nginx.virtualHosts."jelly.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
