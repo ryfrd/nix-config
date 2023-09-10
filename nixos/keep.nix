@@ -152,8 +152,9 @@ in
   };
 
   # jellyfin
-  services.jellfin = {
+  services.jellyfin = {
     enable = true;
+    openFirewall = true;
   };
   services.nginx.virtualHosts."jelly.dymc.win" = {
     enableACME = true;
