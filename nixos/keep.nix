@@ -152,43 +152,25 @@ in
   };
 
   # searxng
-  virtualisation.oci-containers.containers."searx" = {
-    autoStart = true;
-    image = "searxng/searxng:latest"; 
-    environment = {
-      BASE_URL = "https://srx.dymc.win";
-      INSTANCE_NAME = "GO ON BIG BOY DONT BE SHY!";
+  services.searx = {
+    enable = true;
+    setings = {
+      server.port = 8080;
+      server.bind_address = "0.0.0.0";
     };
-    ports = [
-      "${srxPort}:8080"
-    ];
-    volumes = [
-      "${podConfDir}searx:/etc/searx"
-    ];
   };
   services.nginx.virtualHosts."srx.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
     addSSL = true;
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${srxPort}";
+      proxyPass = "http://127.0.0.1:8080";
       proxyWebsockets = true;
 	};
   };
 
   # audiobookshelf
-  virtualisation.oci-containers.containers."audiobookshelf" = {
-    autoStart = true;
-    image = "ghcr.io/advplyr/audiobookshelf"; 
-    ports = [
-      "${shelfPort}:80"
-    ];
-    volumes = [
-      "${podConfDir}audiobookshelf/metadata:/metadata"
-      "${podConfDir}audiobookshelf/config:/config"
-      "${podDataDir}media/book/audiobook:/audiobooks"
-    ];
-  };
+
   services.nginx.virtualHosts."shelf.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
@@ -200,23 +182,7 @@ in
   };
 
   # jellyfin
-  virtualisation.oci-containers.containers."jellyfin" = {
-    autoStart = true;
-    image = "lscr.io/linuxserver/jellyfin:latest"; 
-    environment = {
-      PUID = "1000";
-      GUID = "1000";
-      TZ = "Europe/London";
-    };
-    ports = [
-      "${jellyPort}:8096"
-    ];
-    volumes = [
-      "${podConfDir}jellyfin/config:/config"
-      "${podDataDir}media/tv:/data/tv"
-      "${podDataDir}media/film:/data/film"
-    ];
-  };
+
   services.nginx.virtualHosts."jelly.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
@@ -228,20 +194,7 @@ in
   };
 
   # kavita
-  virtualisation.oci-containers.containers."kavita" = {
-    autoStart = true;
-    image = "kizaing/kavita:latest"; 
-    environment = {
-      TZ = "Europe/London";
-    };
-    ports = [
-      "${kavPort}:5000"
-    ];
-    volumes = [
-      "${podConfDir}kavita/data:/config"
-      "${podDataDir}media/book/ebook:/books"
-    ];
-  };
+
   services.nginx.virtualHosts."kav.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
@@ -253,17 +206,7 @@ in
   };
 
   # navidrome
-  virtualisation.oci-containers.containers."navidrome" = {
-    autoStart = true;
-    image = "deluan/navidrome:latest"; 
-    ports = [
-      "${naviPort}:4533"
-    ];
-    volumes = [
-      "${podConfDir}navidrome/data:/data"
-      "${podDataDir}media/music:/music:ro"
-    ];
-  };
+
   services.nginx.virtualHosts."navi.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
@@ -275,25 +218,7 @@ in
   };
 
   # syncthing
-  virtualisation.oci-containers.containers."syncthing" = {
-    autoStart = true;
-    image = "lscr.io/linuxserver/syncthing:latest"; 
-    environment = {
-      PUID = "1000";
-      GUID = "1000";
-      TZ = "Europe/London";
-    };
-    ports = [
-      "${syncPort}:8384"
-      "22000:22000/tcp"
-      "22000:22000/udp"
-      "21027:21027/udp"
-    ];
-    volumes = [
-      "${podConfDir}syncthing/config:/config"
-      "${podDataDir}:/data"
-    ];
-  };
+
   services.nginx.virtualHosts."sync.dymc.win" = {
     enableACME = true;
     acmeRoot = null;
