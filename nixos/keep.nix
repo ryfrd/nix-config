@@ -154,7 +154,7 @@ in
   # searxng
   services.searx = {
     enable = true;
-    setings = {
+    settings = {
       server.port = 8080;
       server.bind_address = "0.0.0.0";
     };
