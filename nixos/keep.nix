@@ -1,16 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-let
-  podDataDir = "/mnt/warhead/";
-  podConfDir = "/srv/";
-  srxPort = "8000";
-  adPort = "8001";
-  shelfPort = "8002";
-  jellyPort = "8003";
-  kavPort = "8004";
-  naviPort = "8005";
-  syncPort = "8006";
-in
-{
+{ inputs, outputs, lib, config, pkgs, ... }: {
 
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -27,9 +15,7 @@ in
 
   ];
 
-  environment.systemPackages = with pkgs; [ 
-    docker-compose
-  ];
+
 
   # kernel
   boot.kernelPackages = pkgs.linuxPackages;
@@ -39,7 +25,6 @@ in
   networking.firewall = {
     allowedTCPPorts = [ 
       2049 # nfs server
-      80 443 # nginx
     ];
     allowedUDPPorts = [ 22000 ];
   };
@@ -56,6 +41,9 @@ in
     autoPrune.enable = true;
   };
   users.users.james.extraGroups = [ "docker" ];
+  environment.systemPackages = with pkgs; [ 
+    docker-compose
+  ];
 
   # nfs server
   fileSystems."/export/warhead" = {
@@ -89,113 +77,5 @@ in
       source = ./jobs/btrfs-maintenance.sh;
     };
   };
-
-  # proxies for docker services
-  security.acme = {
-    acceptTerms = true;
-    defaults = {
-      email = "jdysmcl@tutanota.com";
-      dnsProvider = "cloudflare";
-      credentialsFile = "/etc/nixos/cloudflare.env";
-    };
-  };
-
-  services.nginx = {
-    enable = true;
-
-    recommendedGzipSettings = true;
-    recommendedOptimisation = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-
-    virtualHosts = {
-      "qbit.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-      	  proxyPass = "http://127.0.0.1:3000";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "prowl.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-      	  proxyPass = "http://127.0.0.1:9696";
-	        proxyWebsockets = true;
-	      };
-      };
-
-      "rdr.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:7878";
-	        proxyWebsockets = true;
-	    };
-      };
-
-      "snr.dymc.win" = {
-        enableACME = true;
-        acmeRoot = null;
-        addSSL = true;
-        locations."/" = {
-	        proxyPass = "http://127.0.0.1:8989";
-	        proxyWebsockets = true;
-	    };
-      };
-    };
-  };
-
-  services.nginx.virtualHosts."jelly.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:8096";
-      proxyWebsockets = true;
-	};
-  };
-
-  # kavita
-
-  services.nginx.virtualHosts."kav.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${kavPort}";
-      proxyWebsockets = true;
-	};
-  };
-
-  # navidrome
-
-  services.nginx.virtualHosts."navi.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${naviPort}";
-      proxyWebsockets = true;
-	};
-  };
-
-  # syncthing
-
-  services.nginx.virtualHosts."sync.dymc.win" = {
-    enableACME = true;
-    acmeRoot = null;
-    addSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${syncPort}";
-      proxyWebsockets = true;
-	};
-  };
-
 }
 

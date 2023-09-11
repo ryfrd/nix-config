@@ -32,7 +32,7 @@
     };
   };
 
-  # enable btrfs compression on root
+  # enable compression on btrfs root
   fileSystems = {
     "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
