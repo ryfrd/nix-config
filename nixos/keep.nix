@@ -23,7 +23,6 @@
   networking.firewall = {
     allowedTCPPorts = [ 
       2049 # nfs server
-      80 443
     ];
     allowedUDPPorts = [ 22000 ];
   };
