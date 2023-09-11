@@ -15,8 +15,6 @@
 
   ];
 
-
-
   # kernel
   boot.kernelPackages = pkgs.linuxPackages;
 
@@ -25,6 +23,7 @@
   networking.firewall = {
     allowedTCPPorts = [ 
       2049 # nfs server
+      80 443
     ];
     allowedUDPPorts = [ 22000 ];
   };
@@ -63,16 +62,12 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@daily      root     sh /etc/cron-jobs/pod-image-pull.sh"
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
   };
 
   # link scripts to etc
   environment.etc = {
-    "cron-jobs/pod-image-pull.sh" = {
-      source = ./jobs/pod-image-pull.sh;
-    };
     "cron-jobs/btrfs-maintenance.sh" = {
       source = ./jobs/btrfs-maintenance.sh;
     };
