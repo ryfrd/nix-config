@@ -19,14 +19,12 @@
   services.caddy = {
     enable = true;
     email="jdysmcl@tutanota.com";
-    virtualHosts = {
-      "read.jdysmcl.xyz" = {
-        extraConfig = ''
-          encode gzip
-          root /var/www/blog
-        '';
-      };
-    };
+    extraConfig = ''
+      read.jdysmcl.xyz {
+        encode gzip
+        root /var/www/blog
+      }
+    '';
   };
 
 }
