@@ -27,6 +27,13 @@
     allowedUDPPorts = [ 22000 ];
   };
 
+  # enable compression on btrfs root
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
   # enable compression on mount
   fileSystems = {
     "/mnt/warhead".options = [ "compress=zstd" ];

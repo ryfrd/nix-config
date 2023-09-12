@@ -23,6 +23,13 @@
   # networking
   networking.hostName = "baron";
 
+  # enable compression on btrfs root
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
 
 
   programs.dconf.enable = true;

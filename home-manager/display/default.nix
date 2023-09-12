@@ -212,13 +212,14 @@ rec {
       nw = "https://nixos.wiki/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
       no = "https://search.nixos.org/options?query={}";
+      m = "https://www.openstreetmap.org/search?query={}";
     };
     settings = {
       url.start_pages = "file:///home/james/.config/qutebrowser/start.html";
-      #fonts = {
+      fonts = {
       #  default_family = "${font}";
-      #  default_size = "12pt";
-      #};
+        default_size = "13pt";
+      };
       colors = {
         webpage = {
           preferred_color_scheme = config.colorscheme.kind;

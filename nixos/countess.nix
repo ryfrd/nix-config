@@ -22,6 +22,13 @@
   # networking
   networking.hostName = "countess";
 
+  # enable compression on btrfs root
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
   # wifi
   networking.networkmanager.enable = true;
 

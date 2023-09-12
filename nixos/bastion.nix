@@ -26,6 +26,13 @@
     allowedUDPPorts = [ 53 ];
   };
 
+  # enable compression on btrfs root
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
   services.adguardhome = {
     enable = true;
     mutableSettings = true;
