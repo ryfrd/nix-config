@@ -11,6 +11,7 @@
     ./hardware/keep.nix
 
     ./base
+    ./docker
     ./power
 
   ];
@@ -38,17 +39,6 @@
   fileSystems = {
     "/mnt/warhead".options = [ "compress=zstd" ];
   };
-
-  # docker
-  virtualisation.docker = {
-    enable = true;
-    liveRestore = false;
-    autoPrune.enable = true;
-  };
-  users.users.james.extraGroups = [ "docker" ];
-  environment.systemPackages = with pkgs; [ 
-    docker-compose
-  ];
 
   # nfs server
   fileSystems."/export/warhead" = {
