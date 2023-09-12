@@ -16,16 +16,19 @@
   # networking
   networking.hostName = "phalanx";
 
-  services.caddy = {
-    enable = true;
-    email="jdysmcl@tutanota.com";
-    extraConfig = ''
-      read.jdysmcl.xyz {
-        encode gzip
-        root /var/www/blog
-      }
-    '';
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "jdysmcl@tutanota.com";
   };
+  services.nginx = {
+    enable = true;
+    virtualHosts."read.jdysmcl.xyz" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/blog/";
+    };
+  };
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
 }
 
