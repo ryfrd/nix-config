@@ -74,7 +74,6 @@
       initialPassword = "changethisyoupickle";
       extraGroups = [
         "wheel"
-        "networkmanager"
       ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKW4ofxuyFKtDXCHHR6UDf5hGolKwZqt3h7SFLCCy++6 james@baron" # desktop

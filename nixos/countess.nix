@@ -25,6 +25,8 @@
   # wifi
   networking.networkmanager.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 1313 ];
+
   # backlight control
   programs.light.enable = true;
   users.users.james.extraGroups = [ "video" ];

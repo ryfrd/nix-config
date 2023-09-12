@@ -24,15 +24,15 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "CodeNewRoman Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "CodeNewRoman" ]; };
+      family = "Agave Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
     };
     regular = {
-      family = "Fira Sans";
-      package = pkgs.fira;
+      family = "Agave Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
     };
   };
 
-  colorscheme = inputs.nix-colors.colorschemes.everforest;
+  colorscheme = inputs.nix-colors.colorschemes.dracula;
 
 }
