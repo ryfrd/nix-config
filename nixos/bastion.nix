@@ -69,4 +69,11 @@
 	  };
     };
   };
+
+  # let keep and phalanx in for rsync backup
+  users.users.james.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINWqX/8jJfWVfMmFDbOao0w1OVszEm/H6Us/klsDgYxp james@keep" 
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICli6sVEu6lOYwGKklBIiv5At11phXFEbcS4rh0lzuIJ james@phalanx"
+  ];
+
 }

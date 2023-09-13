@@ -58,14 +58,18 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
+      "@daily      root     sh /etc/cron-jobs/keep-backup.sh"
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
   };
 
   # link scripts to etc
   environment.etc = {
+    "cron-jobs/keep-backup.sh" = {
+      source = ./jobs/keep-backup.sh;
+    };
     "cron-jobs/btrfs-maintenance.sh" = {
-      source = ./jobs/btrfs-maintenance.sh;
+      source = ./jobs/keep-backup.sh;
     };
   };
 }

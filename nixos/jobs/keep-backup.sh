@@ -7,5 +7,5 @@ declare -a targets=(
 )
 
 for target in "${targets[@]}"; do
-    rsync -av --delete -e 'ssh -p 97' $target $remote:/home/james/backup &&
+    rsync -av --delete -e 'ssh -p 97' $target $remote:/home/james/backup/keep &&
 done
