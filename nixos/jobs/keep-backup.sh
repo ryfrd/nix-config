@@ -1,11 +1,3 @@
-remote="james@bastion"
-
-declare -a targets=(
-    "/mnt/warhead/pics"
-    "/mnt/warhead/docs"
-    "$HOME/docker"
-)
-
-for target in "${targets[@]}"; do
-    rsync -av --delete -e 'ssh -p 97' $target $remote:/home/james/backup/keep
-done
+rsync -av --delete -e 'ssh -p 97' /mnt/warhead/pics james@bastion:/home/james/backup/keep
+rsync -av --delete -e 'ssh -p 97' /mnt/warhead/docs james@bastion:/home/james/backup/keep
+rsync -av --delete -e 'ssh -p 97' $HOME/docker james@bastion:/home/james/backup/keep
