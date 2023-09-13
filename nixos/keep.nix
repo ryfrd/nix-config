@@ -72,5 +72,7 @@
       source = ./jobs/keep-backup.sh;
     };
   };
+
+  environment.systemPackages = with pkgs; [ rsync ];
 }
 
