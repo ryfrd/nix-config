@@ -71,7 +71,7 @@
   };
 
   # let keep and phalanx in for rsync backup
-  users.users.james.openssh.authorizedKeys.keys = [
+  users.users."james".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdRRGO2jiXuFGoc42sEVGhLOuEwDj7PlXzj+jlMBxRu root@keep"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID14yuY/fsUC1cm/tpUlXXbR9KLQGrHhUR+WOZiRI2B6 root@phalanx"
   ];
