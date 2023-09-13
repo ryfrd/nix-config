@@ -69,10 +69,10 @@
       source = ./jobs/keep-backup.sh;
     };
     "cron-jobs/btrfs-maintenance.sh" = {
-      source = ./jobs/keep-backup.sh;
+      source = ./jobs/btrfs-maintenance.sh;
     };
   };
 
-  environment.systemPackages = with pkgs; [ rsync ];
+  environment.systemPackages = with pkgs; [ rsync gotify-cli ];
 }
 
