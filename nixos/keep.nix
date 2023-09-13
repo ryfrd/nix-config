@@ -58,7 +58,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@weekly      root     sh /etc/cron-jobs/keep-backup.sh"
+      "@weekly      james     sh /etc/cron-jobs/keep-backup.sh"
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
   };
