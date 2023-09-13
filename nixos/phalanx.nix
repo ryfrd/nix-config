@@ -17,19 +17,20 @@
   # networking
   networking.hostName = "phalanx";
 
-  #security.acme = {
-  #  acceptTerms = true;
-  #  defaults.email = "jdysmcl@tutanota.com";
-  #};
-  #services.nginx = {
-  #  enable = true;
-  #  virtualHosts."read.jdysmcl.xyz" = {
-  #    enableACME = true;
-  #    forceSSL = true;
-  #    root = "/var/www/blog/";
-  #  };
-  #};
-  #networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 5222 5269 5000 ];
+  networking.firewall.allowedUDPPorts = [ 3478 3479 5349 5350 ];
+
+  services.fail2ban = {
+    enable = true;
+    maxretry = 5;
+    bantime = "1h";
+    ignoreIP = [ "countess" "baron" ]; # whitelist tailscale hosts
+  };
+
+  services.endlessh = {
+    enable = true;
+    openFirewall = true;
+    port = 22;
+  };
 
 }
-
