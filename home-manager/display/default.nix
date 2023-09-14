@@ -29,6 +29,7 @@ rec {
     cava
     wl-clipboard
     bitwarden
+    dino
   ];
 
   services.syncthing.enable = true;

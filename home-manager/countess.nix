@@ -28,8 +28,8 @@
       package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
     };
     regular = {
-      family = "Agave Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+      family = "Fira Sans";
+      package = pkgs.fira;
     };
   };
 

@@ -17,8 +17,25 @@
   # networking
   networking.hostName = "phalanx";
 
-  networking.firewall.allowedTCPPorts = [ 80 443 5222 5269 5000 ];
-  networking.firewall.allowedUDPPorts = [ 3478 3479 5349 5350 ];
+  networking.firewall.allowedTCPPorts = [ 
+    80 443 # web interface and file sharing
+    5222 # client connections
+    5269 # federation
+    5000 # file transfer proxy
+    3478 3479 # STUN/TURN
+    5349 5350 # STUN/TURN TLS
+  ];
+  networking.firewall.allowedUDPPorts = [ 
+    3478 3479 # STUN/TURN
+    5349 5350 # STUN/TURN TLS
+  ];
+  # for TURN data
+  networking.firewall.allowedUDPPortRanges = [
+    {
+      from = 49152;
+      to = 65535;
+    }
+  ];
 
   services.fail2ban = {
     enable = true;
