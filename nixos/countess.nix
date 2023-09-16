@@ -30,9 +30,8 @@
   };
 
   # wifi
-  networking.networkmanager.enable = true;
-
-  networking.firewall.allowedTCPPorts = [ 1313 ];
+  networking.wireless.enable = true;
+  networking.wireless.userControlled.enable = true;
 
   # backlight control
   programs.light.enable = true;
