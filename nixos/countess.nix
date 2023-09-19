@@ -30,8 +30,9 @@
   };
 
   # wifi
-  networking.wireless.enable = true;
-  networking.wireless.userControlled.enable = true;
+  networking.networkmanager.enable = true;
+  # share dev items with tailnet
+  networking.firewall.allowedTCPPorts = [ 1313 ];
 
   # backlight control
   programs.light.enable = true;

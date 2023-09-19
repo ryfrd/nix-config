@@ -24,6 +24,7 @@
     5000 # file transfer proxy
     3478 3479 # STUN/TURN
     5349 5350 # STUN/TURN TLS
+    3000 4000 # mastodon
   ];
   networking.firewall.allowedUDPPorts = [ 
     3478 3479 # STUN/TURN
