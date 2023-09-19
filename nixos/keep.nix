@@ -73,6 +73,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ rsync gotify-cli ];
+  environment.systemPackages = with pkgs; [ rsync ];
 }
 

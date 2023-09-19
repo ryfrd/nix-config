@@ -50,4 +50,21 @@
     port = 22;
   };
 
+  # cron jobs
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "@weekly      root     sh /etc/cron-jobs/phalanx-backup.sh"
+    ];
+  };
+
+  # link scripts to etc
+  environment.etc = {
+    "cron-jobs/phalanx-backup.sh" = {
+      source = ./jobs/phalanx-backup.sh;
+    };
+  };
+
+  environment.systemPackages = with pkgs; [ rsync ];
+
 }
