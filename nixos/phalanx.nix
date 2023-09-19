@@ -32,8 +32,8 @@
   # for TURN data
   networking.firewall.allowedUDPPortRanges = [
     {
-      from = 49152;
-      to = 65535;
+      from = 60000;
+      to = 61023;
     }
   ];
 
