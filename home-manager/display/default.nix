@@ -25,6 +25,7 @@ rec {
     gnome.nautilus
     pulsemixer
     playerctl
+
     pamixer
     cava
     wl-clipboard
@@ -97,6 +98,7 @@ rec {
     };
     settings = {
       shell_integration = "no-rc";
+
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       enable_audio_bell = "no";

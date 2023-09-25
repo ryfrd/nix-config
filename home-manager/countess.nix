@@ -14,13 +14,6 @@
 
   ];
 
-  borderValues = {
-    enable = true;
-    width = "3";
-    radius = "0";
-    gap = "5";
-  };
-
   fontProfiles = {
     enable = true;
     monospace = {

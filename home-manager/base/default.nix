@@ -33,7 +33,7 @@
     tree
     htop
     dua
-    ranger
+    yazi
     fortune
     fetch
     iproute2

@@ -8,10 +8,10 @@
     ./hardware/countess.nix
 
     ./base
+    ./gaming
     ./nfs-client
     ./pipewire
     ./power
-    ./steam
     ./virt
 
   ];

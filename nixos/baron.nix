@@ -10,9 +10,9 @@
     ./hardware/baron.nix
 
     ./base
+    ./gaming
     ./nfs-client
     ./pipewire
-    ./steam
     ./virt
 
   ];
