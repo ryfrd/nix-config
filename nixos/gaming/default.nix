@@ -14,18 +14,20 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (lutris.override {
-      extraPkgs =  pkgs: [
-        fuse
-        p7zip
-        #libretro.desmume #ds
-        #libretro.mupen64plus #n64
-        #libretro.ppsspp #psp
-        #libretro.snes9x #snes
+    (retroarch.override {
+      cores = with libretro; [
+        genesis-plus-gx # genesis
+        mgba # gameboy advance
+        snes9x # snes
+        citra # 3ds
+        desmume # ds 
+        dolphin # gamecube & wii
+        mupen64plus # 64
+        beetle-psx-hw # psx
+        ppsspp # psp
+        pcsx2 # ps2
       ];
     })
-    mindustry
-    wesnoth
   ];
 
 }
