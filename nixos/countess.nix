@@ -9,7 +9,6 @@
 
     ./base
     ./gaming
-    ./nfs-client
     ./pipewire
     ./power
     ./virt
