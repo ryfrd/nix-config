@@ -101,26 +101,12 @@
         "type": "github"
       }
     },
-    "nur": {
-      "locked": {
-        "lastModified": 1694252731,
-        "narHash": "sha256-+NEJQQjnG24y2spvw08yPwwBUCkby6tYWtuqisIJ6lk=",
-        "path": "/nix/store/5wkfmvhdqb4mpv4scdlsng6yimgh93rn-source",
-        "rev": "c86bee08c440c2b3c5feb6eac9f3fe145f98a278",
-        "type": "path"
-      },
-      "original": {
-        "id": "nur",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
-        "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
