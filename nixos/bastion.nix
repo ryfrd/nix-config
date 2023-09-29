@@ -35,7 +35,7 @@
 
   services.adguardhome = {
     enable = true;
-    mutableSettings = false;
+    mutableSettings = true;
     openFirewall = false;
     settings = {
       bind_host = "0.0.0.0";
