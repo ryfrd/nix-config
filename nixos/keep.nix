@@ -39,21 +39,21 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@weekly      root     sh /etc/cron-jobs/keep-backup.sh"
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
     ];
   };
 
   # link scripts to etc
   environment.etc = {
-    "cron-jobs/keep-backup.sh" = {
-      source = ./jobs/keep-backup.sh;
-    };
     "cron-jobs/btrfs-maintenance.sh" = {
       source = ./jobs/btrfs-maintenance.sh;
     };
   };
 
-  environment.systemPackages = with pkgs; [ rsync ];
+  # let backup machine in
+  users.users."james".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMRcI9UQTswjZA+iLMRaNZZYGBqlVbayZj1cGGSVBGV7 root@bastion"
+  ];
+
 }
 

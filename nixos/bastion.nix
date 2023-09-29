@@ -70,10 +70,23 @@
     };
   };
 
-  # let keep and phalanx in for rsync backup
-  users.users."james".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdRRGO2jiXuFGoc42sEVGhLOuEwDj7PlXzj+jlMBxRu root@keep"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID14yuY/fsUC1cm/tpUlXXbR9KLQGrHhUR+WOZiRI2B6 root@phalanx"
-  ];
+  # backup job
+  # grabs important items from keep and phalanx
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "@weekly      root     sh /etc/cron-jobs/backup.sh"
+    ];
+  };
+
+  # link script to etc
+  environment.etc = {
+    "cron-jobs/backup.sh" = {
+      source = ./jobs/backup.sh;
+    };
+  };
+
+  # backup deps
+  environment.systemPackages = with pkgs; [ rsync ];
 
 }

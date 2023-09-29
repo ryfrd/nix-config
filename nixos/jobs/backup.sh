@@ -1,4 +1,4 @@
-rsync -av --delete -e 'ssh -p 97' /home/james/backup/keep/pics james@keep:/mnt/warhead/pics
-rsync -av --delete -e 'ssh -p 97' /home/james/backup/keep/docs james@keep:/mnt/warhead/docs
-rsync -av --delete -e 'ssh -p 97' /home/james/backup/keep/docker james@keep:/home/james/docker
-rsync -av --delete -e 'ssh -p 97' /home/james/backup/phalanx/docker james@phalanx:/home/james/docker
+rsync -chavzP 'ssh -p 97' james@keep:/mnt/warhead/pics /home/james/backup/keep/pics
+rsync -chavzP 'ssh -p 97' james@keep:/mnt/warhead/docs /home/james/backup/keep/docs
+rsync -chavzP 'ssh -p 97' james@keep:/home/james/docker /home/james/backup/keep/docker
+rsync -chavzP 'ssh -p 97' james@phalanx:/home/james/docker /home/james/backup/phalanx/docker
