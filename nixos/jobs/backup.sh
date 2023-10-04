@@ -1,4 +1,7 @@
-rsync -az --delete -e 'ssh -p 97' james@keep:/mnt/warhead/pics /home/james/backup/keep
-rsync -az --delete -e 'ssh -p 97' james@keep:/mnt/warhead/docs /home/james/backup/keep
-rsync -az --delete -e 'ssh -p 97' james@keep:/home/james/docker /home/james/backup/keep
-rsync -az --delete -e 'ssh -p 97' james@phalanx:/home/james/docker /home/james/backup/phalanx
+remote="u370354@u370354.your-storagebox.de";
+i=1;
+for dir in "$@" 
+do
+    rsync -caz --delete -e 'ssh -p 23' $dir $remote:/home;
+    i=$((i + 1));
+done
