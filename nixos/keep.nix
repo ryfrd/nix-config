@@ -40,6 +40,7 @@
     enable = true;
     systemCronJobs = [
       "@monthly      root     sh /etc/cron-jobs/btrfs-maintenance.sh"
+      "@weekly      root     sh /etc/cron-jobs/backup.sh /mnt/warhead/docs /mnt/warhead/pics /home/james/docker"
     ];
   };
 
@@ -48,12 +49,10 @@
     "cron-jobs/btrfs-maintenance.sh" = {
       source = ./jobs/btrfs-maintenance.sh;
     };
+    "cron-jobs/backup.sh" = {
+      source = ./jobs/backup.sh;
+    };
   };
-
-  # let backup machine in
-  users.users."james".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMRcI9UQTswjZA+iLMRaNZZYGBqlVbayZj1cGGSVBGV7 root@bastion"
-  ];
 
 }
 

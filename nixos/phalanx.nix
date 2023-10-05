@@ -51,9 +51,4 @@
     port = 22;
   };
 
-  # let backup machine in
-  users.users."james".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMRcI9UQTswjZA+iLMRaNZZYGBqlVbayZj1cGGSVBGV7 root@bastion"
-  ];
-
 }
