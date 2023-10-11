@@ -209,8 +209,8 @@ rec {
     enable = true;
     loadAutoconfig = true;
     searchEngines = {
-      DEFAULT = "https://srx.dymc.win/search?q={}";
-      ddg = "https://duckduckgo.com/?q={}";
+      # DEFAULT = "https://srx.dymc.win/search?q={}";
+      DEFAULT = "https://duckduckgo.com/?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://nixos.wiki/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
@@ -220,7 +220,7 @@ rec {
     settings = {
       url.start_pages = "file:///home/james/.config/qutebrowser/start.html";
       fonts = {
-      #  default_family = "${font}";
+        default_family = "${font}";
         default_size = "13pt";
       };
       colors = {
