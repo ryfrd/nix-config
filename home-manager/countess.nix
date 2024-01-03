@@ -14,15 +14,22 @@
 
   ];
 
+  borderValues = {
+    enable = true;
+    width = "3";
+    radius = "0";
+    gap = "20";
+  };
+
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "Agave Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+      family = "ComicShannsMono Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "ComicShannsMono" ]; };
     };
     regular = {
-      family = "Fira Sans";
-      package = pkgs.fira;
+      family = "ComicShannsMono Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "ComicShannsMono" ]; };
     };
   };
 

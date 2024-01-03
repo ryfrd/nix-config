@@ -22,20 +22,13 @@ rec {
     mpv
     jellyfin-media-player
     sublime-music
-    gnome.nautilus
     pulsemixer
     playerctl
 
     pamixer
     cava
     wl-clipboard
-    bitwarden
-    dino
   ];
-
-  services.syncthing.enable = true;
-
-
 
   # notifications
   services.dunst = {
@@ -216,6 +209,8 @@ rec {
       np = "https://search.nixos.org/packages?query={}";
       no = "https://search.nixos.org/options?query={}";
       m = "https://www.openstreetmap.org/search?query={}";
+      rym = "https://rateyourmusic.com/search?searchterm={}";
+      lb = "https://letterboxd.com/search/{}";
     };
     settings = {
       url.start_pages = "file:///home/james/.config/qutebrowser/start.html";

@@ -9,7 +9,7 @@
 
     ];
     config = {
-      allowUnfree = false;
+      allowUnfree = true;
     };
   };
 
