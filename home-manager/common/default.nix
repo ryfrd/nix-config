@@ -19,6 +19,7 @@ rec {
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+
     # gui
     gimp
     jellyfin-media-player
@@ -392,8 +393,8 @@ rec {
     enable = true;
     loadAutoconfig = true;
     searchEngines = {
-      # DEFAULT = "https://srx.dymc.win/search?q={}";
-      DEFAULT = "https://duckduckgo.com/?q={}";
+      DEFAULT = "https://srx.dymc.win/search?q={}";
+      #DEFAULT = "https://duckduckgo.com/?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://nixos.wiki/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
@@ -403,7 +404,7 @@ rec {
       lb = "https://letterboxd.com/search/{}";
     };
     settings = {
-      #url.start_pages = "file:///home/james/.config/qutebrowser/start.html";
+      url.start_pages = "https://srx.dymc.win";
       fonts = {
         default_family = "${font}";
         default_size = "13pt";

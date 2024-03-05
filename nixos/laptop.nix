@@ -9,6 +9,7 @@
     ./features/gaming
     ./features/nfs-client
     ./features/pipewire
+    ./features/power
     ./features/syncthing
     ./features/virtualisation
 
@@ -40,11 +41,6 @@
   services.blueman.enable = true;
 
   services.xserver.libinput.enable = true;
-
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "powersave";
-  };
 
   hardware.opengl.enable = true;
 
