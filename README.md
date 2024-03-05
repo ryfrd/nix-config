@@ -1,26 +1,11 @@
-nix config for my computers!!!
+`hostname.nix` - config i want exclusively on that machine
 
-### update flake inputs
+`common.nix` - config i want on all machines; imported into all `hostname.nix` files
 
-`nix flake update`
+config i want on multiple but not all machines split out into modules that are imported in `hostname.nix` file eg.
 
-### rebuild system
-
-`sudo nixos-rebuild switch --flake github:ryfrd/nix-config`
-
-### rebuild home
-
-`home-manager switch --flake github:ryfrd/nix-config`
-
-### machines
-
-- countess (laptop)
-- baron (desktop gaming powerhouse)
-- keep (home server)
-- bastion (dns + homeassistant + backup box)
-
-if shared between all machines plop in base
-
-if used by more than one machine but not all create separate import
-
-if used by one machine plop in machine specific file eg. keep.nix
+```nix
+imports = [
+  ./docker/default.nix
+];
+```
