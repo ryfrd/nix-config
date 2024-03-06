@@ -11,8 +11,8 @@
 
   borderValues = {
     enable = true;
-    width = "1";
-    radius = "5";
+    width = "2";
+    radius = "0";
     gap = "50";
   };
 
@@ -28,7 +28,7 @@
     };
   };
 
-  colorscheme = inputs.nix-colors.colorschemes.dracula;
+  colorscheme = inputs.nix-colors.colorschemes.everforest;
 
   wayland.windowManager.hyprland.extraConfig = ''
     monitor = DP-1,1920x1080@144,0x0,1
