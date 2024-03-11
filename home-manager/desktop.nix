@@ -31,7 +31,7 @@
   colorscheme = inputs.nix-colors.colorschemes.everforest;
 
   wayland.windowManager.hyprland.extraConfig = ''
-    monitor = DP-1,1920x1080@144,0x0,1
+    monitor = DP-3,1920x1080@144,0x0,1
   '';
 
 }
