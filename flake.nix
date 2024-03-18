@@ -1,4 +1,7 @@
 {
+
+  description = "nixos config for multiple compouters";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
@@ -7,63 +10,40 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = {
-    self,
+  outputs = inputs@{
     nixpkgs,
     home-manager,
+    nix-colors,
+    hardware,
     ...
-  }@inputs:  let
-    inherit (self) outputs;
-    systems = [
-      "x86_64-linux"
-      "aarch64-linux"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    packages = forAllSystems (system: nixpkgs.legacyPackages.${system});
-
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-
+  }: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
+        system = "x86-64_linux";
+    	specialArgs = { inherit hardware; };
         modules = [
           ./nixos/laptop.nix
+	      home-manager.nixosModules.home-manager {
+	        home-manager.useGlobalPkgs = true;
+	        home-manager.useUserPackages = true;
+	        home-manager.users.james = import ./home-manager/laptop.nix;
+	        home-manager.extraSpecialArgs = { inherit nix-colors; };
+	      }
         ];
       };
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/desktop.nix
         ];
       };
       homelab = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/homelab.nix
         ];
       };
       remotelab = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/remotelab.nix
-        ];
-      };
-    };
-    homeConfigurations = {
-      "james@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [
-          ./home-manager/laptop.nix
-        ];
-      };
-      "james@desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [
-          ./home-manager/desktop.nix
         ];
       };
     };

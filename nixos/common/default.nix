@@ -1,15 +1,10 @@
 { lib, config, pkgs, ... }: {
 
   nix = {
-    settings = {
-      experimental-features = "nix-command flakes";
-      auto-optimise-store = true;
-      trusted-users = [ "james" ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-    };
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   networking.firewall.enable = true;
@@ -26,5 +21,9 @@
     };
   };
   programs.fish.enable = true;
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "Agave" ]; })
+  ];
 
 }

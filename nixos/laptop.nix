@@ -1,8 +1,8 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ lib, config, pkgs, hardware, ... }: {
 
   imports = [
 
-    inputs.hardware.nixosModules.lenovo-thinkpad-t14
+    hardware.nixosModules.lenovo-thinkpad-t14
     ./hardware/laptop.nix
 
     ./common

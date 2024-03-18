@@ -1,19 +1,19 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ lib, config, pkgs, nix-colors, ... }:
 let
-  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+  inherit (nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 
-  c = config.colorscheme.palette;
+  c = config.colorScheme.palette;
 
-  wid = config.borderValues.width;
-  rad = config.borderValues.radius;
-  gap = config.borderValues.gap;
+  wid = "1";
+  rad = "2"; 
+  gap = "10";
 
-  font = config.fontProfiles.monospace.family;
+  font = "Agave Nerd Font";
 
 in
 rec {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    nix-colors.homeManagerModules.default
   ];
 
   programs.home-manager.enable = true;
@@ -21,6 +21,7 @@ rec {
   home.packages = with pkgs; [
 
     # gui
+    bitwarden-desktop
     gimp
     jellyfin-media-player
 
@@ -51,7 +52,6 @@ rec {
     nodePackages.pyright
     nodePackages.bash-language-server
     luaPackages.lua-lsp
-    rnix-lsp
     gopls
     fd
     fortune
@@ -68,22 +68,34 @@ rec {
     homeDirectory = "/home/james";
   };
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+    };
+  };
   programs.fish = {
     enable = true;
     shellInit = "
       set fish_greeting ''
       pfetch
+      starship init fish | source
     ";
     shellAliases = {
+      "ls" = "eza";
+      "grep" = "rg";
+      "i" = "curl -s https://ipinfo.io";
+      "update" = "cd ~/sync/nix/multihost && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname)";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
     };
     functions = {
       twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
+      port = "sudo netstat -tulpn | grep $argv[1]";
+      g = "git add * && git commit -m '$argv[1]' && git push";
     };
   };
-
   home.sessionVariables = {
     PF_INFO = "os kernel uptime memory shell editor de palette";
   };
@@ -109,6 +121,10 @@ rec {
       };
 
       dwindle.default_split_ratio = 1.08;
+
+      animations = {
+        enabled = 0;
+      };
 
       decoration = {
         active_opacity = 1.0;
@@ -560,9 +576,9 @@ rec {
       vim.cmd('set noswapfile')
 
       -- tab admin
-      vim.cmd('set tabstop=4')
-      vim.cmd('set softtabstop=4')
-      vim.cmd('set shiftwidth=4')
+      vim.cmd('set tabstop=2')
+      vim.cmd('set softtabstop=2')
+      vim.cmd('set shiftwidth=2')
       vim.cmd('set expandtab')
 
       -- line numbers
@@ -750,7 +766,6 @@ rec {
           lua << END
             require('lspconfig').pyright.setup {}
             require('lspconfig').lua_ls.setup{}
-            require('lspconfig').rnix.setup{}
             require('lspconfig').bashls.setup{}
             require('lspconfig').gopls.setup{}
           END
