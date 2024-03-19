@@ -4,10 +4,11 @@
     nix-colors.homeManagerModules.default
 
     ./common
+    ./gui
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.gruvbox-dark-soft;
+  colorScheme = nix-colors.colorSchemes.onedark;
 
   wayland.windowManager.hyprland.extraConfig = ''
     monitor = eDP-1,1920x1080@60,0x0,1
