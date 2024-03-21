@@ -2,6 +2,9 @@
 
   imports = [
 
+    hardware.nixosModules.common-cpu-amd
+    hardware.nixosModules.common-gpu-amd
+    hardware.nixosModules.common-pc-ssd
     ./hardware/desktop.nix
 
     ./common
