@@ -2,7 +2,7 @@
 
   imports = [
 
-    hardware.nixosModules.common-cpu-intel-jasper-lake
+    hardware.nixosModules.common-cpu-intel
     hardware.nixosModules.common-pc-hdd
     hardware.nixosModules.common-pc-ssd
     ./hardware/homelab.nix
