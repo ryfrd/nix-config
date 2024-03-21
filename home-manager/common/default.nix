@@ -11,6 +11,7 @@
     dua
     htop
     pfetch
+    dig
 
     fishPlugins.z
     fishPlugins.autopair
@@ -44,6 +45,7 @@
       "grep" = "rg";
       "i" = "curl -s https://ipinfo.io";
       "update" = "cd ~/sync/nix/multihost && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname)";
+      "c" = "clear && cd";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
@@ -51,7 +53,6 @@
     functions = {
       twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
       port = "sudo netstat -tulpn | grep $argv[1]";
-      g = "git add * && git commit -m '$argv[1]' && git push";
       cdir = "mkdir $argv[1] && cd $argv[1]";
     };
   };
@@ -65,6 +66,16 @@
     userEmail = "jdysmcl@tutanota.com";
   };
 
-  programs.ranger.enable = true;
+  programs.ranger = {
+    enable = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    disableConfirmationPrompt = true;
+    keyMode = "vi";
+    newSession = false;
+  };
 
 }

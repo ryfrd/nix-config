@@ -6,8 +6,8 @@ let
   c = config.colorScheme.palette;
 
   wid = "1";
-  rad = "2"; 
-  gap = "10";
+  rad = "0"; 
+  gap = "20";
 
   font = "Agave Nerd Font";
 
@@ -53,7 +53,7 @@ rec {
         gaps_in = "${gap}";
         gaps_out = "${gap}";
         border_size = "${wid}";
-        "col.active_border" = "rgb(${c.base09})";
+        "col.active_border" = "rgb(${c.base0A})";
         "col.inactive_border" = "rgb(${c.base00})";
       };
 
@@ -72,7 +72,7 @@ rec {
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        "col.shadow" = "rgb(${c.base09})";
+        "col.shadow" = "rgb(${c.base0A})";
       };
 
       misc = {
@@ -183,7 +183,7 @@ rec {
         offset = "${gap}x${gap}";
         font = "${font} 12";
         frame_width = "${wid}";
-        frame_color = "#${c.base09}";
+        frame_color = "#${c.base0A}";
         corner_radius = "${rad}";
         background = "#${c.base00}";
         foreground = "#${c.base05}";
@@ -210,7 +210,7 @@ rec {
   #  window#waybar {
   #    background: #${c.base00};
   #    color: #${c.base05};
-  #    border: #${c.base09} solid ${wid}px;
+  #    border: #${c.base0A} solid ${wid}px;
   #    padding: 8px;
   #  }
   #  '';
@@ -321,7 +321,7 @@ rec {
         font-family: ${font};
       	background-color: #${c.base00};
         border-radius: ${rad}px;
-        border: ${wid}px solid #${c.base09};
+        border: ${wid}px solid #${c.base0A};
         margin:0px;
       }
 
@@ -359,7 +359,7 @@ rec {
       }
 
       #entry:selected {
-        color: #${c.base09};
+        color: #${c.base0A};
         background-color: #${c.base00};
         border-radius: 0px;
         border: none;
@@ -372,8 +372,8 @@ rec {
     enable = true;
     loadAutoconfig = true;
     searchEngines = {
-      DEFAULT = "https://srx.dymc.win/search?q={}";
-      #DEFAULT = "https://duckduckgo.com/?q={}";
+      #DEFAULT = "https://srx.dymc.win/search?q={}";
+      DEFAULT = "https://duckduckgo.com/?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://nixos.wiki/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
@@ -383,7 +383,7 @@ rec {
       lb = "https://letterboxd.com/search/{}";
     };
     settings = {
-      url.start_pages = "https://srx.dymc.win";
+      url.start_pages = "https://news.ycombinator.com";
       fonts = {
         default_family = "${font}";
         default_size = "13pt";
@@ -493,7 +493,7 @@ rec {
           progress.bg = "#${c.base0D}";
           url.error.fg = "#${c.base08}";
           url.fg = "#${c.base05}";
-          url.hover.fg = "#${c.base09}";
+          url.hover.fg = "#${c.base0A}";
           url.success.http.fg = "#${c.base0B}";
           url.success.https.fg = "#${c.base0B}";
           url.warn.fg = "#${c.base0E}";
