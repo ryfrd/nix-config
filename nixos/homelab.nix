@@ -41,6 +41,7 @@
   # install some basic stuff for humans
   environment.systemPackages = with pkgs; [
     rsync
+    curl
   ];
 
   services.cron = {
