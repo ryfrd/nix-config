@@ -1,6 +1,6 @@
 {
 
-  description = "nixos config for multiple compouters";
+  description = "nixos config for multiple computers";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

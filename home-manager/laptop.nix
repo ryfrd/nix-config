@@ -3,12 +3,51 @@
 
     nix-colors.homeManagerModules.default
 
+    ./modules/fonts
+    ./modules/beautification
+
     ./common
-    ./gui
+    ./features/dunst
+    ./features/gtk
+    ./features/hyprland
+    ./features/kitty
+    ./features/nvim
+    ./features/qutebrowser
+    ./features/waybar
+    ./features/wofi
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
+  colorScheme = nix-colors.colorSchemes.nord;
+
+  fontProfiles = {
+    enable = true;
+    monospace = {
+      family = "Agave Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+    };
+    regular = {
+      family = "Fira Sans";
+      package = pkgs.fira;
+    };
+  };
+
+  beautificationVals = {
+    enable = true;
+    width = "2";
+    radius = "0";
+    gap = "10";
+  };
+
+  home.packages = with pkgs; [
+    bitwarden-desktop
+    jellyfin-media-player
+    sxiv
+    zathura
+    mpv
+    cava
+    pulsemixer
+  ];
 
   wayland.windowManager.hyprland.extraConfig = ''
     monitor = eDP-1,1920x1080@60,0x0,1
