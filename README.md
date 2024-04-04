@@ -1,11 +1,7 @@
-`hostname.nix` - config i want exclusively on that machine
+### structure
 
-`common.nix` - config i want on all machines; imported into all `hostname.nix` files
+- `hostname.nix` - config i want exclusively on that machine
 
-config i want on multiple but not all machines split out into modules that are imported in `hostname.nix` file eg.
+- `common/default.nix` - config i want on all machines; imported into all `hostname.nix` files
 
-```nix
-imports = [
-  ./docker/default.nix
-];
-```
+- config i want on multiple but not all machines split out into features modules that are imported in `hostname.nix` file
