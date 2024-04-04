@@ -11,7 +11,7 @@
     ./features/gtk
     ./features/hyprland
     ./features/kitty
-    ./features/nvim
+    ./features/nvim/headless
     ./features/qutebrowser
     ./features/waybar
     ./features/wofi
