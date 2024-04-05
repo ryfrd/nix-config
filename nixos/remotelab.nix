@@ -16,8 +16,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [
+    80 443 # http/s
+    # snikket
+    5222 # federation
+    5000 # file transfer proxy
+  ];
 
   time.timeZone = "Europe/Berlin";
 
