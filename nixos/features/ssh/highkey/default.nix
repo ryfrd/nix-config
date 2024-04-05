@@ -22,7 +22,7 @@
   services.endlessh = {
     enable = true;
     openFirewall = true;
-    ports = 22;
+    port = 22;
   };
 
 }
