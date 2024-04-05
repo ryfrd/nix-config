@@ -10,7 +10,7 @@
     ./common
     ./features/docker
     ./features/power
-    ./features/ssh-server
+    ./features/ssh/lowkey
 
   ];
 
@@ -42,12 +42,16 @@
     enable = true;
     systemCronJobs = [
       "@daily	root	sh /etc/cronjobs/backup.sh /warhead/docs /warhead/pics /warhead/docker /warhead/games /warhead/music /warhead/sync"
+      "@weekly root sh /etc/cronjobs/zpool.sh"
     ];
   };
 
   environment.etc = {
     "cronjobs/backup.sh" = {
       source = ./cronjobs/backup.sh;
+    };
+    "cronjobs/zpool.sh" = {
+      source = ./cronjobs/zpool.sh;
     };
   };
 
