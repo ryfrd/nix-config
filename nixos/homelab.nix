@@ -38,12 +38,6 @@
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # install some basic stuff for humans
-  environment.systemPackages = with pkgs; [
-    rsync
-    curl
-  ];
-
   services.cron = {
     enable = true;
     systemCronJobs = [
@@ -56,6 +50,14 @@
       source = ./cronjobs/backup.sh;
     };
   };
+
+  # cronjob deps
+  environment.systemPackages = with pkgs; [
+    rsync
+    curl
+    xmppc
+  ];
+
 
   hardware.opengl.enable = true;
 

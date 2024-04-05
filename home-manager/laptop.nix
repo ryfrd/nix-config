@@ -40,6 +40,7 @@
   };
 
   home.packages = with pkgs; [
+    mumble
     profanity
     bitwarden-desktop
     jellyfin-media-player

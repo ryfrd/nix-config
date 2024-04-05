@@ -25,10 +25,6 @@
 
   time.timeZone = "Europe/Berlin";
 
-  environment.systemPackages = with pkgs; [
-    rsync
-  ];
-
   services.cron = {
     enable = true;
     systemCronJobs = [
@@ -41,5 +37,12 @@
       source = ./cronjobs/backup.sh;
     };
   };
+
+  # cronjob deps
+  # required system wide as jobs run as root
+  environment.systemPackages = with pkgs; [
+    rsync
+  ];
+
 
 }
