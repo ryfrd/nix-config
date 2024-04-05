@@ -22,8 +22,17 @@ in {
         "hyprland/workspaces" = {
 	        format = "{icon}";
 	        format-icons = {
-		        active = "";
-		        default =  "";
+            "1" = "terminal";
+            "2" = "edit";
+            "3" = "work";
+            "4" = "pw";
+            "5" = "browser";
+            "6" = "game";
+            "7" = "watch";
+            "8" = "talk";
+            "9" = "listen";
+		        #active = "";
+		        #default =  "";
 	        };
           persistent-workspaces = {
             "*" = 9;

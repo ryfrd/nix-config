@@ -1,5 +1,8 @@
-{ pkgs, nix-colors, ... }: {
+{ pkgs, ... }: {
+
   imports = [
     ./common
+    ./features/nvim/headless
   ];
+
 }

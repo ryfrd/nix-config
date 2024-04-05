@@ -11,7 +11,7 @@
     ./features/gtk
     ./features/hyprland
     ./features/kitty
-    ./features/nvim/headless
+    ./features/nvim/full
     ./features/qutebrowser
     ./features/waybar
     ./features/wofi
@@ -40,6 +40,7 @@
   };
 
   home.packages = with pkgs; [
+    profanity
     bitwarden-desktop
     jellyfin-media-player
     sxiv
