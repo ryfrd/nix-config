@@ -52,7 +52,6 @@ in {
 
       exec-once = [
         "${pkgs.swaybg}/bin/swaybg -i ~/.background -m fill"
-        "waybar"
       ];
 
       bindm = [
@@ -77,18 +76,15 @@ in {
           "SUPER,d,exec,${launcher}"
 
           # volume
-          "SUPER,up,exec,${pkgs.pamixer}/bin/pamixer -i 5"
-          "SUPER,down,exec,${pkgs.pamixer}/bin/pamixer -d 5"
+          "SUPER,up,exec,pamixer -i 5"
+          "SUPER,down,exec,pamixer -d 5"
 
           # brightness
           "SUPER,right,exec,light -A 5"
           "SUPER,left,exec,light -U 5"
 
           # info
-          "SUPER,u,exec,dunstify battery $(cat /sys/class/power_supply/BAT0/capacity)"
-          "SUPER,i,exec,dunstify backlight $(light)"
-          "SUPER,o,exec,dunstify volume $(${pkgs.pamixer}/bin/pamixer --get-volume)"
-          "SUPER,p,exec,dunstify time $(date +'%H:%M')"
+          "SUPER,i,exec,sh /home/james/.config/scripts/info.sh"
 
           # windows
           "SUPER,q,killactive"

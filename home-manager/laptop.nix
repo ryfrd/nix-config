@@ -11,9 +11,9 @@
     ./features/gtk
     ./features/hyprland
     ./features/kitty
-    ./features/nvim/full
+    ./features/nvim/bones
     ./features/qutebrowser
-    ./features/waybar
+    ./features/scripts
     ./features/wofi
 
   ];

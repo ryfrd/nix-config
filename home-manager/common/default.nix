@@ -7,6 +7,9 @@
     fd
     curl
     wget
+    unzip
+    gnutar
+    gzip
     tree
     dua
     htop
@@ -18,6 +21,8 @@
     fishPlugins.autopair
     fishPlugins.done
     fishPlugins.sponge
+
+    nodePackages.npm
 
   ];
 
@@ -36,11 +41,6 @@
   };
   programs.fish = {
     enable = true;
-    shellInit = "
-      set fish_greeting ''
-      pfetch
-      starship init fish | source
-    ";
     shellAliases = {
       "ls" = "eza";
       "grep" = "rg";

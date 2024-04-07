@@ -9,6 +9,7 @@
 
     ./common
     ./features/docker
+    ./features/nfs-server
     ./features/power
     ./features/ssh/lowkey
 

@@ -24,13 +24,14 @@
       cmp-path
       nvim-web-devicons
       plenary-nvim
+      lazy-nvim
     ];
   };
 
-  home.file.".config/nvim/init.lua" = {
+  home.file.".config/nvim" = {
     enable = true;
-    recursive = false;
-    source = ./init.lua;
+    recursive = true;
+    source = ./lua;
   };
 
   home.file.".config/nvim/colors.lua" = {

@@ -55,21 +55,13 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
-opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
 
 --
 -- AUTOCMDS
 --
 
 local function augroup(name)
-  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("myvim_" .. name, { clear = true })
 end
 
 -- Highlight on yank
@@ -107,6 +99,38 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 --
 
 local keymap = vim.keymap
+
+-- map leader to space
+keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
+vim.g.mapleader = " "
+
+-- manage files
+keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
+keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', {})
+keymap.set('n', '<leader>gg', '<cmd>Telescope live_grep<cr>', {})
+keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
+keymap.set("n", "<space>fd", ":Telescope fd<CR>")
+
+-- buffers
+keymap.set('n', '<leader>ba', '<cmd>Telescope buffers<cr>', {})
+keymap.set('n', '<leader>bb', '<cmd>bnext<cr>', {})
+keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', {})
+keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', {})
+
+-- splits
+keymap.set('n', '<leader>-', '<cmd>split<cr>', {})
+keymap.set('n', '<leader>|', '<cmd>vsplit<cr>', {})
+
+-- move focus
+keymap.set('n', '<leader>h', '<C-W>h', {})
+keymap.set('n', '<leader>j', '<C-W>j', {})
+keymap.set('n', '<leader>k', '<C-W>k', {})
+keymap.set('n', '<leader>l', '<C-W>l', {})
+
+-- zen 
+keymap.set('n', '<leader>zz', '<cmd>ZenMode<cr>', {})
+--glow
+keymap.set('n', '<leader>md', '<cmd>Glow<cr>', {})ocal keymap = vim.keymap
 
 -- map leader to space
 keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
@@ -225,6 +249,7 @@ cmp.setup({
 })
 
 require('glow').setup({})
+
 
 -- nix-colors theme admin
 package.path = "/home/james/.config/nvim/colors.lua"
