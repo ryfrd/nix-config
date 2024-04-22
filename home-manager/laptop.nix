@@ -19,7 +19,7 @@
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.gruvbox-dark-soft;
+  colorScheme = nix-colors.colorSchemes.nord;
 
   fontProfiles = {
     enable = true;

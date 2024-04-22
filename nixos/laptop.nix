@@ -6,10 +6,10 @@
     ./hardware/laptop.nix
 
     ./common
-    ./features/gaming
     ./features/nfs-client
     ./features/pipewire
     ./features/power
+    ./features/steam
     ./features/syncthing
     ./features/virtualisation
 

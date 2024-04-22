@@ -22,8 +22,6 @@
     fishPlugins.done
     fishPlugins.sponge
 
-    nodePackages.npm
-
   ];
 
   programs.home-manager.enable = true;

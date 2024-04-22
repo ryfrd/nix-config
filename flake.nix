@@ -8,9 +8,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hardware.url = "github:nixos/nixos-hardware";
     nix-colors.url = "github:misterio77/nix-colors";
+    jovian.url = "github:Jovian-Experiments/Jovian-Nixos";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-colors, hardware, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hardware, nix-colors, jovian, ... }: {
     nixosConfigurations = {
 
       laptop = nixpkgs.lib.nixosSystem {
@@ -39,6 +40,20 @@
             home-manager.useUserPackages = true;
             home-manager.users.james = import ./home-manager/desktop.nix;
             home-manager.extraSpecialArgs = { inherit nix-colors; };
+          }
+        ];
+      };
+
+      console = nixpkgs.lib.nixosSystem {
+        system = "x86-64_linux";
+        specialArgs = { inherit hardware jovian; };
+        modules = [
+          ./nixos/console.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.james = import ./home-manager/console.nix;
           }
         ];
       };
