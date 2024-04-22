@@ -9,6 +9,7 @@
     ./common
     ./features/dunst
     ./features/gtk
+    ./features/helix
     ./features/hyprland
     ./features/kitty
     ./features/nvim/bones
@@ -18,7 +19,7 @@
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.nord;
+  colorScheme = nix-colors.colorSchemes.gruvbox-dark-soft;
 
   fontProfiles = {
     enable = true;
@@ -36,19 +37,24 @@
     enable = true;
     width = "2";
     radius = "0";
-    gap = "10";
+    gap = "0";
   };
 
   home.packages = with pkgs; [
+    wl-clipboard
     mumble
     profanity
-    bitwarden-desktop
     jellyfin-media-player
     sxiv
     zathura
     mpv
     cava
     pulsemixer
+
+    bitwarden-menu
+    bitwarden-cli
+
+    nodePackages.pyright
   ];
 
   wayland.windowManager.hyprland.extraConfig = ''

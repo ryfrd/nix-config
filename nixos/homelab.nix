@@ -63,8 +63,11 @@
     xmppc
   ];
 
-
-  hardware.opengl.enable = true;
+  # enable quicksync
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
+  };
 
   services.nfs.server = {
     enable = true;

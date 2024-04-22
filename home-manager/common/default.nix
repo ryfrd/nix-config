@@ -35,9 +35,7 @@
 
   programs.starship = {
     enable = true;
-    settings = {
-      add_newline = true;
-    };
+    settings = { add_newline = true; };
   };
   programs.fish = {
     enable = true;
@@ -45,14 +43,15 @@
       "ls" = "eza";
       "grep" = "rg";
       "i" = "curl -s https://ipinfo.io";
-      "update" = "cd ~/sync/nix/multihost && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname)";
       "c" = "clear && cd";
+      "nxsh" = "nix-shell --command fish";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
     };
     functions = {
-      twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
+      twitch =
+        "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
       port = "sudo netstat -tulpn | grep $argv[1]";
       cdir = "mkdir $argv[1] && cd $argv[1]";
       ssht = "ssh $argv -t 'tmux new -A'";
@@ -68,9 +67,7 @@
     userEmail = "jdysmcl@tutanota.com";
   };
 
-  programs.ranger = {
-    enable = true;
-  };
+  programs.ranger = { enable = true; };
 
   programs.tmux = {
     enable = true;
