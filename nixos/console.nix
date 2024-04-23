@@ -7,8 +7,9 @@
 
     jovian.nixosModules.default
     ./common
+    ./features/pipewire
+    ./features/retroarch
     ./features/ssh/lowkey
-
   ];
 
   networking.hostName = "console";
@@ -33,6 +34,11 @@
     autoStart = true;
     user = "james";
     desktopSession = "plasma";
+  };
+
+  jovian.decky-loader = {
+    enable = true;
+    user = "james";
   };
 
 }
