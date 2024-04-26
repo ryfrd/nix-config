@@ -16,6 +16,7 @@
     pfetch
     dig
     fortune
+    dtrx
 
     fishPlugins.z
     fishPlugins.autopair

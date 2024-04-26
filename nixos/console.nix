@@ -2,7 +2,6 @@
 
   imports = [
 
-    hardware.nixosModules.lenovo-thinkpad-t14
     ./hardware/console.nix
 
     jovian.nixosModules.default
@@ -10,6 +9,7 @@
     ./features/pipewire
     ./features/retroarch
     ./features/ssh/lowkey
+
   ];
 
   networking.hostName = "console";
@@ -34,11 +34,6 @@
     autoStart = true;
     user = "james";
     desktopSession = "plasma";
-  };
-
-  jovian.decky-loader = {
-    enable = true;
-    user = "james";
   };
 
 }
