@@ -89,7 +89,7 @@
     extraConfig = ''
 
       unbind C-b
-      set -g prefix C-x
+      set -g prefix C-c
 
       bind-key Enter new-window
 
