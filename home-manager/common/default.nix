@@ -80,6 +80,9 @@
     enable = true;
     userName = "ryfrd";
     userEmail = "jdysmcl@tutanota.com";
+    extraConfig = {
+      core.editor = "nvim";
+    };
   };
 
   programs.tmux = {
@@ -89,7 +92,7 @@
     extraConfig = ''
 
       unbind C-b
-      set -g prefix C-x
+      set -g prefix C-c
 
       bind-key Enter new-window
 
