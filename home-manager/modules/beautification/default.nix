@@ -5,7 +5,7 @@ let
 in
 
 {
-  options.beautificationVals = {
+  options.beautification = {
     enable = lib.mkEnableOption "Whether to enable beautification values";
     width = lib.mkOption {
       type = lib.types.str;

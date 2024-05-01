@@ -3,8 +3,8 @@ let
 
   c = config.colorScheme.palette;
 
-  wid = config.beautificationVals.width;
-  rad = config.beautificationVals.radius; 
+  wid = config.beautification.width;
+  rad = config.beautification.radius; 
 
   font = config.fontProfiles.monospace.family;
 

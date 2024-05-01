@@ -3,9 +3,9 @@ let
 
   c = config.colorScheme.palette;
 
-  wid = config.beautificationVals.width;
-  rad = config.beautificationVals.radius; 
-  gap = config.beautificationVals.gap;
+  wid = config.beautification.width;
+  rad = config.beautification.radius; 
+  gap = config.beautification.gap;
 
 in {
   services.dunst = {

@@ -16,13 +16,11 @@
     pfetch
     dig
     fortune
+    dtrx
 
-    fishPlugins.z
     fishPlugins.autopair
     fishPlugins.done
     fishPlugins.sponge
-
-    nodePackages.npm
 
   ];
 
@@ -37,8 +35,12 @@
     enable = true;
     settings = { add_newline = true; };
   };
+
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set -u fish_greeting ""
+    '';
     shellAliases = {
       "ls" = "eza";
       "grep" = "rg";
@@ -57,6 +59,19 @@
       ssht = "ssh $argv -t 'tmux new -A'";
     };
   };
+
+  programs.zoxide = {
+    enable = true;
+    options = [ "--cmd cd" ];
+  };
+
+  programs.fzf = {
+    enable = true;
+  };
+
+  programs.ranger = { enable = true; };
+
+  # custom pfetch
   home.sessionVariables = {
     PF_INFO = "os kernel uptime memory shell editor palette";
   };
@@ -66,8 +81,6 @@
     userName = "ryfrd";
     userEmail = "jdysmcl@tutanota.com";
   };
-
-  programs.ranger = { enable = true; };
 
   programs.tmux = {
     enable = true;

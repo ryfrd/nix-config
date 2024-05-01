@@ -6,10 +6,10 @@
     ./hardware/laptop.nix
 
     ./common
-    ./features/gaming
     ./features/nfs-client
     ./features/pipewire
     ./features/power
+    ./features/steam
     ./features/syncthing
     ./features/virtualisation
 
@@ -40,7 +40,7 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   hardware.opengl.enable = true;
 
