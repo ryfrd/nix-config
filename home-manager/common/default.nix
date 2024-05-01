@@ -80,6 +80,9 @@
     enable = true;
     userName = "ryfrd";
     userEmail = "jdysmcl@tutanota.com";
+    extraConfig = {
+      core.editor = "nvim";
+    };
   };
 
   programs.tmux = {
