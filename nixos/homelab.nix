@@ -27,7 +27,7 @@
   services.btrfs.autoScrub.enable = true;
 
   networking.hostName = "homelab";
-
+warhead/high-prio/music  context               none                          default                                │james in 🌐 homelab in docker/active/immich
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -42,7 +42,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@daily	root	sh /etc/cronjobs/backup.sh /warhead/docs /warhead/pics /warhead/docker /warhead/games /warhead/music /warhead/sync"
+      "@daily	root	sh /etc/cronjobs/backup.sh /warhead/high-prio"
       "@weekly root sh /etc/cronjobs/zpool.sh"
     ];
   };

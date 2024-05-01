@@ -21,6 +21,13 @@
 
   colorScheme = nix-colors.colorSchemes.nord;
 
+  beautification = {
+    enable = true;
+    width = "3";
+    radius = "10";
+    gap = "10";
+  };
+
   fontProfiles = {
     enable = true;
     monospace = {
@@ -33,14 +40,8 @@
     };
   };
 
-  beautificationVals = {
-    enable = true;
-    width = "2";
-    radius = "0";
-    gap = "0";
-  };
-
   home.packages = with pkgs; [
+    qtile
     wl-clipboard
     mumble
     profanity
