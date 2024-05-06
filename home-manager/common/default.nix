@@ -17,6 +17,7 @@
     dig
     fortune
     dtrx
+    nmap
 
     fishPlugins.autopair
     fishPlugins.done
@@ -52,8 +53,7 @@
       "...." = "cd ../../../";
     };
     functions = {
-      twitch =
-        "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
+      #twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
       port = "sudo netstat -tulpn | grep $argv[1]";
       cdir = "mkdir $argv[1] && cd $argv[1]";
       ssht = "ssh $argv -t 'tmux new -A'";
@@ -92,7 +92,7 @@
     extraConfig = ''
 
       unbind C-b
-      set -g prefix C-c
+      set -g prefix C-z
 
       bind-key Enter new-window
 
