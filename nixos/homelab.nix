@@ -13,10 +13,6 @@
     ./features/power
     ./features/ssh/lowkey
 
-    ./features/reverse-proxy
-    ./features/containers
-    ./features/containers/jellyfin
-
   ];
 
   # latest kernel compatible with zfs module

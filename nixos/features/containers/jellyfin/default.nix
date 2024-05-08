@@ -8,15 +8,17 @@
     bindMounts = {
       "/mnt/tv" = {
         hostPath = "/warhead/low-prio/tv";
-        isReadOnly = true;
+        isReadOnly = false;
       };
       "/mnt/films" = {
         hostPath = "/warhead/low-prio/films";
-        isReadOnly = true;
+        isReadOnly = false;
       };
     };
     config = {
       services.jellyfin.enable = true;
+      services.jellyfin.user = "james";
+      services.jellyfin.group = "users";
       networking.firewall.allowedTCPPorts = [ 8096 ];
     };
   };
