@@ -13,6 +13,10 @@
     ./features/power
     ./features/ssh/lowkey
 
+    ./features/reverse-proxy
+    ./features/containers
+    ./features/containers/jellyfin
+
   ];
 
   # latest kernel compatible with zfs module
@@ -27,7 +31,7 @@
   services.btrfs.autoScrub.enable = true;
 
   networking.hostName = "homelab";
-warhead/high-prio/music  context               none                          default                                │james in 🌐 homelab in docker/active/immich
+
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

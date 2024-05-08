@@ -6,9 +6,12 @@
     ./hardware/laptop.nix
 
     ./common
+    ./features/containers
+    ./features/containers/jellyfin
     ./features/nfs-client
     ./features/pipewire
     ./features/power
+    ./features/reverse-proxy
     ./features/steam
     ./features/syncthing
     ./features/virtualisation
@@ -23,7 +26,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    firewall.allowedTCPPorts = [ 1313 5000 ];
+    #firewall.allowedTCPPorts = [  ];
     networkmanager.enable = true;
   };
   systemd.services.NetworkManager-wait-online.enable = false;
