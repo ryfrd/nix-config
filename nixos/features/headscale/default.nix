@@ -2,6 +2,7 @@
   services.headscale = {
     enable = true;
     address = "0.0.0.0";
+    port = 8080;
     settings = {
       server_url = "https://brutal.dance";
       db_type = "sqlite3";
