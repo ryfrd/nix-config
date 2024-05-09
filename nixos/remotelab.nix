@@ -5,9 +5,10 @@
     ./hardware/remotelab.nix
 
     ./common
-    ./features/docker
+    ./features/caddy
     ./features/headscale
     ./features/ssh/highkey
+    ./features/synapse
 
   ];
 
@@ -16,10 +17,6 @@
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.firewall.allowedTCPPorts = [
-    80 443 # http/s
-  ];
 
   time.timeZone = "Europe/Berlin";
 

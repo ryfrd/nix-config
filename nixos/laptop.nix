@@ -6,12 +6,9 @@
     ./hardware/laptop.nix
 
     ./common
-    ./features/containers
-    ./features/containers/jellyfin
     ./features/nfs-client
     ./features/pipewire
     ./features/power
-    ./features/reverse-proxy
     ./features/steam
     ./features/syncthing
     ./features/virtualisation

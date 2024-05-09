@@ -44,6 +44,11 @@ in {
 
       gestures = { workspace_swipe = false; };
 
+      device = {
+        name = "synps/2-synaptics-touchpad";
+        enabled = 0;
+      };
+
       exec-once = [ "${pkgs.swaybg}/bin/swaybg -i ~/.background -m fill" ];
 
       bindm = [ "SUPER,mouse:272,movewindow" "SUPER,mouse:273,resizewindow" ];
