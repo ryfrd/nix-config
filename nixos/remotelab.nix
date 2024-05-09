@@ -6,6 +6,7 @@
 
     ./common
     ./features/docker
+    ./features/headscale
     ./features/ssh/highkey
 
   ];
@@ -18,9 +19,6 @@
 
   networking.firewall.allowedTCPPorts = [
     80 443 # http/s
-    # snikket
-    5222 # federation
-    5000 # file transfer proxy
   ];
 
   time.timeZone = "Europe/Berlin";
