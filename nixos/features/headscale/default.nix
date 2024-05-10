@@ -4,7 +4,7 @@
     address = "0.0.0.0";
     port = 8080;
     settings = {
-      server_url = "https://pickle.brutal.dance";
+      server_url = "https://hs.dymc.win";
       db_type = "sqlite3";
       db_path = "/var/lib/headscale/db.sqlite";
     };
@@ -12,7 +12,7 @@
 
   services.caddy = {
     extraConfig = ''
-      pickle.brutal.dance {
+      hs.dymc.win {
         reverse_proxy localhost:8080
       }
     '';

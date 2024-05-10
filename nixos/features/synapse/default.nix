@@ -1,19 +1,19 @@
-{
+{ pkgs, ... }:{
   services.matrix-synapse = {
     enable = true;
     enableRegistrationScript = true;
+    withJemalloc = true;
     settings = {
       server_name = "brutal.dance";
-      public_baseurl = "https://matrix.brutal.dance:443"
+      public_baseurl = "https://matrix.brutal.dance:443";
       enable_registration = false;
-      registration_shared_secret = "dirtydog";
       database = {
         name = "psycopg2";
         args = {
           host = "localhost";
           user = "synapse";
           password = "synapse";
-          dbname = "synapse";
+          database = "synapse";
         };
       };
       listeners = [
