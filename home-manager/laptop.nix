@@ -41,19 +41,15 @@
   };
 
   home.packages = with pkgs; [
-    qtile
     wl-clipboard
-    mumble
-    profanity
     jellyfin-media-player
     sxiv
     zathura
     mpv
     cava
     pulsemixer
+    element-desktop
 
-    bitwarden-menu
-    bitwarden-cli
 
     nodePackages.pyright
   ];
