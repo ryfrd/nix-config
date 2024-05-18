@@ -2,7 +2,7 @@
 
   imports = [
     ./common
-    ./features/nvim/headless
+    ./features/nvim/bones
   ];
 
 }

@@ -5,6 +5,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    gc.automatic = true;
   };
 
   networking.firewall.enable = true;

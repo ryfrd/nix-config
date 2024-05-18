@@ -7,6 +7,7 @@
     ./common
     ./features/caddy
     ./features/headscale
+    ./features/mastodon
     ./features/ssh/highkey
     ./features/synapse
 
@@ -39,5 +40,9 @@
     rsync
   ];
 
+  # limit size of system journal
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+  '';
 
 }
