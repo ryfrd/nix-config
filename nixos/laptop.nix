@@ -13,8 +13,6 @@
     ./features/syncthing
     ./features/virtualisation
 
-    ./features/akkoma
-
   ];
 
   networking.hostName = "laptop";

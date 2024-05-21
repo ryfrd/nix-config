@@ -12,6 +12,11 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      monitor = "eDP-1,1920x1080@60,0x0,1";
+      device = {
+        name = "synps/2-synaptics-touchpad";
+        enabled = 0;
+      };
 
       general = {
         gaps_in = "${gap}";
@@ -43,11 +48,6 @@ in {
       };
 
       gestures = { workspace_swipe = false; };
-
-      device = {
-        name = "synps/2-synaptics-touchpad";
-        enabled = 0;
-      };
 
       exec-once = [ "${pkgs.swaybg}/bin/swaybg -i ~/.background -m fill" ];
 

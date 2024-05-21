@@ -16,11 +16,10 @@
       isNormalUser = true;
       shell = pkgs.fish;
       initialPassword = "changethisyoupickle";
-      extraGroups = [
-        "wheel"
-      ];
+      extraGroups = [ "wheel" ];
     };
   };
+
   programs.fish.enable = true;
 
 }
