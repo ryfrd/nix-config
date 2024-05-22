@@ -2,7 +2,7 @@
 let
 
   c = config.colorScheme.palette;
-  font = config.fontProfiles.monospace.family;
+  font = config.beautification.fontName;
 
 in {
 

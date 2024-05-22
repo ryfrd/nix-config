@@ -1,8 +1,8 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 let
 
   c = config.colorScheme.palette;
-  font = config.fontProfiles.monospace.family;
+  font = config.beautification.fontName;
 
 in {
 
@@ -22,7 +22,7 @@ in {
       lb = "https://letterboxd.com/search/{}";
     };
     settings = {
-      url.start_pages = "https://reuters.com";
+      url.start_pages = "https://exuberant.men";
       fonts = {
         default_family = "${font}";
         default_size = "13pt";

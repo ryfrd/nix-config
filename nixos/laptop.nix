@@ -6,6 +6,7 @@
     ./hardware/laptop.nix
 
     ./common
+    ./features/fonts
     ./features/nfs-client
     ./features/pipewire
     ./features/power

@@ -1,24 +1,24 @@
-{ config, ... }: 
+{ config, ... }:
 let
 
   c = config.colorScheme.palette;
 
   wid = config.beautification.width;
-  rad = config.beautification.radius; 
+  rad = config.beautification.radius;
 
-  font = config.fontProfiles.monospace.family;
+  font = config.beautification.fontName;
 
 in {
 
   programs.wofi = {
     enable = true;
     settings = {
-      insensitive=true;
-      show="run";
-      width=400;
-      height=300;
-      hide_scroll=true;
-      prompt="yer-->";
+      insensitive = true;
+      show = "run";
+      width = 400;
+      height = 300;
+      hide_scroll = true;
+      prompt = "->";
     };
     style = ''
       window {
