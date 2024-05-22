@@ -9,6 +9,25 @@ let
 
 in {
 
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      background = [{
+        path = "/home/james/.background";
+        blur_passes = 3;
+        blur_size = 8;
+      }];
+
+      input-field = [{
+        size = "200, 50";
+        rounding = "${rad}";
+        outline_thickness = "${wid}";
+        font_color = "rgb(${c.base06})";
+        inner_color = "rgb(${c.base00})";
+        outer_color = "rgb(${c.base02})";
+      }];
+    };
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -28,23 +47,18 @@ in {
 
       dwindle.default_split_ratio = 1.08;
 
-      animations = { enabled = 1; };
+      animations = { enabled = 0; };
 
       decoration = {
         active_opacity = 1.0;
-        inactive_opacity = 0.9;
+        inactive_opacity = 1.0;
         fullscreen_opacity = 1.0;
         rounding = "${rad}";
-        blur.enabled = true;
-        drop_shadow = false;
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = "rgb(${c.base03})";
       };
 
       misc = {
         enable_swallow = true;
-        swallow_regex = "^(kitty)$";
+        swallow_regex = "^(${config.home.sessionVariables.TERMINAL})$";
       };
 
       gestures = { workspace_swipe = false; };
@@ -68,6 +82,8 @@ in {
         "SUPER,Return,exec,${terminal}"
         "SUPER,e,exec,${terminal} -e ${editor}"
         "SUPER,d,exec,${launcher}"
+
+        "SUPER,backspace,exec,hyprlock"
 
         # volume
         "SUPER,up,exec,pamixer -i 5"
@@ -117,9 +133,6 @@ in {
         "SUPERSHIFT,7,movetoworkspace,7"
         "SUPERSHIFT,8,movetoworkspace,8"
         "SUPERSHIFT,9,movetoworkspace,9"
-
-        "SUPER,mouse_down,workspace,e+1"
-        "SUPER,mouse_up,workspace,e-1"
 
       ];
 

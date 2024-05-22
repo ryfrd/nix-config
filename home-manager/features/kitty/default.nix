@@ -15,10 +15,6 @@ in {
       size = 14;
     };
     settings = {
-      shell_integration = "no-rc";
-
-      scrollback_lines = 4000;
-      scrollback_pager_history_size = 2048;
       enable_audio_bell = "no";
       confirm_os_window_close = 0;
 

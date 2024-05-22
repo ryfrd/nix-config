@@ -8,6 +8,7 @@
 
     ./common
     ./features/dunst
+    ./features/eww
     ./features/gtk
     ./features/hyprland
     ./features/kitty
@@ -18,34 +19,36 @@
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.everforest;
+  colorScheme = nix-colors.colorSchemes.black-metal;
 
   beautification = {
     enable = true;
-    width = "3";
-    radius = "10";
+    width = "2";
+    radius = "0";
     gap = "10";
   };
 
-  fontProfiles = {
+  fontProfiles = let font = "Agave";
+  in {
     enable = true;
     monospace = {
-      family = "Agave Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "Agave" ]; };
+      family = "${font} Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "${font}" ]; };
     };
     regular = {
-      family = "Fira Sans";
-      package = pkgs.fira;
+      family = "${font} Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "${font}" ]; };
     };
   };
 
   home.packages = with pkgs; [
     wl-clipboard
+    watershot
+    mpv
+    cava
     jellyfin-media-player
     sxiv
     zathura
-    mpv
-    cava
     pulsemixer
     element-desktop
   ];
