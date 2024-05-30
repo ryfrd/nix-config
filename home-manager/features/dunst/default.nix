@@ -1,10 +1,10 @@
-{ config,  ... }: 
+{ config, ... }:
 let
 
   c = config.colorScheme.palette;
 
   wid = config.beautification.width;
-  rad = config.beautification.radius; 
+  rad = config.beautification.radius;
   gap = config.beautification.gap;
 
 in {
@@ -13,7 +13,7 @@ in {
     settings = {
       global = {
         offset = "${gap}x${gap}";
-        font = "${config.fontProfiles.monospace.family} 12";
+        font = "${config.beautification.fontName} 12";
         frame_width = "${wid}";
         frame_color = "#${c.base03}";
         corner_radius = "${rad}";

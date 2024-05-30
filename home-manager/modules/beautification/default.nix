@@ -1,10 +1,8 @@
 { lib, config, ... }:
 
-let
-  cfg = config.borderValues;
-in
+let cfg = config.borderValues;
 
-{
+in {
   options.beautification = {
     enable = lib.mkEnableOption "Whether to enable beautification values";
     width = lib.mkOption {
@@ -19,7 +17,11 @@ in
       type = lib.types.str;
       default = "0";
     };
+    fontName = lib.mkOption {
+      type = lib.types.str;
+      default = "Agave Nerd Font";
+    };
   };
 
-  config = lib.mkIf cfg.enable {};
+  config = lib.mkIf cfg.enable { };
 }

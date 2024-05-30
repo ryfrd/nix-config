@@ -3,7 +3,6 @@
 
     nix-colors.homeManagerModules.default
 
-    ./modules/fonts
     ./modules/beautification
 
     ./common
@@ -26,19 +25,7 @@
     width = "2";
     radius = "0";
     gap = "10";
-  };
-
-  fontProfiles = let font = "Agave";
-  in {
-    enable = true;
-    monospace = {
-      family = "${font} Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "${font}" ]; };
-    };
-    regular = {
-      family = "${font} Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "${font}" ]; };
-    };
+    fontName = "Agave Nerd Font";
   };
 
   home.packages = with pkgs; [
@@ -47,6 +34,7 @@
     mpv
     cava
     jellyfin-media-player
+    sublime-music
     sxiv
     zathura
     pulsemixer

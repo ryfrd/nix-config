@@ -3,17 +3,9 @@ let
 
   inherit (nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 
-
-  font = config.fontProfiles.regular.family;
-
-in
-rec {
+in rec {
   gtk = {
     enable = true;
-    font = {
-      name = "${font}";
-      size = 12;
-    };
     theme = {
       name = "${config.colorscheme.slug}";
       package = gtkThemeFromScheme { scheme = config.colorscheme; };
