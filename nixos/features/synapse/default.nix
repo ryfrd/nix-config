@@ -42,10 +42,6 @@
       LC_COLLATE = "C"
       LC_CTYPE = "C";
   '';
-  services.postgresqlBackup = {
-    enable = true;
-    databases = [ "synapse" ];
-  };
 
   services.caddy = {
     extraConfig = ''

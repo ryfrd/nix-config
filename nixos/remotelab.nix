@@ -9,6 +9,7 @@
     ./features/headscale
     ./features/mastodon
     ./features/ssh/highkey
+    ./features/static-sites
     ./features/synapse
 
   ];
@@ -44,5 +45,10 @@
   services.journald.extraConfig = ''
     SystemMaxUse=100M
   '';
+
+  services.postgresqlBackup = {
+    enable = true;
+    databases = [ "synapse" "mastodon" ];
+  };
 
 }
