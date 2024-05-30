@@ -6,7 +6,6 @@ i=1
 for dir in "$@" 
 do
     rsync -a --delete -e 'ssh -p 23' $dir $remote:/home ||
-    #curl -d "back up of $dir to $remote failed" https://ntfy.dymc.win/homelab
-    xmppc --jid "alerts@chat.dymc.win" --pwd "!JKcaFp2CxQVK6b" --mode message chat "james@chat.dymc.win" "back up of $dir to $remote failed"
+    curl -d "back up of $dir to $remote failed" https://ntfy.dymc.win/homelab
     i=$((i + 1))
 done

@@ -48,31 +48,18 @@
   };
 
   environment.etc = {
-    "cronjobs/backup.sh" = {
-      source = ./cronjobs/backup.sh;
-    };
-    "cronjobs/zpool.sh" = {
-      source = ./cronjobs/zpool.sh;
-    };
+    "cronjobs/backup.sh" = { source = ./cronjobs/backup.sh; };
+    "cronjobs/zpool.sh" = { source = ./cronjobs/zpool.sh; };
   };
 
   # cronjob deps
-  environment.systemPackages = with pkgs; [
-    rsync
-    curl
-    xmppc
-  ];
+  environment.systemPackages = with pkgs; [ rsync curl ];
 
   # enable quicksync
   boot.kernelParams = [ "i915.enable_guc=2" ];
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
-  };
-
-  services.nfs.server = {
-    enable = true;
-    # managing specific shares imperatively eg. zfs set sharenfs="rw=@192.168.1.0/24"
   };
 
 }
