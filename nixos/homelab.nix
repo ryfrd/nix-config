@@ -9,7 +9,6 @@
 
     ./common
     ./features/docker
-    ./features/nfs-server
     ./features/power
     ./features/ssh/lowkey
 
@@ -35,6 +34,12 @@
   networking.firewall.allowedTCPPorts = [
     2049 # nfs v4
   ];
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /warhead/high-prio/music  192.168.1.0/24(ro)
+    '';
+  };
 
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
