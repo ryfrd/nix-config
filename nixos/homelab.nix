@@ -9,7 +9,6 @@
 
     ./common
     ./features/docker
-    ./features/nfs-server
     ./features/power
     ./features/ssh/lowkey
 
@@ -35,6 +34,12 @@
   networking.firewall.allowedTCPPorts = [
     2049 # nfs v4
   ];
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /warhead/high-prio/music  192.168.1.0/24(ro)
+    '';
+  };
 
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -48,31 +53,18 @@
   };
 
   environment.etc = {
-    "cronjobs/backup.sh" = {
-      source = ./cronjobs/backup.sh;
-    };
-    "cronjobs/zpool.sh" = {
-      source = ./cronjobs/zpool.sh;
-    };
+    "cronjobs/backup.sh" = { source = ./cronjobs/backup.sh; };
+    "cronjobs/zpool.sh" = { source = ./cronjobs/zpool.sh; };
   };
 
   # cronjob deps
-  environment.systemPackages = with pkgs; [
-    rsync
-    curl
-    xmppc
-  ];
+  environment.systemPackages = with pkgs; [ rsync curl ];
 
   # enable quicksync
   boot.kernelParams = [ "i915.enable_guc=2" ];
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
-  };
-
-  services.nfs.server = {
-    enable = true;
-    # managing specific shares imperatively eg. zfs set sharenfs="rw=@192.168.1.0/24"
   };
 
 }

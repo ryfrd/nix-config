@@ -18,13 +18,13 @@
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.black-metal;
+  colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
 
   beautification = {
     enable = true;
     width = "2";
     radius = "0";
-    gap = "10";
+    gap = "0";
     fontName = "Agave Nerd Font";
   };
 

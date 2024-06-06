@@ -33,7 +33,19 @@
     enable = true;
     autoStart = true;
     user = "james";
-    desktopSession = "plasma";
+    desktopSession = "kodi";
   };
+
+  services.cage = {
+    enable = true;
+    user = "james";
+    program = "${pkgs.kodi-wayland}/bin/kodi-standalone";
+  }
+  environment.systemPackages = [
+    (pkgs.kodi.passthru.withPackages (kodiPkgs: with kodiPkgs; [
+      jellyfin
+      jellycon
+    ]))
+  ];
 
 }
