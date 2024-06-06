@@ -7,6 +7,10 @@
       server_url = "https://hs.dymc.win";
       db_type = "sqlite3";
       db_path = "/var/lib/headscale/db.sqlite";
+      dns_config = {
+      	nameservers = [ "100.64.0.5" "1.1.1.1" ];
+      	override_local_dns = true;
+      };
     };
   };
 
