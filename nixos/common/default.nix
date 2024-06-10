@@ -8,7 +8,6 @@
     gc.automatic = true;
   };
 
-  networking.firewall.enable = true;
   services.tailscale.enable = true;
 
   users.users = {

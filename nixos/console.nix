@@ -42,4 +42,6 @@
     fsType = "nfs";
   };
 
+  system.stateVersion = "24.05";
+
 }

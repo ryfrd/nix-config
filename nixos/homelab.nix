@@ -60,4 +60,6 @@
     extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
   };
 
+  system.stateVersion = "23.11";
+
 }

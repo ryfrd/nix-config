@@ -10,7 +10,7 @@
       stylua
       # python
       black
-      nodePackages.pyright
+      # nodePackages.pyright
       #nix
       nixfmt-classic
       nil

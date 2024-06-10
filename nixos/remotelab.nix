@@ -24,22 +24,17 @@
 
   services.cron = {
     enable = true;
-    systemCronJobs = [
-      "@daily	root	sh /etc/cronjobs/backup.sh /home/james/phalanx-docker"
-    ];
+    systemCronJobs =
+      [ "@daily	root	sh /etc/cronjobs/backup.sh /home/james/phalanx-docker" ];
   };
 
   environment.etc = {
-    "cronjobs/backup.sh" = {
-      source = ./cronjobs/backup.sh;
-    };
+    "cronjobs/backup.sh" = { source = ./cronjobs/backup.sh; };
   };
 
   # cronjob deps
   # required system wide as jobs run as root
-  environment.systemPackages = with pkgs; [
-    rsync
-  ];
+  environment.systemPackages = with pkgs; [ rsync ];
 
   # limit size of system journal
   services.journald.extraConfig = ''
@@ -50,5 +45,7 @@
     enable = true;
     databases = [ "synapse" "mastodon" ];
   };
+
+  system.stateVersion = "23.05";
 
 }

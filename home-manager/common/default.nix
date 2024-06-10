@@ -65,9 +65,7 @@
     options = [ "--cmd cd" ];
   };
 
-  programs.fzf = {
-    enable = true;
-  };
+  programs.fzf = { enable = true; };
 
   programs.ranger = { enable = true; };
 
@@ -80,9 +78,7 @@
     enable = true;
     userName = "ryfrd";
     userEmail = "jdysmcl@tutanota.com";
-    extraConfig = {
-      core.editor = "nvim";
-    };
+    extraConfig = { core.editor = "nvim"; };
   };
 
   programs.tmux = {
