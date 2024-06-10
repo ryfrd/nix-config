@@ -1,9 +1,14 @@
 { pkgs, ... }:{
+
   imports = [
     ./common
-    ./features/nvim/headless
+    ./features/nvim/bones
   ];
 
-  home.packages = with pkgs; [ jellyfin-media-player firefox ];
+  home.packages = [ 
+    (pkgs.kodi-wayland.passthru.withPackages (kodiPkgs: with kodiPkgs; [
+      jellyfin
+    ]))
+  ];
 
 }

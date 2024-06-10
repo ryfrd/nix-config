@@ -33,19 +33,13 @@
     enable = true;
     autoStart = true;
     user = "james";
-    desktopSession = "kodi";
+    desktopSession = "plasma";
   };
+  jovian.decky-loader.enable = true;
 
-  services.cage = {
-    enable = true;
-    user = "james";
-    program = "${pkgs.kodi-wayland}/bin/kodi-standalone";
-  }
-  environment.systemPackages = [
-    (pkgs.kodi.passthru.withPackages (kodiPkgs: with kodiPkgs; [
-      jellyfin
-      jellycon
-    ]))
-  ];
+  fileSystems."/home/james/roms" = {
+    device = "192.168.1.119:/warhead/high-prio/games/roms";
+    fsType = "nfs";
+  };
 
 }
