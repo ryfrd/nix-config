@@ -10,7 +10,6 @@ in {
     enable = true;
     loadAutoconfig = true;
     searchEngines = {
-      #DEFAULT = "https://srx.dymc.win/search?q={}";
       DEFAULT = "https://duckduckgo.com/?q={}";
       g = "https://google.com/search?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
@@ -22,7 +21,7 @@ in {
       lb = "https://letterboxd.com/search/{}";
     };
     settings = {
-      url.start_pages = "https://exuberant.men";
+      url.start_pages = "file:///home/james/.ciao.html";
       fonts = {
         default_family = "${font}";
         default_size = "13pt";
@@ -162,4 +161,32 @@ in {
       };
     };
   };
+
+  home.file.".ciao.html".text = ''
+    <html>
+      <head>
+        <title></title>
+        <style>
+          body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 100% of the viewport height */
+            margin: 0; /* Remove default margin */
+            background: #${c.base00};
+            color: #${c.base05};
+            font-family: ${font};
+          }
+          .center-text {
+            text-align: center;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="center-text">
+          guten morgen :)
+        </div>
+      </body>
+    </html>
+  '';
 }

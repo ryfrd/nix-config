@@ -18,13 +18,13 @@
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.tokyo-night-dark;
+  colorScheme = nix-colors.colorSchemes.dracula;
 
   beautification = {
     enable = true;
-    width = "2";
+    width = "1";
     radius = "0";
-    gap = "0";
+    gap = "20";
     fontName = "Agave Nerd Font";
   };
 
@@ -34,7 +34,6 @@
     mpv
     cava
     jellyfin-media-player
-    sublime-music
     sxiv
     zathura
     pulsemixer

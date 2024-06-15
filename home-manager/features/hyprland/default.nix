@@ -28,6 +28,7 @@ in {
       }];
     };
   };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -47,11 +48,11 @@ in {
 
       dwindle.default_split_ratio = 1.08;
 
-      animations = { enabled = 0; };
+      animations = { enabled = 1; };
 
       decoration = {
-        active_opacity = 1.0;
-        inactive_opacity = 1.0;
+        active_opacity = 0.95;
+        inactive_opacity = 0.85;
         fullscreen_opacity = 1.0;
         rounding = "${rad}";
       };
@@ -60,8 +61,6 @@ in {
         enable_swallow = true;
         swallow_regex = "^(${config.home.sessionVariables.TERMINAL})$";
       };
-
-      gestures = { workspace_swipe = false; };
 
       exec-once = [ "${pkgs.swaybg}/bin/swaybg -i ~/.background -m fill" ];
 
