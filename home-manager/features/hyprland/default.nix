@@ -9,26 +9,6 @@ let
 
 in {
 
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      background = [{
-        path = "/home/james/.background";
-        blur_passes = 3;
-        blur_size = 8;
-      }];
-
-      input-field = [{
-        size = "200, 50";
-        rounding = "${rad}";
-        outline_thickness = "${wid}";
-        font_color = "rgb(${c.base06})";
-        inner_color = "rgb(${c.base00})";
-        outer_color = "rgb(${c.base02})";
-      }];
-    };
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -51,10 +31,18 @@ in {
       animations = { enabled = 1; };
 
       decoration = {
-        active_opacity = 1.0;
-        inactive_opacity = 1.0;
-        fullscreen_opacity = 1.0;
         rounding = "${rad}";
+
+        active_opacity = 0.95;
+        inactive_opacity = 0.85;
+        fullscreen_opacity = 1.0;
+
+        drop_shadow = "yes";
+        shadow_range = 15;
+        shadow_offset = "0, 0";
+        shadow_render_power = 2;
+        "col.shadow" = "rgb(${c.base03})";
+        "col.shadow_inactive" = "rgb(${c.base00})";
       };
 
       misc = {
@@ -135,6 +123,26 @@ in {
 
       ];
 
+    };
+  };
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      background = [{
+        path = "/home/james/.background";
+        blur_passes = 3;
+        blur_size = 8;
+      }];
+
+      input-field = [{
+        size = "200, 50";
+        rounding = "${rad}";
+        outline_thickness = "${wid}";
+        font_color = "rgb(${c.base06})";
+        inner_color = "rgb(${c.base00})";
+        outer_color = "rgb(${c.base02})";
+      }];
     };
   };
 }

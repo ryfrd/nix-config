@@ -24,7 +24,7 @@
   beautification = {
     enable = true;
     width = "2";
-    radius = "0";
+    radius = "10";
     gap = "10";
     fontName = "Agave Nerd Font";
   };
