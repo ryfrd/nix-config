@@ -32,21 +32,6 @@
           ];
         };
 
-        desktop = nixpkgs.lib.nixosSystem {
-          system = "x86-64_linux";
-          specialArgs = { inherit hardware; };
-          modules = [
-            ./nixos/desktop.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.james = import ./home-manager/desktop.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors; };
-            }
-          ];
-        };
-
         console = nixpkgs.lib.nixosSystem {
           system = "x86-64_linux";
           specialArgs = { inherit hardware jovian; };
@@ -57,6 +42,20 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.james = import ./home-manager/console.nix;
+            }
+          ];
+        };
+
+        backup = nixpkgs.lib.nixosSystem {
+          system = "x86-64_linux";
+          specialArgs = { inherit hardware; };
+          modules = [
+            ./nixos/console.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.james = import ./home-manager/backup.nix;
             }
           ];
         };
