@@ -18,8 +18,6 @@
 
   networking.hostName = "laptop";
 
-  nixpkgs.config.allowUnfree = true; # for steam
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -43,7 +41,7 @@
 
   services.libinput.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   system.stateVersion = "22.11";
 

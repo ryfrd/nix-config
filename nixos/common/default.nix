@@ -22,7 +22,7 @@
   programs.fish.enable = true;
 
   systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
+    DefaultTimeoutStopSec=30s
   '';
 
 }

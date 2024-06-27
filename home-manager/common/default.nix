@@ -18,6 +18,7 @@
     fortune
     dtrx
     nmap
+    ethtool
 
     fishPlugins.autopair
     fishPlugins.done
