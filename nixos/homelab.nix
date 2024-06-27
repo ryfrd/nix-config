@@ -32,16 +32,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # nfs admin
-
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "@daily	root	sh /etc/cronjobs/backup.sh /warhead/high-prio"
-      "@weekly root sh /etc/cronjobs/zpool.sh"
+      "@daily root  sh /etc/cronjobs/backup.sh /warhead/high-prio"
+      "@weekly  root  sh /etc/cronjobs/zpool.sh"
     ];
   };
 
