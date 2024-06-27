@@ -14,17 +14,18 @@
     ./features/nvim/full
     ./features/qutebrowser
     ./features/scripts
+    ./features/ssh-config
     ./features/wofi
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.dracula;
+  colorScheme = nix-colors.colorSchemes.everforest;
 
   beautification = {
     enable = true;
-    width = "1";
+    width = "2";
     radius = "0";
-    gap = "20";
+    gap = "10";
     fontName = "Agave Nerd Font";
   };
 

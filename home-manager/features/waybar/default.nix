@@ -1,55 +1,56 @@
 { config, pkgs, ... }:
 let
   c = config.colorScheme.palette;
-  wid = config.beautificationVals.width;
-  rad = config.beautificationVals.radius; 
-  gap = config.beautificationVals.gap;
+  wid = config.beautification.width;
+  rad = config.beautification.radius;
+  gap = config.beautification.gap;
 in {
   programs.waybar = {
     enable = true;
     settings = {
       mainBar = {
-        layer = "top";
-        position = "top";
-        height = 32;
-        output = [
-          "eDP-1"
-        ];
+        position = "left";
+        output = [ "eDP-1" ];
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ ];
         modules-right = [ "battery" "backlight" "pulseaudio" "clock" ];
 
         "hyprland/workspaces" = {
-	        format = "{icon}";
-	        format-icons = {
-            "1" = "terminal";
-            "2" = "edit";
-            "3" = "work";
-            "4" = "pw";
-            "5" = "browser";
-            "6" = "game";
-            "7" = "watch";
-            "8" = "talk";
-            "9" = "listen";
-		        #active = "";
-		        #default =  "";
-	        };
-          persistent-workspaces = {
-            "*" = 9;
+          format = "{icon}";
+          format-icons = {
+            #   "1" = "terminal";
+            #   "2" = "edit";
+            #   "3" = "work";
+            #   "4" = "pw";
+            #   "5" = "browser";
+            #   "6" = "game";
+            #   "7" = "watch";
+            #   "8" = "talk";
+            #   "9" = "listen";
+            active = "x";
+            default = "0";
           };
+          persistent-workspaces = { "*" = 9; };
         };
         "battery" = {
-          format = "bat: {}% |";
+          format = ''
+            bat
+            {}%
+          '';
         };
         "backlight" = {
-          format = "bri: {}% |";
+          format = ''
+            bri
+            {}%
+          '';
         };
         "pulseaudio" = {
-          format = "vol: {volume}% |";
+          format = ''
+            vol
+            {volume}%
+          '';
         };
-        "clock" = {
-          format = "{:%H:%M} ";
-        };
+        "clock" = { format = "{:%H:%M}"; };
 
       };
     };
@@ -58,10 +59,13 @@ in {
         background: #${c.base00};
         color: #${c.base05};
         border: ${wid}px solid #${c.base03};
-        font-family: ${config.fontProfiles.monospace.family};
+        font-family: ${config.beautification.fontName};
       }
       label.module {
         padding: 5px;
+      }
+      #workspaces {
+        font-size: 16;
       }
       #workspaces button.empty {
         color: #${c.base03};
