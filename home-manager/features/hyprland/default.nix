@@ -38,9 +38,9 @@ in {
         fullscreen_opacity = 1.0;
 
         drop_shadow = "yes";
-        shadow_range = 15;
+        shadow_range = 5;
         shadow_offset = "0, 0";
-        shadow_render_power = 2;
+        shadow_render_power = 1;
         "col.shadow" = "rgb(${c.base03})";
         "col.shadow_inactive" = "rgb(${c.base00})";
       };

@@ -11,10 +11,14 @@
     hardware.url = "github:nixos/nixos-hardware";
     nix-colors.url = "github:misterio77/nix-colors";
     jovian.url = "github:Jovian-Experiments/Jovian-Nixos";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    inputs@{ nixpkgs, home-manager, hardware, nix-colors, jovian, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, hardware, nix-colors, jovian
+    , firefox-addons, ... }: {
       nixosConfigurations = {
 
         laptop = nixpkgs.lib.nixosSystem {
@@ -27,7 +31,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.james = import ./home-manager/laptop.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors; };
+              home-manager.extraSpecialArgs = {
+                inherit nix-colors firefox-addons;
+              };
             }
           ];
         };
