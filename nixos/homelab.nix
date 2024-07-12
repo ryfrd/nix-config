@@ -58,18 +58,15 @@
   };
 
   services.sanoid = {
-      enable = true;
-      datasets = {
-        "warhead/high-prio" = {
-          autoprune = true;
-          autosnap = true;
-          recursive = true;
-          interval = "hourly";
-          hourly = 24;
-          daily = 7;
-          monthly = 12;
-          yearly = 1;
-        };
+    enable = true;
+    datasets = {
+      "warhead/high-prio" = {
+        autoprune = true;
+	autosnap = true;
+	recursive = true;
+	hourly = 24;
+	daily = 7;
+	monthly = 12;
       };
     };
   };
