@@ -12,7 +12,7 @@
     ./features/hyprland
     ./features/kitty
     ./features/nvim/full
-    ./features/qutebrowser
+    # ./features/qutebrowser
     ./features/scripts
     ./features/ssh-config
     ./features/wofi
