@@ -15,7 +15,9 @@ while zpool status warhead | grep -q "scan: *scrub in progress"; do
 done
 
 # send notif
-curl -d "scrubbed warhead\n$(zpool status)\ngoing to sleep now" ntfy.dymc.win/homelab
+curl -d "scrub finished" ntfy.dymc.win/homelab
+curl -d "$(zpool status)" ntfy.dymc.win/homelab
+curl -d "going to sleep" ntfy.dymc.win/homelab
 
 # go to sleep
 systemctl suspend
