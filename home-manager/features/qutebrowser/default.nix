@@ -184,7 +184,7 @@ in {
       </head>
       <body>
         <div class="center-text">
-          guten morgen :)
+          guten tag :)
         </div>
       </body>
     </html>

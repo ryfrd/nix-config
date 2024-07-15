@@ -37,7 +37,7 @@ in {
         inactive_opacity = 0.85;
         fullscreen_opacity = 1.0;
 
-        drop_shadow = "yes";
+        drop_shadow = "no";
         shadow_range = 5;
         shadow_offset = "0, 0";
         shadow_render_power = 1;
