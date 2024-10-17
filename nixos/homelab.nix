@@ -32,22 +32,6 @@
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "@daily root  sh /etc/cronjobs/backup.sh /warhead/high-prio"
-      "@weekly  root  sh /etc/cronjobs/zpool.sh"
-    ];
-  };
-
-  environment.etc = {
-    "cronjobs/backup.sh" = { source = ./cronjobs/backup.sh; };
-    "cronjobs/zpool.sh" = { source = ./cronjobs/zpool.sh; };
-  };
-
-  # cronjob deps
-  environment.systemPackages = with pkgs; [ rsync curl ];
-
   # enable quicksync
   boot.kernelParams = [ "i915.enable_guc=2" ];
   hardware.graphics = {
@@ -68,6 +52,32 @@
       };
     };
   };
+
+  # let backup machine in
+  users.users.james.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiIb2W2Ydt5iFUUsjTAUlUynhRU9TdkQAtd2AdVReRr root@backup"
+  ];
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "@daily root  sh /etc/cronjobs/hetzner-backup.sh /warhead/high-prio"
+      "0 1 * * 1 root  sh /etc/cronjobs/wake-up-backup.sh" # one in the morning every monday
+    ];
+  };
+
+  environment.etc = {
+    "cronjobs/hetzner-backup.sh" = { 
+      source = ./cronjobs/hetzner-backup.sh;
+    };
+    "cronjobs/wake-up-backup.sh" = { 
+      source = ./cronjobs/wake-up-backup.sh;
+    };
+  };
+
+  # cronjob deps
+  environment.systemPackages = with pkgs; [ rsync curl sanoid wol ];
+
 
   system.stateVersion = "23.11";
 
