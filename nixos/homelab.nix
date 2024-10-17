@@ -23,6 +23,21 @@
   services.zfs.autoScrub.enable = true;
   services.btrfs.autoScrub.enable = true;
 
+  # zfs snapshots
+  services.sanoid = {
+    enable = true;
+    datasets = {
+      "warhead/high-prio" = {
+        autoprune = true;
+        autosnap = true;
+        recursive = true;
+        hourly = 24;
+        daily = 7;
+        monthly = 12;
+      };
+    };
+  };
+
   networking.hostName = "homelab";
 
   # bootloader
@@ -39,45 +54,18 @@
     extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
   };
 
-  services.sanoid = {
-    enable = true;
-    datasets = {
-      "warhead/high-prio" = {
-        autoprune = true;
-        autosnap = true;
-        recursive = true;
-        hourly = 24;
-        daily = 7;
-        monthly = 12;
-      };
-    };
-  };
-
-  # let backup machine in
-  users.users.james.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiIb2W2Ydt5iFUUsjTAUlUynhRU9TdkQAtd2AdVReRr root@backup"
-  ];
-
   services.cron = {
     enable = true;
-    systemCronJobs = [
-      "@daily root  sh /etc/cronjobs/hetzner-backup.sh /warhead/high-prio"
-      "0 1 * * 1 root  sh /etc/cronjobs/wake-up-backup.sh" # one in the morning every monday
-    ];
+    systemCronJobs =
+      [ "@daily root  sh /etc/cronjobs/hetzner-backup.sh /warhead/high-prio" ];
   };
 
   environment.etc = {
-    "cronjobs/hetzner-backup.sh" = { 
-      source = ./cronjobs/hetzner-backup.sh;
-    };
-    "cronjobs/wake-up-backup.sh" = { 
-      source = ./cronjobs/wake-up-backup.sh;
-    };
+    "cronjobs/hetzner-backup.sh" = { source = ./cronjobs/hetzner-backup.sh; };
   };
 
   # cronjob deps
-  environment.systemPackages = with pkgs; [ rsync curl sanoid wol ];
-
+  environment.systemPackages = with pkgs; [ rsync curl ];
 
   system.stateVersion = "23.11";
 

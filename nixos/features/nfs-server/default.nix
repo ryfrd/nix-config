@@ -5,7 +5,7 @@
   services.nfs.server = {
     enable = true;
     exports = ''
-      # share folders with lan
+      # share folders with lan readonly
       /warhead/high-prio/music  192.168.1.0/24(ro)
       /warhead/high-prio/sync  192.168.1.0/24(ro)
       /warhead/high-prio/games  192.168.1.0/24(ro)

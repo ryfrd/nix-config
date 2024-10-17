@@ -9,7 +9,8 @@
     ./features/dunst
     ./features/hyprland
     ./features/kitty
-    ./features/qutebrowser
+    ./features/firefox
+    # ./features/qutebrowser
     ./features/nvim/full
     ./features/scripts
     ./features/wofi

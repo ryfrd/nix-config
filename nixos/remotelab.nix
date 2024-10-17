@@ -6,7 +6,6 @@
 
     ./common
     ./features/caddy
-    ./features/headscale
     ./features/ssh/highkey
     ./features/static-sites
 

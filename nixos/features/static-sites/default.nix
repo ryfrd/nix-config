@@ -1,5 +1,5 @@
 {
-  services.caddy.virtualHosts."wretched.place".extraConfig = ''
+  services.caddy.virtualHosts."dymc.win".extraConfig = ''
     root * /srv/blog
     file_server
   '';

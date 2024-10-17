@@ -7,7 +7,6 @@
     jovian.nixosModules.default
     ./common
     ./features/pipewire
-    ./features/retroarch
     ./features/ssh/lowkey
 
   ];
@@ -36,11 +35,6 @@
     desktopSession = "plasma";
   };
   jovian.decky-loader.enable = true;
-
-  fileSystems."/home/james/roms" = {
-    device = "192.168.1.119:/warhead/high-prio/games/roms";
-    fsType = "nfs";
-  };
 
   system.stateVersion = "24.05";
 
