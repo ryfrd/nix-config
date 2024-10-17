@@ -9,10 +9,13 @@ let
 
 in {
 
+  imports = [ ./cursor ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       monitor = "eDP-1,1920x1080@60,0x0,1";
+
       device = {
         name = "synps/2-synaptics-touchpad";
         enabled = 0;
@@ -33,8 +36,8 @@ in {
       decoration = {
         rounding = "${rad}";
 
-        active_opacity = 0.95;
-        inactive_opacity = 0.85;
+        active_opacity = 1.0;
+        inactive_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
         drop_shadow = "no";
@@ -50,35 +53,34 @@ in {
         swallow_regex = "^(${config.home.sessionVariables.TERMINAL})$";
       };
 
-      exec-once = [ "${pkgs.swaybg}/bin/swaybg -i ~/.background -m fill" ];
+      exec-once = [
+        "${pkgs.swaybg}/bin/swaybg -i ~/.background -m fill"
+        "[workspace 1 silent] kitty"
+        "[workspace 5 silent] qutebrowser"
+      ];
 
       bindm = [ "SUPER,mouse:272,movewindow" "SUPER,mouse:273,resizewindow" ];
 
-      bind = let
+      bindel = [
+        # volume
+        ",F3,exec,pamixer -i 5"
+        ",F2,exec,pamixer -d 5"
+        ",F1,exec,pamixer -t"
+        # brightness
+        ",F6,exec,light -A 5"
+        ",F5,exec,light -U 5"
+      ];
 
-        terminal = config.home.sessionVariables.TERMINAL;
-        editor = config.home.sessionVariables.EDITOR;
-        launcher = "${config.programs.wofi.package}/bin/wofi";
-
-      in [
+      bind = [
 
         # quit
         "SUPERSHIFT,q,exit"
 
         # launch items
-        "SUPER,Return,exec,${terminal}"
-        "SUPER,e,exec,${terminal} -e ${editor}"
-        "SUPER,d,exec,${launcher}"
+        "SUPER,Return,exec,${config.home.sessionVariables.TERMINAL}"
+        "SUPER,d,exec,${config.home.sessionVariables.LAUNCHER}"
 
         "SUPER,backspace,exec,hyprlock"
-
-        # volume
-        "SUPER,up,exec,pamixer -i 5"
-        "SUPER,down,exec,pamixer -d 5"
-
-        # brightness
-        "SUPER,right,exec,light -A 5"
-        "SUPER,left,exec,light -U 5"
 
         # info
         "SUPER,i,exec,sh /home/james/.config/scripts/info.sh"

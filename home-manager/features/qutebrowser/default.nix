@@ -13,12 +13,19 @@ in {
       DEFAULT = "https://duckduckgo.com/?q={}";
       g = "https://google.com/search?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
-      nw = "https://nixos.wiki/index.php?search={}";
+      nw = "https://wiki.nixos.org/w/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
       no = "https://search.nixos.org/options?query={}";
-      m = "https://www.openstreetmap.org/search?query={}";
+      hmo = "https://home-manager-options.extranix.com/?query={}";
+      osm = "https://www.openstreetmap.org/search?query={}";
       rym = "https://rateyourmusic.com/search?searchterm={}";
       lb = "https://letterboxd.com/search/{}";
+    };
+    quickmarks = {
+      reddit = "https://reddit.com";
+      guardian = "https://theguardian.com";
+      bbc-sport = "https://bbc.co.uk/sport";
+      github = "https://github.com";
     };
     settings = {
       url.start_pages = "file:///home/james/.ciao.html";
@@ -184,7 +191,7 @@ in {
       </head>
       <body>
         <div class="center-text">
-          guten tag :)
+          hello :)
         </div>
       </body>
     </html>

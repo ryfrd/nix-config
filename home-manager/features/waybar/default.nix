@@ -10,66 +10,101 @@ in {
     settings = {
       mainBar = {
         position = "left";
+        layer = "top";
+        margin-left = 20;
+        margin-top = 20;
+        margin-bottom = 20;
         output = [ "eDP-1" ];
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ ];
+        # modules-center = [ "hyprland/workspaces" ];
         modules-right = [ "battery" "backlight" "pulseaudio" "clock" ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            #   "1" = "terminal";
-            #   "2" = "edit";
-            #   "3" = "work";
-            #   "4" = "pw";
-            #   "5" = "browser";
-            #   "6" = "game";
-            #   "7" = "watch";
-            #   "8" = "talk";
-            #   "9" = "listen";
-            active = "x";
-            default = "0";
+            "1" = " ";
+            "2" = " ";
+            "3" = " ";
+            "4" = " ";
+            "5" = " ";
+            "6" = " ";
+            "7" = " ";
+            "8" = " ";
+            "9" = " ";
           };
-          persistent-workspaces = { "*" = 9; };
         };
         "battery" = {
           format = ''
-            bat
-            {}%
+            
+            {}
           '';
         };
         "backlight" = {
           format = ''
-            bri
-            {}%
+            󰃠
+            {}
           '';
         };
         "pulseaudio" = {
           format = ''
-            vol
-            {volume}%
+            
+            {volume}
           '';
         };
-        "clock" = { format = "{:%H:%M}"; };
+        "clock" = {
+          format = ''
+            
+            {:%H
+            %M}
+          '';
+        };
 
       };
     };
     style = ''
       window#waybar {
-        background: #${c.base00};
-        color: #${c.base05};
-        border: ${wid}px solid #${c.base03};
+        background: transparent;
         font-family: ${config.beautification.fontName};
       }
-      label.module {
-        padding: 5px;
-      }
+
       #workspaces {
-        font-size: 16;
+        background: #${c.base02};
+        border-radius: ${rad};
+        border: ${wid}px solid #${c.base06};
+        padding: 2px;
       }
-      #workspaces button.empty {
-        color: #${c.base03};
+      #workspaces button {
+        background: #${c.base00};
+        color: #${c.base06};
+        border-radius: ${rad};
+        margin: 2px;
       }
+      #workspaces button.active {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      #battery {
+        background: #${c.base00};
+        color: #${c.base04};
+        border-radius: ${rad};
+      }
+      #backlight {
+        background: #${c.base00};
+        color: #${c.base04};
+        border-radius: ${rad};
+      }
+      #volume {
+        background: #${c.base00};
+        color: #${c.base04};
+        border-radius: ${rad};
+      }
+      #clock {
+        background: #${c.base00};
+        color: #${c.base04};
+        border-radius: ${rad};
+      }
+
     '';
   };
 }

@@ -7,35 +7,38 @@
 
     ./common
     ./features/dunst
-    ./features/gtk
     ./features/hyprland
     ./features/kitty
-    ./features/nvim/full
     ./features/qutebrowser
+    ./features/nvim/full
     ./features/scripts
-    ./features/ssh-config
     ./features/wofi
 
   ];
 
-  colorScheme = nix-colors.colorSchemes.everforest;
+  colorScheme = nix-colors.colorSchemes.nord;
 
   beautification = {
     enable = true;
     width = "2";
     radius = "0";
-    gap = "20";
+    gap = "0";
     fontName = "Agave Nerd Font";
   };
 
   home.packages = with pkgs; [
-    wl-clipboard
+    # media player
     mpv
-    cava
-    jellyfin-media-player
-    sxiv
+    # image viewer
+    imv
+    # pdf viewer
     zathura
+    # audio fiddling
     pulsemixer
+    # desktop admin
+    jellyfin-media-player
+    cava
+    wl-clipboard
   ];
 
 }

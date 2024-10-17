@@ -14,6 +14,10 @@ in rec {
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+    cursorTheme = {
+      name = "Vanilla-DMZ";
+      package = pkgs.vanilla-dmz;
+    };
   };
   services.xsettingsd = {
     enable = true;

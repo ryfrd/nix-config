@@ -2,21 +2,24 @@
 
   home.packages = with pkgs; [
 
+    nix-index
+    comma
     eza
     ripgrep
     fd
     curl
     wget
-    unzip
-    gnutar
-    gzip
     tree
     dua
     htop
+    bottom
     pfetch
     dig
     fortune
     dtrx
+    unzip
+    gnutar
+    gzip
     nmap
     ethtool
 
@@ -54,8 +57,6 @@
       "...." = "cd ../../../";
     };
     functions = {
-      #twitch = "${pkgs.streamlink}/bin/streamlink https://twitch.tv/$argv[1] best -p mpv";
-      port = "sudo netstat -tulpn | grep $argv[1]";
       cdir = "mkdir $argv[1] && cd $argv[1]";
       ssht = "ssh $argv -t 'tmux new -A'";
     };

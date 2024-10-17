@@ -14,8 +14,6 @@
 
   ];
 
-  # latest kernel compatible with zfs module
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
   networking.hostId = "f42e33e7";
@@ -62,11 +60,11 @@
     datasets = {
       "warhead/high-prio" = {
         autoprune = true;
-	autosnap = true;
-	recursive = true;
-	hourly = 24;
-	daily = 7;
-	monthly = 12;
+        autosnap = true;
+        recursive = true;
+        hourly = 24;
+        daily = 7;
+        monthly = 12;
       };
     };
   };

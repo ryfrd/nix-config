@@ -10,6 +10,8 @@ let
 
 in {
 
+  home.sessionVariables.LAUNCHER = "wofi";
+
   programs.wofi = {
     enable = true;
     settings = {

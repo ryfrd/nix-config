@@ -8,11 +8,9 @@
     ./common
     ./features/fonts
     ./features/nfs-client
-    ./features/pipewire
     ./features/power
+    ./features/pipewire
     ./features/steam
-    ./features/syncthing
-    ./features/virtualisation
 
   ];
 
@@ -42,6 +40,10 @@
   services.libinput.enable = true;
 
   hardware.graphics.enable = true;
+
+  services.fwupd.enable = true;
+
+  programs.dconf.enable = true;
 
   system.stateVersion = "22.11";
 
